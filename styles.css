@@ -1,14 +1,14 @@
 /* Demo Archive — design system
-   Steel palette (reel DfTc6X5qyPJ #5, Arz pick 2026-11-05): ground #E9E5DC / panel #F5F2EB / ink text #1C1E22 / muted #7A7264 / umber #6B5138 / wheat #EAC97E
+   Ink #0B0B0C / panel #131315 / paper #F4F1EA / muted #A09C90 / signal #FF4A1C
    Type: Cabinet Grotesk (headlines), Switzer (body), JetBrains Mono (labels) */
 
 :root {
-  --ink: #E9E5DC;
-  --panel: #F5F2EB;
-  --line: #CFC8B6;
-  --paper: #1C1E22;
-  --muted: #7A7264;
-  --signal: #6B5138;
+  --ink: #0B0B0C;
+  --panel: #131315;
+  --line: #26262A;
+  --paper: #F4F1EA;
+  --muted: #A09C90;
+  --signal: #FF4A1C;
   --maxw: 1240px;
 }
 
@@ -452,7 +452,7 @@ html.ss-on { scroll-behavior: auto; }
 .cta { transition: transform .35s var(--ease-out), box-shadow .35s var(--ease-out); }
 .cta:hover {
   transform: translateY(-2px);
-  box-shadow: 0 12px 30px rgba(107, 81, 56, .30);
+  box-shadow: 0 12px 30px rgba(255, 74, 28, .26);
 }
 
 /* ---------- reduced motion: hard off-switch (backstop; the head
@@ -470,11 +470,3 @@ html.ss-on { scroll-behavior: auto; }
   .ticker-track { animation: none; }
   .flagship-media img, .demo-media img { transform: none; }
 }
-
-/* ---------- STEEL PALETTE: hero stays a dark stage over the video ---------- */
-.hero { color: #F4F1EA; }
-.hero .label { color: #EAC97E; }
-.hero-sub { color: rgba(244, 241, 234, .8); }
-.hero-scrim { background: linear-gradient(to bottom, rgba(14, 15, 18, .55), rgba(14, 15, 18, .68) 55%, #0E0F12); }
-.hero .stat { background: rgba(10, 12, 16, .45); border-color: rgba(244, 241, 234, .28); color: #F4F1EA; }
-.hero .stat-label { color: rgba(244, 241, 234, .6); }
