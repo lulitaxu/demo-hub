@@ -5,6 +5,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Demo Archive — Arafat Arzu</title>
 <meta name="description" content="Live products and client demos built by Arafat Arzu in Dhaka, Bangladesh. Every project below is real, deployed, and one click away.">
+<script>
+/* Motion gate: initial hidden states in styles.css apply only under .js-motion.
+   Skipped entirely under prefers-reduced-motion. Safety net: if motion.js
+   fails to load, the class is removed again so nothing stays hidden. */
+(function () {
+  if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  document.documentElement.classList.add("js-motion");
+  window.__motionFallback = window.setTimeout(function () {
+    if (!window.__motionReady) document.documentElement.classList.remove("js-motion");
+  }, 1600);
+})();
+</script>
 <link rel="preconnect" href="https://api.fontshare.com">
 <link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@500,700,800&f[]=switzer@400,500,700&display=swap" rel="stylesheet">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -46,6 +58,33 @@
       </div>
     </div>
   </section>
+
+  <div class="ticker mono" aria-label="Products and client demos on this page">
+    <div class="ticker-track" id="tickerTrack">
+      <div class="ticker-group">
+        <span class="ticker-item"><span class="ticker-name">ClipHaus</span> Podcast clipping platform</span><span class="ticker-sep" aria-hidden="true"></span>
+        <span class="ticker-item"><span class="ticker-name">Nyktos</span> End-to-end encrypted messenger</span><span class="ticker-sep" aria-hidden="true"></span>
+        <span class="ticker-item"><span class="ticker-name">AuditCanvas</span> Website security auditor</span><span class="ticker-sep" aria-hidden="true"></span>
+        <span class="ticker-item"><span class="ticker-name">Verro</span> Bot protection API</span><span class="ticker-sep" aria-hidden="true"></span>
+        <span class="ticker-item"><span class="ticker-name">Tebil</span> Restaurant system</span><span class="ticker-sep" aria-hidden="true"></span>
+        <span class="ticker-item"><span class="ticker-name">Oshudh</span> Prescription reader</span><span class="ticker-sep" aria-hidden="true"></span>
+        <span class="ticker-item"><span class="ticker-name">Clubhouse DHK</span> Gaming lounge demo</span><span class="ticker-sep" aria-hidden="true"></span>
+        <span class="ticker-item"><span class="ticker-name">Shahor</span> Streetwear demo</span><span class="ticker-sep" aria-hidden="true"></span>
+        <span class="ticker-item"><span class="ticker-name">PrettyPix</span> Boutique demo</span><span class="ticker-sep" aria-hidden="true"></span>
+      </div>
+      <div class="ticker-group" aria-hidden="true">
+        <span class="ticker-item"><span class="ticker-name">ClipHaus</span> Podcast clipping platform</span><span class="ticker-sep" aria-hidden="true"></span>
+        <span class="ticker-item"><span class="ticker-name">Nyktos</span> End-to-end encrypted messenger</span><span class="ticker-sep" aria-hidden="true"></span>
+        <span class="ticker-item"><span class="ticker-name">AuditCanvas</span> Website security auditor</span><span class="ticker-sep" aria-hidden="true"></span>
+        <span class="ticker-item"><span class="ticker-name">Verro</span> Bot protection API</span><span class="ticker-sep" aria-hidden="true"></span>
+        <span class="ticker-item"><span class="ticker-name">Tebil</span> Restaurant system</span><span class="ticker-sep" aria-hidden="true"></span>
+        <span class="ticker-item"><span class="ticker-name">Oshudh</span> Prescription reader</span><span class="ticker-sep" aria-hidden="true"></span>
+        <span class="ticker-item"><span class="ticker-name">Clubhouse DHK</span> Gaming lounge demo</span><span class="ticker-sep" aria-hidden="true"></span>
+        <span class="ticker-item"><span class="ticker-name">Shahor</span> Streetwear demo</span><span class="ticker-sep" aria-hidden="true"></span>
+        <span class="ticker-item"><span class="ticker-name">PrettyPix</span> Boutique demo</span><span class="ticker-sep" aria-hidden="true"></span>
+      </div>
+    </div>
+  </div>
 
   <section id="flagships" class="section">
     <div class="section-head">
@@ -196,5 +235,6 @@
   <a href="https://arafatarzu.me">arafatarzu.me</a>
 </footer>
 
+<script src="motion.js"></script>
 </body>
 </html>
