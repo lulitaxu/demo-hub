@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Spectra Hoodie — KOVA</title>
+<meta name="description" content="Spectra Hoodie. 480 GSM brushed fleece. KOVA demo storefront.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="page-prod">
+
+<header class="top solid" id="topbar">
+  <button class="burger" aria-label="Menu"><i></i><i></i><i></i></button>
+  <label class="searchpill">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.8-3.8"/></svg>
+    <input type="text" placeholder="Search the drop" aria-label="Search products">
+  </label>
+  <div class="topicons">
+    <button class="iconbtn acct" aria-label="Account">
+      <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 5-5.5 8-5.5s6.5 1.5 8 5.5"/></svg>
+    </button>
+    <button class="iconbtn" id="bagBtn" aria-label="Open bag">
+      <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 8h14l-1.2 12.2a1.5 1.5 0 0 1-1.5 1.3H7.7a1.5 1.5 0 0 1-1.5-1.3L5 8Z"/><path d="M8.5 10V6.5a3.5 3.5 0 0 1 7 0V10"/></svg>
+      <span class="bagcount" id="bagCount">0</span>
+    </button>
+  </div>
+</header>
+
+<main class="wrap">
+  <p class="crumbs"><a href="index.html">Home</a> / <a href="index.html#best">Bestsellers</a> / <b>Spectra Hoodie</b></p>
+
+  <div class="prod-grid">
+    <div>
+      <div class="gal-main"><img id="galMain" src="assets/img/hoodie.jpg" alt="Spectra Hoodie worn by a model in studio"></div>
+      <div class="gal-thumbs">
+        <button class="act" data-src="assets/img/hoodie.jpg"><img src="assets/img/hoodie.jpg" alt="Front view"></button>
+        <button data-src="assets/img/cargo.jpg"><img src="assets/img/cargo.jpg" alt="Styled with Balcony Cargo"></button>
+        <button data-src="assets/img/shades2.jpg"><img src="assets/img/shades2.jpg" alt="Detail, worn with shades at golden hour"></button>
+      </div>
+    </div>
+
+    <div class="p-info">
+      <p class="p-kick">Bestseller — FW26</p>
+      <h1>SPECTRA HOODIE</h1>
+      <div class="p-pricerow">
+        <span class="now">৳ 4,850</span><s>৳ 5,600</s><span class="save">Save 13%</span>
+      </div>
+      <p class="p-desc">Our heaviest hoodie to date. 480 GSM brushed fleece with a double-layer hood, dropped shoulders and the Spectra chest print. Cut boxy, built to outlast trends and winters alike.</p>
+
+      <div class="opt-label"><span>Size — select</span><a href="#details">Size guide</a></div>
+      <div class="sizes" id="sizeRow">
+        <button class="size" data-size="S">S</button>
+        <button class="size" data-size="M">M</button>
+        <button class="size" data-size="L">L</button>
+        <button class="size" data-size="XL">XL</button>
+      </div>
+      <p class="size-err" id="sizeErr">Please select a size first</p>
+
+      <div class="qtyrow">
+        <div class="qty">
+          <button id="qMinus" aria-label="Decrease quantity">−</button>
+          <output id="qOut">1</output>
+          <button id="qPlus" aria-label="Increase quantity">+</button>
+        </div>
+        <button class="addbag" id="addBag">Add to bag</button>
+      </div>
+      <button class="buynow2" id="buyNow">Buy it now</button>
+
+      <p class="p-meta2">SKU KVA-HD-001<br>480 GSM brushed fleece — 80% cotton / 20% poly<br>Ships in 24h from Dhaka</p>
+
+      <div class="acc" id="details">
+        <details open>
+          <summary>Details</summary>
+          <p class="acc-body">Boxy fit, dropped shoulders, double-layer hood with flat drawcords, kangaroo pocket, ribbed cuffs and hem. Spectra print is a water-based screen print, soft hand feel, no cracking.</p>
+        </details>
+        <details>
+          <summary>Shipping &amp; returns</summary>
+          <p class="acc-body">Dhaka delivery in 24 to 48 hours at ৳60, nationwide 2 to 4 days at ৳120. Cash on delivery available everywhere. 7-day easy exchange for size, no questions asked, item unworn with tags.</p>
+        </details>
+        <details>
+          <summary>Care</summary>
+          <p class="acc-body">Machine wash cold, inside out. Do not bleach. Dry in shade to keep the black deep. Iron on reverse, never on the print.</p>
+        </details>
+      </div>
+    </div>
+  </div>
+
+  <section class="related">
+    <div class="sec-head rv">
+      <h2>Complete the Fit</h2>
+      <a class="viewall" href="index.html#best">All bestsellers →</a>
+    </div>
+    <div class="rel-grid">
+      <article class="p-card rv" data-name="carry all tote">
+        <figure>
+          <a href="product.html"><img src="assets/img/tote.jpg" alt="Black canvas carry tote"></a>
+          <button class="heart" aria-label="Save tote"><svg width="16" height="16" viewBox="0 0 24 24"><path d="M12 20.7C6.4 17 3 13.6 3 9.9 3 7.2 5 5 7.7 5c1.7 0 3.3.9 4.3 2.4C13 5.9 14.6 5 16.3 5 19 5 21 7.2 21 9.9c0 3.7-3.4 7.1-9 10.8Z"/></svg></button>
+          <button class="qa" data-add="tote">Add to bag +</button>
+        </figure>
+        <div class="p-meta"><div><p class="p-name">Carry All Tote</p><p class="p-tag">Heavyweight canvas</p></div><p class="p-price">৳ 3,290</p></div>
+      </article>
+      <article class="p-card rv" data-name="void shades">
+        <figure>
+          <a href="product.html"><img src="assets/img/shades.jpg" alt="Void shades worn close up"></a>
+          <button class="heart" aria-label="Save shades"><svg width="16" height="16" viewBox="0 0 24 24"><path d="M12 20.7C6.4 17 3 13.6 3 9.9 3 7.2 5 5 7.7 5c1.7 0 3.3.9 4.3 2.4C13 5.9 14.6 5 16.3 5 19 5 21 7.2 21 9.9c0 3.7-3.4 7.1-9 10.8Z"/></svg></button>
+          <button class="qa" data-add="void">Add to bag +</button>
+        </figure>
+        <div class="p-meta"><div><p class="p-name">Void Shades</p><p class="p-tag">Eyewear — UV400</p></div><p class="p-price">৳ 2,150</p></div>
+      </article>
+      <article class="p-card rv" data-name="court sneaker">
+        <figure>
+          <a href="product.html"><img src="assets/img/sneaker-white.jpg" alt="Court high-top sneaker"></a>
+          <button class="heart" aria-label="Save sneaker"><svg width="16" height="16" viewBox="0 0 24 24"><path d="M12 20.7C6.4 17 3 13.6 3 9.9 3 7.2 5 5 7.7 5c1.7 0 3.3.9 4.3 2.4C13 5.9 14.6 5 16.3 5 19 5 21 7.2 21 9.9c0 3.7-3.4 7.1-9 10.8Z"/></svg></button>
+          <button class="qa" data-add="court">Add to bag +</button>
+        </figure>
+        <div class="p-meta"><div><p class="p-name">Court Sneaker</p><p class="p-tag">High-top — leather</p></div><p class="p-price">৳ 8,990</p></div>
+      </article>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer" id="footer">
+  <div class="wrap">
+    <div class="foot-big" aria-hidden="true">KOVA</div>
+    <div class="foot-base">
+      <span>© 2026 Kova — demo storefront</span>
+      <span>Photography: Pexels (free to use)</span>
+      <span><a href="index.html">← Back to home</a></span>
+    </div>
+  </div>
+</footer>
+
+<div class="overlay" id="overlay"></div>
+<aside class="drawer" id="drawer" aria-label="Shopping bag">
+  <header>
+    <h3>Your bag <span id="dCount">(0)</span></h3>
+    <button class="d-close" id="dClose" aria-label="Close bag">✕</button>
+  </header>
+  <div class="d-items" id="dItems"></div>
+  <footer>
+    <div class="d-sub"><span>Subtotal</span><span id="dSubtotal">৳ 0</span></div>
+    <p class="d-ship">Shipping at checkout — Dhaka ৳60 / outside ৳120<br>Cash on delivery available</p>
+    <button class="checkout" id="checkoutBtn">Checkout</button>
+    <p class="d-note" id="dNote"></p>
+  </footer>
+</aside>
+<div class="toast" id="toast"></div>
+
+<script src="app.js"></script>
+</body>
+</html>

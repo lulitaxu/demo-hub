@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KOVA — Heavyweight Streetwear, Dhaka</title>
+<meta name="description" content="KOVA demo storefront. Heavyweight streetwear designed in Dhaka.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="top" id="topbar">
+  <button class="burger" aria-label="Menu"><i></i><i></i><i></i></button>
+  <label class="searchpill">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.8-3.8"/></svg>
+    <input id="searchInput" type="text" placeholder="Search the drop" aria-label="Search products">
+  </label>
+  <div class="topicons">
+    <button class="iconbtn acct" aria-label="Account">
+      <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 5-5.5 8-5.5s6.5 1.5 8 5.5"/></svg>
+    </button>
+    <button class="iconbtn" id="bagBtn" aria-label="Open bag">
+      <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 8h14l-1.2 12.2a1.5 1.5 0 0 1-1.5 1.3H7.7a1.5 1.5 0 0 1-1.5-1.3L5 8Z"/><path d="M8.5 10V6.5a3.5 3.5 0 0 1 7 0V10"/></svg>
+      <span class="bagcount" id="bagCount">0</span>
+    </button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <img class="hero-img" id="heroImg" src="assets/img/hero.jpg" alt="Model wearing the KOVA night set in a dark alley">
+  <div class="hero-shade"></div>
+  <div class="hero-inner">
+    <p class="hero-kicker">New collection — FW26</p>
+    <h1 class="hero-type" id="heroType">KOVA</h1>
+    <div class="hero-sub">
+      <span class="hero-red">ORIGINALS</span>
+      <p class="hero-line">Built heavy.<br>Worn loud.<br>Designed in Dhaka.</p>
+    </div>
+    <div class="hero-cta"><a class="cta" href="#best">Shop the drop</a></div>
+  </div>
+  <nav class="pillnav" aria-label="Sections">
+    <a href="#hero" class="act">Kova</a>
+    <a href="#best">Shop</a>
+    <a href="#originals">New collection</a>
+    <a href="#campaign">About</a>
+  </nav>
+  <span class="scrollhint">Scroll ↓</span>
+</section>
+
+<!-- BESTSELLERS -->
+<section class="best" id="best">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <h2>Bestseller Now</h2>
+      <a class="viewall" href="#originals">View all →</a>
+    </div>
+    <p class="filternote" id="filterNote"></p>
+    <div class="pgrid">
+
+      <article class="p-card c-tote rv" data-name="carry all tote bag canvas">
+        <figure>
+          <a href="product.html" aria-label="Carry All Tote"><img src="assets/img/tote.jpg" alt="Black canvas carry tote hanging on a wooden rack"></a>
+          <button class="heart" aria-label="Save Carry All Tote"><svg width="16" height="16" viewBox="0 0 24 24"><path d="M12 20.7C6.4 17 3 13.6 3 9.9 3 7.2 5 5 7.7 5c1.7 0 3.3.9 4.3 2.4C13 5.9 14.6 5 16.3 5 19 5 21 7.2 21 9.9c0 3.7-3.4 7.1-9 10.8Z"/></svg></button>
+          <button class="qa" data-add="tote">Add to bag +</button>
+        </figure>
+        <div class="p-meta"><div><p class="p-name">Carry All Tote</p><p class="p-tag">Heavyweight canvas</p></div><p class="p-price">৳ 3,290</p></div>
+      </article>
+
+      <article class="p-card c-shades rv" data-name="void shades sunglasses eyewear">
+        <figure>
+          <a href="product.html" aria-label="Void Shades"><img src="assets/img/shades.jpg" alt="Close portrait wearing white frame Void shades"></a>
+          <button class="heart" aria-label="Save Void Shades"><svg width="16" height="16" viewBox="0 0 24 24"><path d="M12 20.7C6.4 17 3 13.6 3 9.9 3 7.2 5 5 7.7 5c1.7 0 3.3.9 4.3 2.4C13 5.9 14.6 5 16.3 5 19 5 21 7.2 21 9.9c0 3.7-3.4 7.1-9 10.8Z"/></svg></button>
+          <button class="qa" data-add="void">Add to bag +</button>
+        </figure>
+        <div class="p-meta"><div><p class="p-name">Void Shades</p><p class="p-tag">Eyewear — UV400</p></div><p class="p-price">৳ 2,150</p></div>
+      </article>
+
+      <article class="p-card c-hoodie rv" data-name="spectra hoodie fleece">
+        <figure>
+          <a href="product.html" aria-label="Spectra Hoodie"><img src="assets/img/hoodie.jpg" alt="Model wearing the Spectra graphic hoodie in studio"></a>
+          <button class="heart" aria-label="Save Spectra Hoodie"><svg width="16" height="16" viewBox="0 0 24 24"><path d="M12 20.7C6.4 17 3 13.6 3 9.9 3 7.2 5 5 7.7 5c1.7 0 3.3.9 4.3 2.4C13 5.9 14.6 5 16.3 5 19 5 21 7.2 21 9.9c0 3.7-3.4 7.1-9 10.8Z"/></svg></button>
+          <button class="qa" data-add="spectra">Add to bag +</button>
+        </figure>
+        <div class="p-meta"><div><p class="p-name">Spectra Hoodie</p><p class="p-tag">480 GSM fleece</p></div><p class="p-price"><s>৳ 5,600</s>৳ 4,850</p></div>
+      </article>
+
+      <article class="p-card c-cargo rv" data-name="balcony cargo pants trousers">
+        <figure>
+          <a href="product.html" aria-label="Balcony Cargo"><img src="assets/img/cargo.jpg" alt="White hoodie and black Balcony cargo worn on a balcony"></a>
+          <button class="heart" aria-label="Save Balcony Cargo"><svg width="16" height="16" viewBox="0 0 24 24"><path d="M12 20.7C6.4 17 3 13.6 3 9.9 3 7.2 5 5 7.7 5c1.7 0 3.3.9 4.3 2.4C13 5.9 14.6 5 16.3 5 19 5 21 7.2 21 9.9c0 3.7-3.4 7.1-9 10.8Z"/></svg></button>
+          <button class="qa" data-add="cargo">Add to bag +</button>
+        </figure>
+        <div class="p-meta"><div><p class="p-name">Balcony Cargo</p><p class="p-tag">Six-pocket ripstop</p></div><p class="p-price">৳ 5,490</p></div>
+      </article>
+
+      <article class="p-card c-sneaker rv" data-name="court sneaker shoes runner">
+        <figure>
+          <a href="product.html" aria-label="Court Sneaker"><img src="assets/img/sneaker-white.jpg" alt="Red and white Court high-top sneaker on a windowsill"></a>
+          <button class="heart" aria-label="Save Court Sneaker"><svg width="16" height="16" viewBox="0 0 24 24"><path d="M12 20.7C6.4 17 3 13.6 3 9.9 3 7.2 5 5 7.7 5c1.7 0 3.3.9 4.3 2.4C13 5.9 14.6 5 16.3 5 19 5 21 7.2 21 9.9c0 3.7-3.4 7.1-9 10.8Z"/></svg></button>
+          <button class="qa" data-add="court">Add to bag +</button>
+        </figure>
+        <div class="p-meta"><div><p class="p-name">Court Sneaker</p><p class="p-tag">High-top — leather</p></div><p class="p-price">৳ 8,990</p></div>
+      </article>
+
+      <article class="p-card c-night rv" data-name="night shift hoodie neon">
+        <figure>
+          <a href="product.html" aria-label="Night Shift Hoodie"><img src="assets/img/ed-night.jpg" alt="Model in a white hoodie under neon light at night"></a>
+          <button class="heart" aria-label="Save Night Shift Hoodie"><svg width="16" height="16" viewBox="0 0 24 24"><path d="M12 20.7C6.4 17 3 13.6 3 9.9 3 7.2 5 5 7.7 5c1.7 0 3.3.9 4.3 2.4C13 5.9 14.6 5 16.3 5 19 5 21 7.2 21 9.9c0 3.7-3.4 7.1-9 10.8Z"/></svg></button>
+          <button class="qa" data-add="spectra">Add to bag +</button>
+        </figure>
+        <div class="p-meta"><div><p class="p-name">Night Shift Hoodie</p><p class="p-tag">Campaign 001</p></div><p class="p-price">৳ 4,250</p></div>
+      </article>
+
+      <div class="tile c-tile rv">
+        <p class="t-k">Kova members</p>
+        <p class="t-b">Early access.<br><em>Zero</em> restocks.</p>
+        <a class="t-a" href="#footer">Join the list →</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="buyline rv"><a class="buy-now" href="#originals">BUY NOW→</a></div>
+
+<!-- CAMPAIGN / EDITORIAL -->
+<section class="ed" id="campaign">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <h2>The Campaign</h2>
+      <span class="viewall">001 — Night Shift</span>
+    </div>
+    <div class="ed-grid">
+      <div class="ed-col">
+        <div class="ed-tile rv"><img src="assets/img/ed-leather.jpg" alt="Close portrait in a leather jacket lowering round shades"><span class="ed-chip">Look 04 — Leather</span></div>
+        <div class="ed-tile rv"><img src="assets/img/ed-sneaker.jpg" alt="Sneakers stacked on red shoe boxes against black"><span class="ed-chip">Look 07 — Boxes</span></div>
+      </div>
+      <div class="ed-big rv">
+        <img src="assets/img/ed-night.jpg" alt="Model in a white hoodie under neon signs at night">
+        <span class="ed-chip">Campaign film — FW26</span>
+        <button class="playbtn" id="playBtn" aria-label="Play campaign film">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.8v14.4L19 12Z"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ORIGINALS RAIL -->
+<section class="originals" id="originals">
+  <div class="wrap orig-head rv">
+    <h2 class="orig-title">KOVA <span class="rd">ORIGINALS</span></h2>
+    <div style="display:flex;align-items:flex-end;gap:22px">
+      <p class="orig-note">The heavy rail —<br>scroll sideways</p>
+      <div class="railnav">
+        <button id="railPrev" aria-label="Scroll rail back">←</button>
+        <button id="railNext" aria-label="Scroll rail forward">→</button>
+      </div>
+    </div>
+  </div>
+  <div class="rail" id="rail">
+    <article class="r-card">
+      <figure><a href="product.html"><img src="assets/img/sneaker-green.jpg" alt="Green and black Court Low sneaker"></a></figure>
+      <div class="r-meta"><p class="p-name">Court Low — Pine</p><p class="p-tag">Originals 001</p>
+        <div class="r-row"><span class="p-price">৳ 8,450</span><button class="r-add" data-add="pine">Add +</button></div></div>
+    </article>
+    <article class="r-card">
+      <figure><a href="product.html"><img src="assets/img/sneaker-yellow.jpg" alt="Yellow and black Hazard High sneaker on dark background"></a></figure>
+      <div class="r-meta"><p class="p-name">Hazard High</p><p class="p-tag">Originals 002</p>
+        <div class="r-row"><span class="p-price">৳ 9,490</span><button class="r-add" data-add="hazard">Add +</button></div></div>
+    </article>
+    <article class="r-card">
+      <figure><a href="product.html"><img src="assets/img/hoodie.jpg" alt="Spectra hoodie worn in studio"></a></figure>
+      <div class="r-meta"><p class="p-name">Spectra Hoodie</p><p class="p-tag">Originals 003</p>
+        <div class="r-row"><span class="p-price">৳ 4,850</span><button class="r-add" data-add="spectra">Add +</button></div></div>
+    </article>
+    <article class="r-card">
+      <figure><a href="product.html"><img src="assets/img/shades.jpg" alt="Void shades worn close up"></a></figure>
+      <div class="r-meta"><p class="p-name">Void Shades</p><p class="p-tag">Originals 004</p>
+        <div class="r-row"><span class="p-price">৳ 2,150</span><button class="r-add" data-add="void">Add +</button></div></div>
+    </article>
+    <article class="r-card">
+      <figure><a href="product.html"><img src="assets/img/cargo.jpg" alt="Balcony cargo worn on a balcony"></a></figure>
+      <div class="r-meta"><p class="p-name">Balcony Cargo</p><p class="p-tag">Originals 005</p>
+        <div class="r-row"><span class="p-price">৳ 5,490</span><button class="r-add" data-add="cargo">Add +</button></div></div>
+    </article>
+    <article class="r-card">
+      <figure><a href="product.html"><img src="assets/img/tote.jpg" alt="Carry All tote on a wooden rack"></a></figure>
+      <div class="r-meta"><p class="p-name">Carry All Tote</p><p class="p-tag">Originals 006</p>
+        <div class="r-row"><span class="p-price">৳ 3,290</span><button class="r-add" data-add="tote">Add +</button></div></div>
+    </article>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer" id="footer">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <h4>Kova</h4>
+        <ul>
+          <li><a href="#best">Shop</a></li>
+          <li><a href="#originals">New collection</a></li>
+          <li><a href="#campaign">Campaign</a></li>
+          <li><a href="product.html">Featured product</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Help</h4>
+        <ul>
+          <li><a href="#footer">Shipping</a></li>
+          <li><a href="#footer">Returns</a></li>
+          <li><a href="#footer">Size guide</a></li>
+          <li><a href="#footer">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Social</h4>
+        <ul>
+          <li><a href="#footer">Instagram</a></li>
+          <li><a href="#footer">TikTok</a></li>
+          <li><a href="#footer">Discord</a></li>
+        </ul>
+      </div>
+      <div class="news">
+        <h4>The drop list</h4>
+        <p>One email per drop. No noise, no spam, unsubscribe anytime.</p>
+        <form id="newsForm">
+          <input type="email" required placeholder="YOUR@EMAIL.COM" aria-label="Email address">
+          <button type="submit">Join</button>
+        </form>
+      </div>
+    </div>
+    <div class="foot-big" aria-hidden="true">KOVA</div>
+    <div class="foot-base">
+      <span>© 2026 Kova — demo storefront</span>
+      <span>Photography: Pexels (free to use)</span>
+      <span>Dhaka / Worldwide</span>
+    </div>
+  </div>
+</footer>
+
+<!-- CART -->
+<div class="overlay" id="overlay"></div>
+<aside class="drawer" id="drawer" aria-label="Shopping bag">
+  <header>
+    <h3>Your bag <span id="dCount">(0)</span></h3>
+    <button class="d-close" id="dClose" aria-label="Close bag">✕</button>
+  </header>
+  <div class="d-items" id="dItems"></div>
+  <footer>
+    <div class="d-sub"><span>Subtotal</span><span id="dSubtotal">৳ 0</span></div>
+    <p class="d-ship">Shipping at checkout — Dhaka ৳60 / outside ৳120<br>Cash on delivery available</p>
+    <button class="checkout" id="checkoutBtn">Checkout</button>
+    <p class="d-note" id="dNote"></p>
+  </footer>
+</aside>
+<div class="toast" id="toast"></div>
+
+<script src="app.js"></script>
+</body>
+</html>
