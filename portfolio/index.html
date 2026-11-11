@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="p:domain_verify" content="8104b9466f22e3d62e20ff5168fee455"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Arafat Arzu — Full-stack developer in Dhaka</title>
+<meta name="description" content="Arafat Arzu. Full-stack developer and security auditor in Dhaka. I founded Nyktos and ClipHaus, I built arzxsh, and I audit other people's sites for a living." />
+<meta property="og:title" content="Arafat Arzu — Full-stack developer in Dhaka" />
+<meta property="og:description" content="I build the product, then I try to break it. Next.js, TypeScript, Supabase, Kotlin, and security audits for stores and sites that cannot afford to leak." />
+<meta property="og:image" content="https://arafatarzu.me/assets/el/swag.png" />
+<meta property="og:image:width" content="736" />
+<meta property="og:image:height" content="736" />
+<meta property="og:image:alt" content="#SWAG" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://arafatarzu.me/assets/el/swag.png" />
+<meta name="theme-color" content="#0e0e0e" />
+<link rel="icon" href="assets/icon/favicon.svg" type="image/svg+xml" />
+<link rel="icon" href="assets/icon/favicon-32.png" type="image/png" sizes="32x32" />
+<link rel="apple-touch-icon" href="assets/icon/apple-touch-icon.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="css/style.css" />
+<link rel="stylesheet" href="theme.css" />
+</head>
+<body>
+
+<!-- video edition (2026-11-11): the footage Arz picked runs as
+     the page's fixed background under a scrim; theme.css carries
+     the monochrome photocopy re-skin -->
+<div class="bgvid" aria-hidden="true"><video id="bgvid" autoplay muted loop playsinline preload="metadata" poster="assets/bg-poster.jpg"><source src="assets/bg-video.mp4" type="video/mp4" /></video></div>
+<div class="bgscrim" aria-hidden="true"></div>
+
+<!-- icon system (2026-11-10): one hand-drawn set for the whole site,
+     24 grid, stroke 1.8, square caps, currentColor throughout.
+     brand and language marks ride along as silhouettes and letter
+     badges in the same grid. generated from one source; the dynamic
+     renderers (receipts, case views) reference these symbols too -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
+<symbol id="i-user" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square" stroke-linejoin="miter"><circle cx="12" cy="8" r="3.6"/><path d="M5 20c.8-3.6 3.6-5.4 7-5.4s6.2 1.8 7 5.4"/></g></symbol>
+<symbol id="i-brief" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square" stroke-linejoin="miter"><rect x="3.5" y="7.5" width="17" height="12"/><path d="M9 7.5V5.6A1.6 1.6 0 0 1 10.6 4h2.8A1.6 1.6 0 0 1 15 5.6v1.9M3.5 12.5h17"/></g></symbol>
+<symbol id="i-receipt" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square" stroke-linejoin="miter"><path d="M6 3.5h12V21l-2-1.5L14 21l-2-1.5L10 21l-2-1.5L6 21z"/><path d="M9 8.5h6M9 12.5h6"/></g></symbol>
+<symbol id="i-route" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square" stroke-linejoin="miter"><circle cx="6" cy="19" r="2.3"/><circle cx="18" cy="5" r="2.3"/><path d="M6 16.7v-3.2a3 3 0 0 1 3-3h6a3 3 0 0 0 3-3V7.3"/></g></symbol>
+<symbol id="i-mail" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square" stroke-linejoin="miter"><rect x="3" y="5.5" width="18" height="13"/><path d="M3.5 6.8L12 13l8.5-6.2"/></g></symbol>
+<symbol id="i-pin" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square" stroke-linejoin="miter"><path d="M12 21.2S5.6 15.9 5.6 10.6a6.4 6.4 0 0 1 12.8 0c0 5.3-6.4 10.6-6.4 10.6z"/><circle cx="12" cy="10.5" r="2.3"/></g></symbol>
+<symbol id="i-arrow" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square" stroke-linejoin="miter"><path d="M6.5 17.5L17.5 6.5M9.2 6.5h8.3v8.3"/></g></symbol>
+<symbol id="i-globe" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square" stroke-linejoin="miter"><circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17M12 3.5c2.5 2.3 3.8 5.1 3.8 8.5s-1.3 6.2-3.8 8.5c-2.5-2.3-3.8-5.1-3.8-8.5s1.3-6.2 3.8-8.5z"/></g></symbol>
+<symbol id="i-chevl" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square" stroke-linejoin="miter"><path d="M14.5 5.5L8 12l6.5 6.5"/></g></symbol>
+<symbol id="i-chevr" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square" stroke-linejoin="miter"><path d="M9.5 5.5L16 12l-6.5 6.5"/></g></symbol>
+<symbol id="i-chevd" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square" stroke-linejoin="miter"><path d="M5.5 9.5L12 16l6.5-6.5"/></g></symbol>
+<symbol id="i-x" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square" stroke-linejoin="miter"><path d="M6 6l12 12M18 6L6 18"/></g></symbol>
+<symbol id="i-shield" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square" stroke-linejoin="miter"><path d="M12 3l7 2.6v5.6c0 4.6-3 7.9-7 9.8-4-1.9-7-5.2-7-9.8V5.6z"/><path d="M9.2 11.8l2 2 3.8-4"/></g></symbol>
+<symbol id="i-award" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square" stroke-linejoin="miter"><circle cx="12" cy="9.5" r="5.5"/><path d="M9.2 14.2L7.9 20.8l4.1-2.3 4.1 2.3-1.3-6.6"/></g></symbol>
+<symbol id="i-flag" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square" stroke-linejoin="miter"><path d="M6 21.5v-19"/><path d="M6 4.8h11.5L15 8.2l2.5 3.4H6"/></g></symbol>
+<symbol id="i-thm" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square" stroke-linejoin="miter"><path d="M9.8 2.6v9.2"/><path d="M9.8 3.3h6.4l-1.9 2.1 1.9 2.1H9.8"/><path d="M6.9 20.8a4 4 0 0 1-.4-7.96A5.8 5.8 0 0 1 17.6 14.7a3.3 3.3 0 0 1-.9 6.1z"/></g></symbol>
+<symbol id="i-pulse" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square" stroke-linejoin="miter"><path d="M3 12h4l2.5-6.5 4 13 2.5-6.5h5"/></g></symbol>
+<symbol id="i-cal" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square" stroke-linejoin="miter"><rect x="3.5" y="5" width="17" height="15.5"/><path d="M3.5 9.8h17M8 3v4M16 3v4"/></g></symbol>
+<symbol id="i-code" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square" stroke-linejoin="miter"><path d="M8.5 7L3.5 12l5 5M15.5 7l5 5-5 5"/></g></symbol>
+<symbol id="i-folder" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square" stroke-linejoin="miter"><path d="M3.5 5.8A1.3 1.3 0 0 1 4.8 4.5h4.4l2 2.5h8A1.3 1.3 0 0 1 20.5 8.3v9.4a1.3 1.3 0 0 1-1.3 1.3H4.8a1.3 1.3 0 0 1-1.3-1.3z"/></g></symbol>
+<symbol id="i-scissors" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square" stroke-linejoin="miter"><circle cx="6" cy="6" r="2.6"/><circle cx="6" cy="18" r="2.6"/><path d="M8.3 7.9L20 19M8.3 16.1L20 5"/></g></symbol>
+<symbol id="i-cap" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square" stroke-linejoin="miter"><path d="M12 5L2.5 9.5 12 14l9.5-4.5z"/><path d="M6.5 11.6v4.2c0 1.5 2.5 2.8 5.5 2.8s5.5-1.3 5.5-2.8v-4.2M21.5 9.5v5"/></g></symbol>
+<symbol id="i-frame" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square" stroke-linejoin="miter"><rect x="4" y="4" width="16" height="16"/><path d="M4 15.5l4.5-3.7 3.8 3 2.7-2.1 5 3.8"/><circle cx="9" cy="9" r="1.2"/></g></symbol>
+<symbol id="i-wrench" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square" stroke-linejoin="miter"><path d="M14.7 7.1a4.3 4.3 0 0 1 5.6-4.2L17.7 5.5l.9 2.1 2.2.4a4.3 4.3 0 0 1-5.1 5.2l-7.5 7.5a2.1 2.1 0 0 1-3-3l7.5-7.5a4.3 4.3 0 0 1 2-3.2z"/></g></symbol>
+<symbol id="i-lock" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square" stroke-linejoin="miter"><rect x="5.5" y="10.5" width="13" height="9.5"/><path d="M8.5 10.5V8a3.5 3.5 0 0 1 7 0v2.5"/><circle cx="12" cy="15.3" r="1.2" fill="currentColor" stroke="none"/></g></symbol>
+<symbol id="i-db" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square" stroke-linejoin="miter"><ellipse cx="12" cy="5.5" rx="7.5" ry="2.8"/><path d="M4.5 5.5v13c0 1.6 3.4 2.8 7.5 2.8s7.5-1.2 7.5-2.8v-13"/><path d="M4.5 12c0 1.6 3.4 2.8 7.5 2.8s7.5-1.2 7.5-2.8"/></g></symbol>
+<symbol id="i-cloud" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square" stroke-linejoin="miter"><path d="M6.5 19a4.5 4.5 0 0 1-.4-9A6.5 6.5 0 0 1 18.7 12 3.6 3.6 0 0 1 17.8 19z"/></g></symbol>
+<symbol id="i-target" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square" stroke-linejoin="miter"><circle cx="12" cy="12" r="7.8"/><circle cx="12" cy="12" r="1.3" fill="currentColor" stroke="none"/><path d="M12 2.5v4M12 17.5v4M2.5 12h4M17.5 12h4"/></g></symbol>
+<symbol id="i-chip" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square" stroke-linejoin="miter"><rect x="6" y="6" width="12" height="12"/><rect x="10.2" y="10.2" width="3.6" height="3.6"/><path d="M9 6V3.2M15 6V3.2M9 20.8V18M15 20.8V18M6 9H3.2M6 15H3.2M20.8 9H18M20.8 15H18"/></g></symbol>
+<symbol id="i-note" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square" stroke-linejoin="miter"><path d="M9.5 18V6l10-2v11.5"/><circle cx="6.7" cy="18" r="2.8"/><circle cx="16.7" cy="15.5" r="2.8"/></g></symbol>
+<symbol id="i-check" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square" stroke-linejoin="miter"><path d="M5 12.8l4.4 4.4L19 7.5"/></g></symbol>
+<symbol id="i-book" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square" stroke-linejoin="miter"><path d="M5 5.3A2.3 2.3 0 0 1 7.3 3H19v14.5H7.3A2.3 2.3 0 0 0 5 19.8z"/><path d="M5 19.8A2.3 2.3 0 0 0 7.3 22.1H19v-4.6"/><path d="M9.5 3v5.3l2-1.3 2 1.3V3"/></g></symbol>
+<symbol id="i-github" viewBox="0 0 24 24"><g fill="currentColor"><path d="M12 2C6.5 2 2 6.6 2 12.3c0 4.5 2.9 8.4 6.9 9.7.5.1.7-.2.7-.5v-1.7c-2.8.6-3.4-1.4-3.4-1.4-.5-1.2-1.1-1.5-1.1-1.5-.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.6 2.4 1.1 2.9.9.1-.7.4-1.1.6-1.4-2.2-.3-4.6-1.1-4.6-5 0-1.1.4-2 1-2.7-.1-.3-.4-1.3.1-2.7 0 0 .8-.3 2.7 1a9.4 9.4 0 0 1 5 0c1.9-1.3 2.7-1 2.7-1 .5 1.4.2 2.4.1 2.7.6.7 1 1.6 1 2.7 0 3.9-2.4 4.7-4.6 5 .4.3.8 1.1.8 2.3v3.4c0 .3.2.6.7.5a10.2 10.2 0 0 0 6.9-9.7C22 6.6 17.5 2 12 2z"/></g></symbol>
+<symbol id="i-linkedin" viewBox="0 0 24 24"><g fill="currentColor"><path d="M4.98 3.5a2.49 2.49 0 1 1 0 4.98 2.49 2.49 0 0 1 0-4.98zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.06 3.77-2.06 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.5c0-1.31-.03-3-1.83-3-1.83 0-2.11 1.43-2.11 2.9V21H9z"/></g></symbol>
+<symbol id="i-instagram" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square" stroke-linejoin="miter"><rect x="3.5" y="3.5" width="17" height="17" rx="4.8"/><circle cx="12" cy="12" r="3.8"/><circle cx="17.1" cy="6.9" r="1" fill="currentColor" stroke="none"/></g></symbol>
+<symbol id="i-js" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square" stroke-linejoin="miter"><rect x="2.6" y="2.6" width="18.8" height="18.8"/></g><text x="12" y="15.1" text-anchor="middle" font-size="8.5" font-weight="800" fill="currentColor">JS</text></symbol>
+<symbol id="i-ts" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square" stroke-linejoin="miter"><rect x="2.6" y="2.6" width="18.8" height="18.8"/></g><text x="12" y="15.1" text-anchor="middle" font-size="8.5" font-weight="800" fill="currentColor">TS</text></symbol>
+<symbol id="i-py" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square" stroke-linejoin="miter"><rect x="2.6" y="2.6" width="18.8" height="18.8"/></g><text x="12" y="15.1" text-anchor="middle" font-size="8.5" font-weight="800" fill="currentColor">Py</text></symbol>
+<symbol id="i-c" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square" stroke-linejoin="miter"><rect x="2.6" y="2.6" width="18.8" height="18.8"/></g><text x="12" y="16.3" text-anchor="middle" font-size="12" font-weight="800" fill="currentColor">C</text></symbol>
+<symbol id="i-cpp" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square" stroke-linejoin="miter"><rect x="2.6" y="2.6" width="18.8" height="18.8"/></g><text x="12" y="14.9" text-anchor="middle" font-size="8" font-weight="800" fill="currentColor">C+</text></symbol>
+<symbol id="i-csharp" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square" stroke-linejoin="miter"><rect x="2.6" y="2.6" width="18.8" height="18.8"/></g><text x="12" y="14.9" text-anchor="middle" font-size="8" font-weight="800" fill="currentColor">C#</text></symbol>
+<symbol id="i-shell" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square" stroke-linejoin="miter"><rect x="2.6" y="2.6" width="18.8" height="18.8"/></g><text x="12" y="15.1" text-anchor="middle" font-size="8.5" font-weight="800" fill="currentColor">&gt;_</text></symbol>
+<symbol id="i-go" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square" stroke-linejoin="miter"><rect x="2.6" y="2.6" width="18.8" height="18.8"/></g><text x="12" y="15.1" text-anchor="middle" font-size="8.5" font-weight="800" fill="currentColor">Go</text></symbol>
+<symbol id="i-rust" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square" stroke-linejoin="miter"><rect x="2.6" y="2.6" width="18.8" height="18.8"/></g><text x="12" y="15.1" text-anchor="middle" font-size="8.5" font-weight="800" fill="currentColor">Rs</text></symbol>
+<symbol id="i-ruby" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square" stroke-linejoin="miter"><rect x="2.6" y="2.6" width="18.8" height="18.8"/></g><text x="12" y="15.1" text-anchor="middle" font-size="8.5" font-weight="800" fill="currentColor">Rb</text></symbol>
+<symbol id="i-php" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square" stroke-linejoin="miter"><rect x="2.6" y="2.6" width="18.8" height="18.8"/></g><text x="12" y="14.7" text-anchor="middle" font-size="7.5" font-weight="800" fill="currentColor">php</text></symbol>
+<symbol id="i-java" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square" stroke-linejoin="miter"><rect x="2.6" y="2.6" width="18.8" height="18.8"/></g><text x="12" y="14.3" text-anchor="middle" font-size="6.5" font-weight="800" fill="currentColor">Java</text></symbol>
+<symbol id="i-neon" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square" stroke-linejoin="miter"><rect x="2.6" y="2.6" width="18.8" height="18.8"/></g><text x="12" y="16.0" text-anchor="middle" font-size="11" font-weight="800" fill="currentColor">N</text></symbol>
+<symbol id="i-html" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square" stroke-linejoin="miter"><path d="M4.5 3.5h15l-1.3 15.6L12 21l-5.7-1.9z"/></g><text x="12" y="15.9" text-anchor="middle" font-size="11" font-weight="800" fill="currentColor">5</text></symbol>
+<symbol id="i-css" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square" stroke-linejoin="miter"><path d="M4.5 3.5h15l-1.3 15.6L12 21l-5.7-1.9z"/></g><text x="12" y="15.9" text-anchor="middle" font-size="11" font-weight="800" fill="currentColor">3</text></symbol>
+<symbol id="i-kotlin" viewBox="0 0 24 24"><g fill="currentColor"><path d="M4 4h16.5L12.3 12 20.5 20H4z"/></g></symbol>
+<symbol id="i-cisco" viewBox="0 0 24 24"><g fill="currentColor"><rect x="0.90" y="12" width="1.7" height="8"/><rect x="3.52" y="8" width="1.7" height="12"/><rect x="6.14" y="11" width="1.7" height="9"/><rect x="8.76" y="5" width="1.7" height="15"/><rect x="11.38" y="9" width="1.7" height="11"/><rect x="14.00" y="4" width="1.7" height="16"/><rect x="16.62" y="10" width="1.7" height="10"/><rect x="19.24" y="7" width="1.7" height="13"/><rect x="21.86" y="12" width="1.7" height="8"/></g></symbol>
+<symbol id="i-vercel" viewBox="0 0 24 24"><g fill="currentColor"><path d="M12 4.8L21.5 20h-19z"/></g></symbol>
+<symbol id="i-bolt" viewBox="0 0 24 24"><g fill="currentColor"><path d="M13.4 2.8L5 13.6h5.4l-1.2 7.6L17.6 10.4h-5.4z"/></g></symbol>
+<symbol id="i-play" viewBox="0 0 24 24"><g fill="currentColor"><path d="M8 5.3v13.4L19 12z"/></g></symbol>
+<symbol id="i-react" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square" stroke-linejoin="miter"><circle cx="12" cy="12" r="1.6" fill="currentColor" stroke="none"/><ellipse cx="12" cy="12" rx="8.6" ry="3.5"/><ellipse cx="12" cy="12" rx="8.6" ry="3.5" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="8.6" ry="3.5" transform="rotate(120 12 12)"/></g></symbol>
+<symbol id="i-next" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square" stroke-linejoin="miter"><circle cx="12" cy="12" r="8.8"/><path d="M8.8 16.8V7.2l7.5 9.6V7.2"/></g></symbol>
+<symbol id="i-node" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square" stroke-linejoin="miter"><path d="M12 3.2l7.6 4.4v8.8L12 20.8l-7.6-4.4V7.6z"/></g><text x="12" y="14.4" text-anchor="middle" font-size="6" font-weight="800" fill="currentColor">JS</text></symbol>
+<symbol id="i-android" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square" stroke-linejoin="miter"><path d="M6.4 8.6L5 6M17.6 8.6L19 6"/><path d="M5.5 13a6.5 6.5 0 0 1 13 0v6h-13z"/><circle cx="9.4" cy="12.2" r="1.05" fill="currentColor" stroke="none"/><circle cx="14.6" cy="12.2" r="1.05" fill="currentColor" stroke="none"/></g></symbol>
+</defs></svg>
+
+<div class="amb" aria-hidden="true"><div class="amb__w amb__w--1"><div class="amb__g amb__g--1"></div></div><div class="amb__w amb__w--2"><div class="amb__g amb__g--2"></div></div><div class="amb__w amb__w--3"><div class="amb__g amb__g--3"></div></div><div class="amb__spot"></div></div>
+
+<header class="topbar" data-enter style="--d:0s">
+  <div class="topbar__id">
+    <a class="topbar__brand" href="#top">Arafat Arzu</a>
+  </div>
+  <nav class="topbar__nav" aria-label="Sections">
+    <a href="#about"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-user"/></svg>About</a>
+    <a href="#work"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-brief"/></svg>Work</a>
+    <a href="#receipts"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-receipt"/></svg>Receipts</a>
+    <a href="#experience"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-route"/></svg>Experience</a>
+  </nav>
+  <a class="topbar__cta" href="#contact"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-mail"/></svg>Contact</a>
+  <span class="topbar__prog" id="scrollProg" aria-hidden="true"></span>
+</header>
+
+<main id="top">
+
+<!-- ============ 00 · COVER ============ -->
+<section class="sec cover" id="cover">
+  <h1 class="cover__name">
+    <span class="lm"><span class="lm__i" style="--d:.12s">Arafat Arzu</span></span>
+    <span class="lm"><span class="lm__i" style="--d:.36s"><span class="cover__role">Full-stack</span> developer.</span></span>
+  </h1>
+  <div class="cover__rule" aria-hidden="true"></div>
+  <p class="cover__type" data-enter style="--d:.68s" aria-label="Full-stack developer. Security auditor. Founder of ClipHaus and Nyktos."><span class="cover__type-text" id="typeLine" aria-hidden="true">Full-stack developer</span><span class="cover__caret" aria-hidden="true"></span></p>
+  <p class="cover__line" data-enter style="--d:.9s">I build products, then I audit them like an attacker would. Next.js and TypeScript on the front, Supabase and Node on the back, Kotlin on Android. The audit side is the same job from the other direction: stores and sites that cannot afford to leak.</p>
+  <div class="cover__cta" data-enter style="--d:1.1s">
+    <a class="btn btn-solid" href="#work">See the work <svg class="ic" aria-hidden="true" focusable="false"><use href="#i-chevd"/></svg></a>
+    <a class="btn" href="mailto:contact@arafatarzu.me"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-mail"/></svg>contact@arafatarzu.me</a>
+  </div>
+  <p class="cover__avail" data-enter style="--d:1.26s"><span class="dot" aria-hidden="true"></span> I take on a few projects at a time. There is room right now.</p>
+  <dl class="cover__facts" data-enter style="--d:1.42s">
+    <div><dt><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-folder"/></svg>Public repos</dt><dd data-ledger="repos">—</dd></div>
+    <div><dt><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-cal"/></svg>On GitHub since</dt><dd data-ledger="since">—</dd></div>
+    <div><dt><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg>Based in</dt><dd>Dhaka</dd></div>
+  </dl>
+</section>
+
+<div class="ticker" aria-hidden="true">
+  <div class="ticker__track">
+    <div class="ticker__group"><span>Full-stack developer</span><i>✦</i><span>Security auditor</span><i>✦</i><span>Founder</span><i>✦</i><span class="ticker__logo"><img src="assets/logos/nyktos.png" alt="" draggable="false" /><em class="ticker__name">Nyktos</em></span><i>✦</i><span class="ticker__logo ticker__logo--word"><img src="assets/logos/cliphaus.png" alt="" draggable="false" /></span><i>✦</i><span class="ticker__logo"><img src="assets/logos/arzxsh.svg" alt="" draggable="false" /><em class="ticker__name">arzxsh</em></span><i>✦</i><span class="ticker__logo"><img src="assets/logos/verro.svg" alt="" draggable="false" /><em class="ticker__name">Verro</em></span><i>✦</i><span class="ticker__logo"><img src="assets/logos/auditcanvas.png" alt="" draggable="false" /><em class="ticker__name">AuditCanvas</em></span><i>✦</i><span class="ticker__wm">Oshudh</span><i>✦</i><span class="ticker__wm">Tebil</span><i>✦</i><span>Dhaka</span><i>✦</i></div>
+    <div class="ticker__group"><span>Full-stack developer</span><i>✦</i><span>Security auditor</span><i>✦</i><span>Founder</span><i>✦</i><span class="ticker__logo"><img src="assets/logos/nyktos.png" alt="" draggable="false" /><em class="ticker__name">Nyktos</em></span><i>✦</i><span class="ticker__logo ticker__logo--word"><img src="assets/logos/cliphaus.png" alt="" draggable="false" /></span><i>✦</i><span class="ticker__logo"><img src="assets/logos/arzxsh.svg" alt="" draggable="false" /><em class="ticker__name">arzxsh</em></span><i>✦</i><span class="ticker__logo"><img src="assets/logos/verro.svg" alt="" draggable="false" /><em class="ticker__name">Verro</em></span><i>✦</i><span class="ticker__logo"><img src="assets/logos/auditcanvas.png" alt="" draggable="false" /><em class="ticker__name">AuditCanvas</em></span><i>✦</i><span class="ticker__wm">Oshudh</span><i>✦</i><span class="ticker__wm">Tebil</span><i>✦</i><span>Dhaka</span><i>✦</i></div>
+  </div>
+</div>
+
+<!-- ============ SPLIT CURTAIN ============ -->
+<section class="split" aria-label="I build the product, then I try to break it">
+  <div class="split__stage">
+    <p class="split__line">I build the product.</p>
+    <p class="split__line split__line--out">Then I try to break it.</p>
+    <div class="split__panel split__panel--top" aria-hidden="true"></div>
+    <div class="split__panel split__panel--bot" aria-hidden="true"></div>
+    <div class="split__seam" aria-hidden="true"></div>
+  </div>
+</section>
+
+<!-- ============ 01 · ABOUT ============ -->
+<section class="sec" id="about">
+  <p class="sec__mark" aria-hidden="true"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-user"/></svg></p>
+  <h2 class="sec__title">The short version.</h2>
+  <div class="about__grid">
+    <div class="about__body">
+      <p>I'm Arafat. I write code in Dhaka, and most of it runs in production, not in a demo folder. Next.js and TypeScript for the web, Supabase or Node behind it, Kotlin when the product lives on a phone.</p>
+      <p>The other half of my work is security. I audit stores and websites for the openings I spend the rest of my time making sure my own builds do not have. Everything below got audited by me before it shipped.</p>
+      <p>So far that means Nyktos, the encrypted messenger I founded, where even the server cannot read the messages. ClipHaus, the clipping agency I founded, where I built the whole platform under it. And arzxsh, an Android music player that mixes songs like a DJ. Off the clock: the gym and building my own security tools.</p>
+    </div>
+    <ol class="about__list">
+      <li><span class="ic-chip" aria-hidden="true"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-code"/></svg></span><div><h3>Development</h3><p>Web apps where the back office actually works: logins, payments, admin panels with roles, order flows that do not fall apart halfway.</p></div></li>
+      <li><span class="ic-chip" aria-hidden="true"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-shield"/></svg></span><div><h3>Security audits</h3><p>I go through a store or site the way an attacker would, then hand over the exact findings and the fixes. Not a scanner printout.</p></div></li>
+      <li><span class="ic-chip" aria-hidden="true"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-brief"/></svg></span><div><h3>Products</h3><p>Nyktos, ClipHaus, arzxsh. My own software, live, with real people using it. Not portfolio decorations.</p></div></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============ 02 · SELECTED WORK ============ -->
+<section class="sec" id="work">
+  <p class="sec__mark" aria-hidden="true"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-brief"/></svg></p>
+  <h2 class="sec__title">Live. Not mockups.</h2>
+
+  <div class="railwrap">
+    <div class="rail" id="workRail" aria-label="Selected work, scroll sideways for more">
+      <a class="wcard wcard--wide" data-case="nyktos" href="https://nyktos.tech" target="_blank" rel="noopener">
+        <div class="wcard__media">
+          <img class="ph" src="assets/work/nyktos.png" alt="Nyktos: talk like no one's listening" width="1200" height="630" />
+          
+        </div>
+        <div class="wcard__body">
+          <p class="wcard__meta"><span>Live since 2026</span></p>
+          <h3>Nyktos <svg class="ic wcard__go" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></h3>
+          <p class="wcard__line">End-to-end encrypted messenger I founded and built. The server stores ciphertext and nothing else, and the security page shows exactly how it works, in public.</p>
+          <ul class="chips"><li><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-next"/></svg>Next.js</li><li><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-ts"/></svg>TypeScript</li><li><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-lock"/></svg>libsodium</li><li><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-bolt"/></svg>Supabase</li></ul>
+        </div>
+      </a>
+
+      <a class="wcard" data-case="cliphaus" href="https://cliphaus.dev" target="_blank" rel="noopener">
+        <div class="wcard__media">
+          <img class="ph" src="assets/work/cliphaus.png" alt="ClipHaus: podcast clipping, cut and captioned by people" width="1200" height="630" />
+          
+        </div>
+        <div class="wcard__body">
+          <p class="wcard__meta"><span>Founded 2026</span></p>
+          <h3>ClipHaus <svg class="ic wcard__go" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></h3>
+          <p class="wcard__line">I founded this clipping agency and built the whole machine under it: dashboards for clients and editors, the quota ledger, the transcription pipeline, invoices end to end.</p>
+          <ul class="chips"><li><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-next"/></svg>Next.js</li><li><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-bolt"/></svg>Supabase</li><li><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-cloud"/></svg>Cloudflare</li><li><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-db"/></svg>Backblaze B2</li></ul>
+        </div>
+      </a>
+
+      <a class="wcard" data-case="arzxsh" href="https://arzxsh.arafatarzu.me" target="_blank" rel="noopener">
+        <div class="wcard__media wcard__media--typo t-arz">
+          <img class="t-arz__logo" src="assets/work/arzxsh-logo.svg" alt="" width="120" height="120" />
+          <span class="typo__word">ARZXSH</span>
+          <span class="typo__sub">Android music player, source public</span>
+          
+        </div>
+        <div class="wcard__body">
+          <p class="wcard__meta"><span>Latest release, 0.6.19</span></p>
+          <h3>arzxsh <svg class="ic wcard__go" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></h3>
+          <p class="wcard__line">My music player for Android, source fully public. Gapless playback, lyrics that take their colour from the artwork, offline downloads, and a Mix mode that reads each song's BPM and key on the device and blends them like a DJ set.</p>
+          <ul class="chips"><li><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-kotlin"/></svg>Kotlin</li><li><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-play"/></svg>Media3</li><li><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-android"/></svg>Android</li></ul>
+        </div>
+      </a>
+
+      <a class="wcard" data-case="auditcanvas" href="https://auditcanvas.vercel.app" target="_blank" rel="noopener">
+        <div class="wcard__media">
+          <img class="ph" src="assets/work/auditcanvas.png" alt="AuditCanvas, GitHub repository card" width="1200" height="452" />
+          
+        </div>
+        <div class="wcard__body">
+          <p class="wcard__meta"><span>Meta hackathon entry, 2026</span></p>
+          <h3>AuditCanvas <svg class="ic wcard__go" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></h3>
+          <p class="wcard__line">Built for Meta's AI hackathon and submitted in the Indie Developer Track. It turns security evidence into findings you can act on, the demo is live, and the results actually save.</p>
+          <ul class="chips"><li><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-next"/></svg>Next.js</li><li><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-chip"/></svg>AI evals</li><li><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-neon"/></svg>Neon</li></ul>
+        </div>
+      </a>
+
+      <a class="wcard" data-case="verro" href="https://verro-sigma.vercel.app" target="_blank" rel="noopener">
+        <div class="wcard__media wcard__media--typo t-verro">
+          <span class="typo__word">VERRO</span>
+          <span class="typo__sub">Signup check: bot or human</span>
+          <span class="typo__strip" aria-hidden="true">Every score comes with its reasons</span>
+          
+        </div>
+        <div class="wcard__body">
+          <p class="wcard__meta"><span>Live since 2026</span></p>
+          <h3>Verro <svg class="ic wcard__go" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></h3>
+          <p class="wcard__line">An API that tells you whether a signup is a bot before you pay for the OTP text. Every score comes with its reasons, and there is a live console if you want to poke it.</p>
+          <ul class="chips"><li><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-code"/></svg>API</li><li><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-vercel"/></svg>Vercel</li><li><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-neon"/></svg>Neon</li></ul>
+        </div>
+      </a>
+
+      <a class="wcard" data-case="oshudh" href="https://oshudh.vercel.app" target="_blank" rel="noopener">
+        <div class="wcard__media">
+          <img class="ph" src="assets/work/oshudh.png" alt="Oshudh, GitHub repository card" width="1200" height="420" />
+          
+        </div>
+        <div class="wcard__body">
+          <p class="wcard__meta"><span>Live since 2026</span></p>
+          <h3>Oshudh <svg class="ic wcard__go" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></h3>
+          <p class="wcard__line">A pharmacy product I built with Team Flexus and submitted to the CloudCamp AI Builders Congress. Live and public.</p>
+          <ul class="chips"><li><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-next"/></svg>Next.js</li><li><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-vercel"/></svg>Vercel</li></ul>
+        </div>
+      </a>
+    </div>
+
+    <div class="rail__foot">
+      <p class="rail__hint">Drag, scroll, or use the buttons. Click a card for its full story.</p>
+      <div class="rail__btns">
+        <button class="rail__btn" id="railPrev" type="button"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-chevl"/></svg>Back</button>
+        <button class="rail__btn" id="railNext" type="button">More<svg class="ic" aria-hidden="true" focusable="false"><use href="#i-chevr"/></svg></button>
+      </div>
+    </div>
+    <div class="rail__bar" aria-hidden="true"><i id="railProg"></i></div>
+  </div>
+
+  <div class="index-list" aria-label="More work">
+    <p class="index-list__head">More of mine, on GitHub</p>
+    <a href="https://github.com/lulitaxu/ARXBrowser-Releases" target="_blank" rel="noopener"><span class="index-list__ic"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-github"/></svg></span><span class="index-list__name">ARX Browser</span><span class="index-list__d">A working web browser, written in C++</span><span class="index-list__go"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></span></a>
+    <a href="https://github.com/lulitaxu/arxsh" target="_blank" rel="noopener"><span class="index-list__ic"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-github"/></svg></span><span class="index-list__name">arxsh</span><span class="index-list__d">A working Unix shell, written in C</span><span class="index-list__go"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></span></a>
+    <a href="https://github.com/lulitaxu/arxject" target="_blank" rel="noopener"><span class="index-list__ic"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-github"/></svg></span><span class="index-list__name">arxject</span><span class="index-list__d">Prompt-injection scanner for LLM apps</span><span class="index-list__go"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></span></a>
+    <a href="https://github.com/lulitaxu/overflow-lab-kit" target="_blank" rel="noopener"><span class="index-list__ic"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-github"/></svg></span><span class="index-list__name">Overflow Lab Kit</span><span class="index-list__d">Buffer-overflow practice kit, for lab work</span><span class="index-list__go"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></span></a>
+    <a href="https://github.com/lulitaxu/music-player" target="_blank" rel="noopener"><span class="index-list__ic"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-github"/></svg></span><span class="index-list__name">arzxsh source</span><span class="index-list__d">The music player, all of it public</span><span class="index-list__go"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></span></a>
+    <a href="https://demo.arafatarzu.me" target="_blank" rel="noopener"><span class="index-list__ic"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-globe"/></svg></span><span class="index-list__name">Client demos</span><span class="index-list__d">Storefront demos built for client pitches</span><span class="index-list__go"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></span></a>
+  </div>
+</section>
+
+<!-- ============ 03 · TOOLKIT ============ -->
+<section class="sec" id="toolkit">
+  <p class="sec__mark" aria-hidden="true"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-wrench"/></svg></p>
+  <h2 class="sec__title">The toolbox.</h2>
+  <dl class="kit">
+    <div><dt><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-ts"/></svg><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-js"/></svg>TypeScript / JavaScript</dt><dd>Every web product above</dd></div>
+    <div><dt><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-next"/></svg><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-react"/></svg>Next.js / React</dt><dd>Nyktos, ClipHaus, AuditCanvas</dd></div>
+    <div><dt><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-bolt"/></svg><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-db"/></svg>Supabase / PostgreSQL</dt><dd>Auth, row-level security, storage</dd></div>
+    <div><dt><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-kotlin"/></svg><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-play"/></svg>Kotlin / Media3</dt><dd>arzxsh, on Android</dd></div>
+    <div><dt><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-py"/></svg>Python</dt><dd>arxject, Overflow Lab Kit, tooling</dd></div>
+    <div><dt><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-c"/></svg>C</dt><dd>arxsh, a working shell</dd></div>
+    <div><dt><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-cloud"/></svg><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-vercel"/></svg>Cloudflare / Vercel</dt><dd>Where all of this actually runs</dd></div>
+    <div><dt><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-target"/></svg>Burp Suite</dt><dd>What the audits run on</dd></div>
+  </dl>
+</section>
+
+<!-- ============ 04 · THE RECEIPTS ============ -->
+<section class="sec" id="receipts">
+  <p class="sec__mark" aria-hidden="true"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-receipt"/></svg></p>
+  <h2 class="sec__title">Counted, not claimed.</h2>
+  <p class="ledger__intro">These numbers come straight from GitHub's API, pulled fresh every day. If GitHub refuses, the page says so instead of making something up.</p>
+
+  <dl class="ledger__stats">
+    <div><dt><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-folder"/></svg>Public repos</dt><dd data-ledger="repos">—</dd></div>
+    <div><dt><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-code"/></svg>Languages</dt><dd data-ledger="langcount">—</dd></div>
+    <div><dt><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-pulse"/></svg>Pushes, last 90 days</dt><dd data-ledger="pushes">—</dd></div>
+    <div><dt><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-cal"/></svg>On GitHub since</dt><dd data-ledger="since">—</dd></div>
+  </dl>
+
+  <div class="ledger__cols">
+    <div>
+      <p class="ledger__label"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-pulse"/></svg>Push days, last 90 days</p>
+      <div class="ledger__grid" id="ledgerGrid" role="img" aria-label="Push activity over the last 90 days"></div>
+      <p class="ledger__key">Darker means more pushes that day.</p>
+    </div>
+    <div>
+      <p class="ledger__label"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-code"/></svg>Languages, by bytes across public repos</p>
+      <ul class="ledger__langs" id="ledgerLangs"></ul>
+    </div>
+  </div>
+
+  <p class="ledger__stamp"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-github"/></svg><span id="ledgerStamp">Fetching from GitHub…</span></p>
+
+  <div class="thm">
+    <p class="thm__head"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-thm"/></svg>TryHackMe <span>hex3er</span></p>
+    <dl class="ledger__stats thm__stats">
+      <div><dt><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-flag"/></svg>Rooms completed</dt><dd>26</dd></div>
+      <div><dt><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-target"/></svg>Global ranking</dt><dd>Top 15%</dd></div>
+      <div><dt><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-pulse"/></svg>Activity events, last year</dt><dd>409</dd></div>
+      <div><dt><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-award"/></svg>Badges</dt><dd>4</dd></div>
+      <div><dt><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-cal"/></svg>On TryHackMe since</dt><dd>May 2024</dd></div>
+    </dl>
+    <p class="thm__tools"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-wrench"/></svg><span><b>Tools:</b> Nmap · Burp Suite · Hydra · Gobuster · Nessus</span></p>
+    <p class="thm__foot">
+      <a class="thm__link" href="https://tryhackme.com/p/hex3er" target="_blank" rel="noopener">hex3er on TryHackMe <svg class="ic" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></a>
+      <span class="thm__stamp"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-thm"/></svg>Profile checked Nov 2026</span>
+    </p>
+  </div>
+</section>
+
+<!-- ============ 05 · EXPERIENCE ============ -->
+<section class="sec" id="experience">
+  <p class="sec__mark" aria-hidden="true"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-route"/></svg></p>
+  <h2 class="sec__title">How I got here.</h2>
+
+  <ol class="chapters">
+    <li class="chapter"><span class="ic-chip" aria-hidden="true"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-scissors"/></svg></span>
+      
+      <div>
+        <p class="chapter__date">Since Oct 2026</p>
+        <h3>ClipHaus, founder</h3>
+        <p>I founded the agency and built its whole platform. I still run it, from the editor dashboards to the last invoice.</p>
+      </div>
+    </li>
+    <li class="chapter"><span class="ic-chip" aria-hidden="true"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-shield"/></svg></span>
+      
+      <div>
+        <p class="chapter__date">Since Oct 2026</p>
+        <h3>Freelance security audits</h3>
+        <p>Clients pay me to attack their stores and sites before somebody less friendly does. Every finding checked by hand, every fix written out.</p>
+      </div>
+    </li>
+    <li class="chapter"><span class="ic-chip" aria-hidden="true"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-cisco"/></svg></span>
+      
+      <div>
+        <p class="chapter__date">Nov 2026</p>
+        <h3>Cisco Ethical Hacker, completed</h3>
+        <p>Score below.</p>
+      </div>
+    </li>
+    <li class="chapter"><span class="ic-chip" aria-hidden="true"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-cap"/></svg></span>
+      
+      <div>
+        <p class="chapter__date">Nov 2026</p>
+        <h3>Harvard CS50x</h3>
+        <p>Finished: all eleven weeks, ten problem sets and the final project, Header Hunter, a Python tool that audits a site's security headers. The certificate is right below. I wrote my own solutions.</p>
+      </div>
+    </li>
+    <li class="chapter"><span class="ic-chip" aria-hidden="true"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-frame"/></svg></span>
+      
+      <div>
+        <p class="chapter__date">Nov 2026</p>
+        <h3><a href="https://cerebralvalley.ai/e/meta-ai-developer-hackathon/hackathon/gallery/2399" target="_blank" rel="noopener">AuditCanvas submitted</a></h3>
+        <p>Built it, shipped it, submitted it to the Meta Global AI Developer Hackathon, Indie Developer Track. The demo is still live, and the entry sits in Meta's own hackathon gallery.</p>
+      </div>
+    </li>
+    <li class="chapter"><span class="ic-chip" aria-hidden="true"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-github"/></svg></span>
+      
+      <div>
+        <p class="chapter__date">Aug 2025</p>
+        <h3><a href="https://github.com/lulitaxu" target="_blank" rel="noopener">Started on GitHub</a></h3>
+        <p>First public repos in August 2025. Everything since is in the receipts above. Go count it yourself.</p>
+      </div>
+    </li>
+  </ol>
+
+  <div class="certs">
+    <div class="cert cert--show">
+      <p class="cert__brand" aria-hidden="true">
+        <svg class="cert__bridge" viewBox="0 0 112 44" fill="currentColor" focusable="false"><rect x="2.0" y="24" width="7" height="16"/><rect x="14.6" y="15" width="7" height="25"/><rect x="27.2" y="21" width="7" height="19"/><rect x="39.8" y="8" width="7" height="32"/><rect x="52.4" y="18" width="7" height="22"/><rect x="65.0" y="6" width="7" height="34"/><rect x="77.6" y="20" width="7" height="20"/><rect x="90.2" y="13" width="7" height="27"/><rect x="102.8" y="24" width="7" height="16"/></svg>
+        <span class="cert__word">Cisco</span>
+      </p>
+      <h3 class="cert__big">Ethical Hacker</h3>
+      <div class="cert__facts">
+        <span class="cert__fact"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-cal"/></svg>Finished November 2026</span>
+        <p class="cert__score">1002<span> / 1100 · 91%</span></p>
+      </div>
+      <a class="cert__shot" title="Open the certificate full size" href="assets/certs/ethical-hacker.jpg" target="_blank" rel="noopener">
+        <img src="assets/certs/ethical-hacker.jpg" alt="Cisco Ethical Hacker certificate awarded to Arafat Arzu, 7 November 2026" width="1103" height="748" loading="lazy" />
+      </a>
+      <p class="cert__verify"><a href="https://www.netacad.com/recognitions/verify/a756fc5b-1aca-4a02-95a4-3194434059a4" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-check"/></svg>Verify</a> <span class="cert__open"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></span></p>
+    </div>
+    <div class="cert cert--show">
+      <p class="cert__brand" aria-hidden="true">
+        <span class="cert__word">Harvard</span>
+      </p>
+      <h3 class="cert__big">CS50x</h3>
+      <div class="cert__facts">
+        <span class="cert__fact"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-cal"/></svg>Finished November 2026</span>
+        <p class="cert__score">11<span> / 11 · ten problem sets + the final project</span></p>
+      </div>
+      <a class="cert__shot" title="Open the certificate full size" href="assets/certs/cs50x.jpg" target="_blank" rel="noopener">
+        <img src="assets/certs/cs50x.jpg" alt="CS50x certificate from Harvard University awarded to Arafat Arzu, November 2026" width="1103" height="852" loading="lazy" />
+      </a>
+      <p class="cert__verify"><a href="https://cs50.harvard.edu/certificates/4d60ec66-0f5b-41ee-9518-99bd8c0e1352" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-check"/></svg>Verify</a> <span class="cert__open"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></span></p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 06 · CONTACT ============ -->
+<section class="sec contact" id="contact">
+  <p class="sec__mark" aria-hidden="true"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-mail"/></svg></p>
+  <h2 class="sec__title">Email me.</h2>
+  <p class="contact__line">A store to build, a product to ship, or a site you want checked before someone less friendly checks it? Email is the fastest way in. I read everything myself.</p>
+  <div class="contact__cta">
+    <a class="btn btn-solid" href="mailto:contact@arafatarzu.me"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-mail"/></svg>contact@arafatarzu.me</a>
+    <a class="btn" href="https://github.com/lulitaxu" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-github"/></svg>GitHub</a>
+    <a class="btn" href="https://www.linkedin.com/in/arafatarzu/" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-linkedin"/></svg>LinkedIn</a>
+    <a class="btn" href="https://www.instagram.com/eepy.arzu/" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-instagram"/></svg>Instagram</a>
+    <a class="btn" href="https://tryhackme.com/p/hex3er" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-thm"/></svg>TryHackMe <span class="btn__handle">hex3er</span></a>
+  </div>
+  <p class="contact__loc"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg>Dhaka, Bangladesh</p>
+</section>
+
+</main>
+
+<footer class="foot">
+  <span>© 2026 Arafat Arzu</span>
+  <span class="foot__social"><a class="foot__soc" href="https://github.com/lulitaxu" target="_blank" rel="noopener" aria-label="GitHub"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-github"/></svg></a><a class="foot__soc" href="https://www.linkedin.com/in/arafatarzu/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-linkedin"/></svg></a><a class="foot__soc" href="https://www.instagram.com/eepy.arzu/" target="_blank" rel="noopener" aria-label="Instagram"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-instagram"/></svg></a></span>
+  <span class="foot__place">Dhaka, Bangladesh <svg class="heart" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><defs><linearGradient id="chromeHeart" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fcfcfd"/><stop offset=".28" stop-color="#c6cad4"/><stop offset=".5" stop-color="#878d9c"/><stop offset=".62" stop-color="#eef0f4"/><stop offset=".8" stop-color="#767c8b"/><stop offset="1" stop-color="#d5d8e0"/></linearGradient><linearGradient id="heartShine" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".5" stop-color="#fff" stop-opacity=".9"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient><clipPath id="heartClip"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></clipPath></defs><path fill="url(#chromeHeart)" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/><g clip-path="url(#heartClip)"><g class="heart__shine"><rect x="-4" y="-4" width="10" height="32" fill="url(#heartShine)" transform="skewX(-18)"/></g></g></svg></span>
+</footer>
+
+<div class="case" id="caseView" hidden>
+  <div class="case__backdrop" data-close></div>
+  <div class="case__panel" role="dialog" aria-modal="true" aria-labelledby="caseTitle">
+    <button class="case__close" type="button" id="caseClose"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-x"/></svg>Close</button>
+    <p class="case__meta" id="caseMeta"></p>
+    <h3 class="case__title" id="caseTitle"></h3>
+    <div class="case__body" id="caseBody"></div>
+    <ul class="chips" id="caseChips"></ul>
+    <div class="case__cta" id="caseCta"></div>
+  </div>
+</div>
+
+<button class="music-toggle" id="musicToggle" type="button" aria-pressed="false" aria-label="Turn background music on">
+  <svg class="ic" aria-hidden="true" focusable="false"><use href="#i-note"/></svg><span class="music-toggle__bars" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+  <span>Music</span>
+</button>
+<audio id="bgAudio" src="assets/audio/bg-music.mp3" loop preload="none"></audio>
+
+<script src="js/icons.js"></script>
+<script src="js/ledger.js"></script>
+<script src="js/visitor.js"></script>
+<script src="js/motion.js"></script>
+<script src="js/header.js"></script>
+<script src="js/case.js"></script>
+<script src="js/music.js"></script>
+<div class="grain" aria-hidden="true"></div>
+<script>
+/* video edition guard: reduced motion or a data-saver keeps the
+   still poster instead of the film; the theme reads either way */
+(function(){var v=document.getElementById('bgvid');if(!v)return;
+var calm=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+var save=!!(navigator.connection&&navigator.connection.saveData);
+if(calm||save){v.removeAttribute('autoplay');v.pause();var s=v.querySelector('source');if(s)s.removeAttribute('src');v.load();}
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+/* ============================================================
+   VIDEO EDITION THEME (2026-11-11, demo.arafatarzu.me/portfolio)
+   The main portfolio page re-skinned after the footage Arz
+   picked: a derelict observatory and industrial interiors run
+   through a photocopier. Pure black and white, crushed blacks,
+   blown highlights, halftone grain. Every warm tint and the one
+   red accent (#fc3c44) are neutralized at the variable level,
+   so the layout, type and motion of the original page survive
+   untouched underneath.
+   ============================================================ */
+
+:root{
+  --paper:#060606;
+  --paper-card:#131313;
+  --ink:#f4f4f4;
+  --ink-soft:#b9b9b9;
+  --ink-faint:#838383;
+  --rule:#f4f4f4;
+  --rule-soft:#2b2b2b;
+  --accent:#f4f4f4;
+  --accent-ink:#ffffff;
+  --cell-0:#1d1d1d;
+  --cell-1:#3d3d3d;
+  --cell-2:#767676;
+  --cell-3:#aeaeae;
+  --cell-4:#e8e8e8;
+}
+
+/* the footage sits behind everything; the page's own paper
+   ground goes transparent so the film becomes the ground */
+html{background:#000}
+body{background:transparent}
+.bgvid{position:fixed;inset:0;z-index:-3;overflow:hidden;background:#000}
+.bgvid video{
+  width:100%;height:100%;object-fit:cover;display:block;
+  filter:grayscale(1) brightness(.82) contrast(1.07);
+}
+.bgscrim{
+  position:fixed;inset:0;z-index:-2;pointer-events:none;
+  background:linear-gradient(180deg,rgba(0,0,0,.66),rgba(0,0,0,.58) 38%,rgba(0,0,0,.66) 72%,rgba(0,0,0,.78));
+}
+
+/* the ambient ember fields stay, but burn white now */
+.amb__g--1{background:radial-gradient(closest-side,rgba(255,255,255,.34) 0%,rgba(255,255,255,.13) 42%,rgba(255,255,255,0) 72%)}
+.amb__g--2{background:radial-gradient(closest-side,rgba(255,255,255,.22) 0%,rgba(255,255,255,.09) 45%,rgba(255,255,255,0) 72%)}
+.amb__g--3{background:radial-gradient(closest-side,rgba(255,255,255,.28) 0%,rgba(255,255,255,.10) 45%,rgba(255,255,255,0) 70%)}
+.amb__spot{background:radial-gradient(closest-side,rgba(255,255,255,.12) 0%,rgba(255,255,255,.045) 45%,rgba(255,255,255,0) 70%)}
+
+/* header and ticker ride as smoked glass over the film */
+.topbar{background:rgba(5,5,5,.74);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px)}
+.ticker{background:rgba(4,4,4,.85)}
+
+/* the split curtain's seam was red on a light stage; in this
+   world it is a black cut across the white */
+.split__seam{background:#0a0a0a}
+
+/* every photograph, logo and certificate goes photocopy grey */
+img{filter:grayscale(1) contrast(1.05)}
+
+/* warm grey body copy cools down to true grey */
+.about__body p{color:#d7d7d7}
+
+/* selection flips to the film's own polarity */
+::selection{background:#f4f4f4;color:#000}
+
+/* the chrome heart keeps its metal, loses the red underglow */
+.heart{filter:drop-shadow(0 0 3px rgba(255,255,255,.4))}
+.foot__place:hover .heart{animation:heartGlowMono .8s var(--ease-standard) 1}
+@keyframes heartGlowMono{
+  0%{filter:drop-shadow(0 0 3px rgba(255,255,255,.4))}
+  40%{filter:drop-shadow(0 0 10px rgba(255,255,255,.9))}
+  100%{filter:drop-shadow(0 0 3px rgba(255,255,255,.4))}
+}
+
+/* halftone grain over the whole page: the photocopy bite.
+   an SVG turbulence tile at overlay blend, printed not smooth */
+.grain{
+  position:fixed;inset:0;z-index:200;pointer-events:none;
+  opacity:.5;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.34'/%3E%3C/svg%3E");
+}
+@media (prefers-reduced-motion: reduce){
+  .grain{opacity:.35}
+}
