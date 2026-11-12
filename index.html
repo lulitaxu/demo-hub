@@ -5,31 +5,20 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Demo Archive — Arafat Arzu</title>
 <meta name="description" content="Live products and client demos built by Arafat Arzu in Dhaka, Bangladesh. Every project below is real, deployed, and one click away.">
-<script>
-/* Motion gate: initial hidden states in styles.css apply only under .js-motion.
-   Skipped entirely under prefers-reduced-motion. Safety net: if motion.js
-   fails to load, the class is removed again so nothing stays hidden. */
-(function () {
-  if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-  document.documentElement.classList.add("js-motion");
-  window.__motionFallback = window.setTimeout(function () {
-    if (!window.__motionReady) document.documentElement.classList.remove("js-motion");
-  }, 1600);
-})();
-</script>
 <link rel="preconnect" href="https://api.fontshare.com">
-<link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@500,700,800&f[]=switzer@400,500,700&display=swap" rel="stylesheet">
+<link href="https://api.fontshare.com/v2/css?f[]=switzer@400,500,600,700&display=swap" rel="stylesheet">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23FF4A1C'/><text x='50' y='68' font-size='58' text-anchor='middle' font-family='monospace' fill='%230B0B0C'>A</text></svg>">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23141412'/><text x='50' y='68' font-size='58' text-anchor='middle' font-family='monospace' fill='%23F4F1EA'>A</text></svg>">
 </head>
 <body>
+<!-- impeccable-disable cream-palette: warm paper #F4F1EA is the deliberate print-index palette for this page (carried from the hub's own token set and the KOVA demo family), paired with ink text and a single red accent, not a default surface -->
 
 <header class="topbar">
-  <a class="wordmark" href="#top">ARZU<span class="accent">.</span>DEMO</a>
-  <nav class="topnav mono">
-    <a href="#flagships">Flagships</a>
+  <a class="wordmark" href="#top">demo.arafatarzu.me</a>
+  <nav class="topnav">
+    <a href="#products">Products</a>
     <a href="#demos">Client demos</a>
     <a href="#inquiry">Start a project</a>
   </nav>
@@ -38,215 +27,135 @@
 <main id="top">
 
   <section class="hero">
-    <div class="hero-media" aria-hidden="true">
-      <video autoplay muted loop playsinline poster="assets/hero-poster.webp">
-        <source src="assets/hero.webm" type="video/webm">
-        <source src="assets/hero.mp4" type="video/mp4">
-      </video>
-      <div class="hero-scrim"></div>
-    </div>
-    <div class="hero-inner">
-      <p class="mono label">Demo archive · Dhaka, Bangladesh</p>
-      <h1>Working software,<br>live on the internet.</h1>
-      <p class="hero-sub">Every project on this page is deployed and running right now.
-      Open them, click through them, try to break them.</p>
-      <div class="hero-stats mono">
-        <div class="stat"><span class="stat-num">6</span><span class="stat-label">Products live</span></div>
-        <div class="stat"><span class="stat-num">4</span><span class="stat-label">Client demos</span></div>
-        <div class="stat"><span class="stat-num">10</span><span class="stat-label">Sites deployed</span></div>
-        <div class="stat"><span class="stat-num">0</span><span class="stat-label">Templates used</span></div>
-      </div>
-    </div>
-  </section>
-
-  <div class="ticker mono" aria-label="Products and client demos on this page">
-    <div class="ticker-track" id="tickerTrack">
-      <div class="ticker-group">
-        <span class="ticker-item"><span class="ticker-name">ClipHaus</span> Podcast clipping platform</span><span class="ticker-sep" aria-hidden="true"></span>
-        <span class="ticker-item"><span class="ticker-name">Nyktos</span> End-to-end encrypted messenger</span><span class="ticker-sep" aria-hidden="true"></span>
-        <span class="ticker-item"><span class="ticker-name">AuditCanvas</span> Website security auditor</span><span class="ticker-sep" aria-hidden="true"></span>
-        <span class="ticker-item"><span class="ticker-name">Verro</span> Bot protection API</span><span class="ticker-sep" aria-hidden="true"></span>
-        <span class="ticker-item"><span class="ticker-name">Tebil</span> Restaurant system</span><span class="ticker-sep" aria-hidden="true"></span>
-        <span class="ticker-item"><span class="ticker-name">Oshudh</span> Prescription reader</span><span class="ticker-sep" aria-hidden="true"></span>
-        <span class="ticker-item"><span class="ticker-name">Clubhouse DHK</span> Gaming lounge demo</span><span class="ticker-sep" aria-hidden="true"></span>
-        <span class="ticker-item"><span class="ticker-name">Shahor</span> Streetwear demo</span><span class="ticker-sep" aria-hidden="true"></span>
-        <span class="ticker-item"><span class="ticker-name">PrettyPix</span> Boutique demo</span><span class="ticker-sep" aria-hidden="true"></span>
-        <span class="ticker-item"><span class="ticker-name">KOVA</span> Streetwear demo</span>
-      </div>
-      <div class="ticker-group" aria-hidden="true">
-        <span class="ticker-item"><span class="ticker-name">ClipHaus</span> Podcast clipping platform</span><span class="ticker-sep" aria-hidden="true"></span>
-        <span class="ticker-item"><span class="ticker-name">Nyktos</span> End-to-end encrypted messenger</span><span class="ticker-sep" aria-hidden="true"></span>
-        <span class="ticker-item"><span class="ticker-name">AuditCanvas</span> Website security auditor</span><span class="ticker-sep" aria-hidden="true"></span>
-        <span class="ticker-item"><span class="ticker-name">Verro</span> Bot protection API</span><span class="ticker-sep" aria-hidden="true"></span>
-        <span class="ticker-item"><span class="ticker-name">Tebil</span> Restaurant system</span><span class="ticker-sep" aria-hidden="true"></span>
-        <span class="ticker-item"><span class="ticker-name">Oshudh</span> Prescription reader</span><span class="ticker-sep" aria-hidden="true"></span>
-        <span class="ticker-item"><span class="ticker-name">Clubhouse DHK</span> Gaming lounge demo</span><span class="ticker-sep" aria-hidden="true"></span>
-        <span class="ticker-item"><span class="ticker-name">Shahor</span> Streetwear demo</span><span class="ticker-sep" aria-hidden="true"></span>
-        <span class="ticker-item"><span class="ticker-name">PrettyPix</span> Boutique demo</span><span class="ticker-sep" aria-hidden="true"></span>
-        <span class="ticker-item"><span class="ticker-name">KOVA</span> Streetwear demo</span>
-      </div>
-    </div>
-  </div>
-
-  <section id="flagships" class="section">
-    <div class="section-head">
-      <p class="mono label">// Flagships</p>
-      <h2>Products, built end to end</h2>
-    </div>
-
-    <article class="flagship">
-      <a class="flagship-media" href="https://cliphaus.dev" target="_blank" rel="noopener">
-        <img src="assets/shots/cliphaus.webp" alt="ClipHaus homepage: a clipping agency for podcasters with live admin, clipper and creator dashboards">
-      </a>
-      <div class="flagship-body">
-        <p class="mono tag">Agency platform · Live · cliphaus.dev</p>
-        <h3>ClipHaus</h3>
-        <p>A short-form clipping agency for podcasters, run on its own production platform:
-        separate admin, clipper and creator dashboards, a quota ledger, QC pipeline and invoicing.
-        Three founders, real editors, real workflow.</p>
-        <a class="visit mono" href="https://cliphaus.dev" target="_blank" rel="noopener">Visit live <span class="arrow">→</span></a>
-      </div>
-    </article>
-
-    <article class="flagship flip">
-      <a class="flagship-media" href="https://nyktos.tech" target="_blank" rel="noopener">
-        <img src="assets/shots/nyktos.webp" alt="Nyktos homepage: a private end-to-end encrypted messenger">
-      </a>
-      <div class="flagship-body">
-        <p class="mono tag">E2EE messenger · Live · nyktos.tech</p>
-        <h3>Nyktos</h3>
-        <p>A private messenger with true end-to-end encryption. Per-message ephemeral keys,
-        pairwise group encryption, safety numbers, and a server that only ever stores ciphertext.
-        The full protocol spec and threat model are published on its security page.</p>
-        <a class="visit mono" href="https://nyktos.tech" target="_blank" rel="noopener">Visit live <span class="arrow">→</span></a>
-      </div>
-    </article>
-
-    <article class="flagship">
-      <a class="flagship-media" href="https://auditcanvas.vercel.app" target="_blank" rel="noopener">
-        <img src="assets/shots/auditcanvas.webp" alt="AuditCanvas homepage: a website security auditor that shows the evidence behind every finding">
-      </a>
-      <div class="flagship-body">
-        <p class="mono tag">Security auditor · Live · Meta hackathon entry</p>
-        <h3>AuditCanvas</h3>
-        <p>A website security auditor built on one rule: real evidence in, verified remediation out.
-        A deterministic scanner gathers proof, an AI auditor reasons over it and argues against its
-        own findings, and a rescan proves whether a fix actually worked.</p>
-        <a class="visit mono" href="https://auditcanvas.vercel.app" target="_blank" rel="noopener">Visit live <span class="arrow">→</span></a>
-      </div>
-    </article>
-
-    <article class="flagship flip">
-      <a class="flagship-media" href="https://verro-sigma.vercel.app" target="_blank" rel="noopener">
-        <img src="assets/shots/verro.webp" alt="Verro homepage: a human-score API that stops bots before an OTP SMS is spent">
-      </a>
-      <div class="flagship-body">
-        <p class="mono tag">Bot protection API · Live</p>
-        <h3>Verro</h3>
-        <p>A drop-in human-score API for signup, checkout and giveaway forms. One script tag,
-        one server call, a score with deterministic reasons. Built to stop bots before they
-        cost a business money.</p>
-        <a class="visit mono" href="https://verro-sigma.vercel.app" target="_blank" rel="noopener">Visit live <span class="arrow">→</span></a>
-      </div>
-    </article>
-
-    <article class="flagship">
-      <a class="flagship-media" href="https://tebil-demo.web.app" target="_blank" rel="noopener">
-        <img src="assets/shots/tebil.webp" alt="Tebil sales demo: a restaurant system with QR ordering, kitchen screen and online payment">
-      </a>
-      <div class="flagship-body">
-        <p class="mono tag">Restaurant system · Sales demo live</p>
-        <h3>Tebil</h3>
-        <p>A whole-restaurant operating system: QR dine-in ordering, kitchen screen, staff
-        approval rules and online payment through SSLCommerz, in Bengali and English.
-        The demo is fully clickable, order to bill.</p>
-        <a class="visit mono" href="https://tebil-demo.web.app" target="_blank" rel="noopener">Open the demo <span class="arrow">→</span></a>
-      </div>
-    </article>
-
-    <article class="flagship flip">
-      <a class="flagship-media" href="https://oshudh.vercel.app" target="_blank" rel="noopener">
-        <img src="assets/shots/oshudh.webp" alt="Oshudh app: reads handwritten Bangladeshi prescriptions with mixed English and Bangla">
-      </a>
-      <div class="flagship-body">
-        <p class="mono tag">Health tool · Live · CloudCamp entry</p>
-        <h3>Oshudh</h3>
-        <p>Reads handwritten Bangladeshi prescriptions: English drug names, Bangla instructions,
-        and local dosing shorthand like 1+0+1, parsed into a clear medicine schedule.
-        Built with Team Flexus for the CloudCamp AI Builders Congress.</p>
-        <a class="visit mono" href="https://oshudh.vercel.app" target="_blank" rel="noopener">Visit live <span class="arrow">→</span></a>
-      </div>
-    </article>
+    <h1>Every link on this page is live.</h1>
+    <p class="hero-sub">Products and client demos built by Arafat Arzu in Dhaka, Bangladesh.
+    Open them, click through them, try to break them.</p>
   </section>
 
   <section id="demos" class="section">
     <div class="section-head">
-      <p class="mono label">// Client demos</p>
-      <h2>Built to show a business its own website</h2>
-      <p class="section-sub">Each demo below was made for a real category of Dhaka business,
-      so an owner can see exactly what their customers would get.</p>
+      <h2>Latest client demo</h2>
     </div>
 
-    <div class="demo-grid">
-      <article class="demo-card">
-        <a class="demo-media" href="https://clubhouse-dhk-49535.web.app" target="_blank" rel="noopener">
-          <img src="assets/shots/clubhouse.webp" alt="CLUBHOUSE DHK demo: a gaming lounge website with booking and pricing">
-        </a>
-        <p class="mono tag">Gaming lounge · Dhanmondi</p>
-        <h3>CLUBHOUSE DHK</h3>
-        <p>Booking-first site for a gaming zone: stations, rates and reservations up front.</p>
-        <a class="visit mono" href="https://clubhouse-dhk-49535.web.app" target="_blank" rel="noopener">Open demo <span class="arrow">→</span></a>
-      </article>
+    <article class="feature">
+      <a class="feature-media" href="/thrift/">
+        <img src="/thrift/images/real-01.jpg?v=1126" alt="Ajaira Thrift demo: a vintage Adidas puffer jacket from the shop's real catalogue" fetchpriority="high">
+      </a>
+      <div class="feature-body">
+        <p class="feature-meta"><span>Ajaira Thrift</span><span class="dot" aria-hidden="true">·</span><span>Dhaka</span></p>
+        <h3>A working shop for a real thrift store</h3>
+        <p>Built for Ajaira Thrift, a Dhaka vintage shop with 12,000 followers. The demo runs their
+        real catalogue: their own product photos, their prices, their chest and length measurements,
+        one piece per item. Bag, checkout form, delivery zones and WhatsApp ordering all work.</p>
+        <a class="visit" href="/thrift/">Open the demo <span class="arrow" aria-hidden="true">→</span></a>
+      </div>
+    </article>
+  </section>
 
-      <article class="demo-card">
-        <a class="demo-media" href="https://shahor-streetwear-demo.web.app" target="_blank" rel="noopener">
-          <img src="assets/shots/shahor.webp" alt="SHAHOR demo: a streetwear store with cart and WhatsApp ordering">
-        </a>
-        <p class="mono tag">Streetwear store</p>
-        <h3>SHAHOR</h3>
-        <p>A streetwear shop with cart, WhatsApp ordering and bKash, Nagad and cash on delivery.</p>
-        <a class="visit mono" href="https://shahor-streetwear-demo.web.app" target="_blank" rel="noopener">Open demo <span class="arrow">→</span></a>
-      </article>
+  <section id="products" class="section">
+    <div class="section-head">
+      <h2>Products</h2>
+      <p class="section-note">Built end to end, deployed, and running now.</p>
+    </div>
 
-      <article class="demo-card">
-        <a class="demo-media" href="https://arz-shop-demo.web.app" target="_blank" rel="noopener">
-          <img src="assets/shots/prettypix.webp" alt="PrettyPix demo: a hijab shop with product catalogue and WhatsApp ordering">
-        </a>
-        <p class="mono tag">Boutique shop</p>
-        <h3>PrettyPix</h3>
-        <p>A boutique storefront with a product catalogue, taka pricing and order by WhatsApp.</p>
-        <a class="visit mono" href="https://arz-shop-demo.web.app" target="_blank" rel="noopener">Open demo <span class="arrow">→</span></a>
-      </article>
+    <div class="index-list">
+      <a class="row" href="https://cliphaus.dev" target="_blank" rel="noopener">
+        <span class="row-num">01</span>
+        <span class="row-main"><span class="row-name">ClipHaus</span><span class="row-desc">Podcast clipping platform</span></span>
+        <span class="row-status">Live</span>
+        <span class="row-domain">cliphaus.dev</span>
+        <span class="row-arrow" aria-hidden="true">→</span>
+      </a>
+      <a class="row" href="https://nyktos.tech" target="_blank" rel="noopener">
+        <span class="row-num">02</span>
+        <span class="row-main"><span class="row-name">Nyktos</span><span class="row-desc">End-to-end encrypted messenger</span></span>
+        <span class="row-status">Live</span>
+        <span class="row-domain">nyktos.tech</span>
+        <span class="row-arrow" aria-hidden="true">→</span>
+      </a>
+      <a class="row" href="https://auditcanvas.vercel.app" target="_blank" rel="noopener">
+        <span class="row-num">03</span>
+        <span class="row-main"><span class="row-name">AuditCanvas</span><span class="row-desc">Website security auditor</span></span>
+        <span class="row-status">Live</span>
+        <span class="row-domain">auditcanvas.vercel.app</span>
+        <span class="row-arrow" aria-hidden="true">→</span>
+      </a>
+      <a class="row" href="https://verro-sigma.vercel.app" target="_blank" rel="noopener">
+        <span class="row-num">04</span>
+        <span class="row-main"><span class="row-name">Verro</span><span class="row-desc">Bot protection API</span></span>
+        <span class="row-status">Live</span>
+        <span class="row-domain">verro-sigma.vercel.app</span>
+        <span class="row-arrow" aria-hidden="true">→</span>
+      </a>
+      <a class="row" href="https://tebil-demo.web.app" target="_blank" rel="noopener">
+        <span class="row-num">05</span>
+        <span class="row-main"><span class="row-name">Tebil</span><span class="row-desc">Restaurant operating system</span></span>
+        <span class="row-status">Demo</span>
+        <span class="row-domain">tebil-demo.web.app</span>
+        <span class="row-arrow" aria-hidden="true">→</span>
+      </a>
+      <a class="row" href="https://oshudh.vercel.app" target="_blank" rel="noopener">
+        <span class="row-num">06</span>
+        <span class="row-main"><span class="row-name">Oshudh</span><span class="row-desc">Handwritten prescription reader</span></span>
+        <span class="row-status">Live</span>
+        <span class="row-domain">oshudh.vercel.app</span>
+        <span class="row-arrow" aria-hidden="true">→</span>
+      </a>
+    </div>
+  </section>
 
-      <article class="demo-card">
-        <a class="demo-media" href="/kova/" target="_blank" rel="noopener">
-          <img src="assets/shots/kova.webp" alt="KOVA demo: a heavyweight streetwear store with working cart and product pages">
-        </a>
-        <p class="mono tag">Streetwear store · Fictional demo</p>
-        <h3>KOVA</h3>
-        <p>Heavyweight streetwear designed in Dhaka: oversized cropped type, working cart, size-gated product pages and taka pricing.</p>
-        <a class="visit mono" href="/kova/" target="_blank" rel="noopener">Open demo <span class="arrow">→</span></a>
-      </article>
+  <section class="section">
+    <div class="section-head">
+      <h2>More client demos</h2>
+      <p class="section-note">Each one shows a business exactly what its customers would get.</p>
+    </div>
+
+    <div class="index-list">
+      <a class="row" href="/kova/">
+        <span class="row-num">01</span>
+        <span class="row-main"><span class="row-name">KOVA</span><span class="row-desc">Streetwear store, working cart and product pages</span></span>
+        <span class="row-status">Demo</span>
+        <span class="row-domain">/kova/</span>
+        <span class="row-arrow" aria-hidden="true">→</span>
+      </a>
+      <a class="row" href="https://clubhouse-dhk-49535.web.app" target="_blank" rel="noopener">
+        <span class="row-num">02</span>
+        <span class="row-main"><span class="row-name">Clubhouse DHK</span><span class="row-desc">Gaming lounge, booking and pricing</span></span>
+        <span class="row-status">Demo</span>
+        <span class="row-domain">clubhouse-dhk-49535.web.app</span>
+        <span class="row-arrow" aria-hidden="true">→</span>
+      </a>
+      <a class="row" href="https://shahor-streetwear-demo.web.app" target="_blank" rel="noopener">
+        <span class="row-num">03</span>
+        <span class="row-main"><span class="row-name">Shahor</span><span class="row-desc">Streetwear store, cart and WhatsApp ordering</span></span>
+        <span class="row-status">Demo</span>
+        <span class="row-domain">shahor-streetwear-demo.web.app</span>
+        <span class="row-arrow" aria-hidden="true">→</span>
+      </a>
+      <a class="row" href="https://arz-shop-demo.web.app" target="_blank" rel="noopener">
+        <span class="row-num">04</span>
+        <span class="row-main"><span class="row-name">PrettyPix</span><span class="row-desc">Boutique shop, catalogue and WhatsApp ordering</span></span>
+        <span class="row-status">Demo</span>
+        <span class="row-domain">arz-shop-demo.web.app</span>
+        <span class="row-arrow" aria-hidden="true">→</span>
+      </a>
     </div>
   </section>
 
   <section id="inquiry" class="inquiry">
-    <p class="mono label">// Start a project</p>
-    <h2>Want one built<br>for your business?</h2>
-    <p class="inquiry-sub">Websites, dashboards and full platforms, designed properly and
-    shipped fast. Tell me what you are building.</p>
-    <a class="cta mono" href="mailto:contact@arafatarzu.me">contact@arafatarzu.me <span class="arrow">→</span></a>
+    <h2>Want one built for your business?</h2>
+    <p class="inquiry-sub">Websites, dashboards and full platforms, designed properly and shipped fast.
+    Tell me what you are building.</p>
+    <a class="cta" href="mailto:contact@arafatarzu.me">contact@arafatarzu.me <span class="arrow" aria-hidden="true">→</span></a>
   </section>
 
 </main>
 
-<footer class="footer mono">
+<footer class="footer">
   <span>© 2026 Arafat Arzu</span>
-  <span>Hero footage: Coverr</span>
   <span>Dhaka, Bangladesh</span>
   <a href="https://arafatarzu.me">arafatarzu.me</a>
 </footer>
 
-<script src="motion.js"></script>
 </body>
 </html>
