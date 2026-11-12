@@ -24,8 +24,10 @@
 html{scroll-behavior:smooth;overflow-x:hidden;-webkit-text-size-adjust:100%}
 body{background:var(--paper);color:var(--ink);font-family:'Archivo',sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden;position:relative}
 img{display:block;max-width:100%}
-button{font-family:inherit;cursor:pointer;color:inherit;-webkit-appearance:none;appearance:none;background:none}
+button{font-family:inherit;cursor:pointer;color:inherit;-webkit-appearance:none;appearance:none;background:none;touch-action:manipulation}
 input{-webkit-appearance:none;appearance:none;border-radius:0}
+*{-webkit-tap-highlight-color:transparent}
+body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(480px circle at var(--mx,50%) var(--my,30%),rgba(255,77,141,.13),rgba(255,77,141,0) 62%),radial-gradient(rgba(22,19,14,.13) 1.2px,transparent 1.3px);background-size:auto,22px 22px}
 .mono{font-family:'IBM Plex Mono',monospace}
 
 /* ---------- ticker ---------- */
@@ -62,14 +64,14 @@ nav.main a:hover{color:var(--pink)}
 .hero-meta div{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase}
 .hero-meta b{display:block;font-size:15px;letter-spacing:0;margin-bottom:2px}
 .hero-photo{position:relative}
-.hero-photo .frame{border:2.5px solid var(--ink);box-shadow:8px 8px 0 var(--pink);background:#fff}
+.hero-photo .frame{border:2.5px solid var(--ink);box-shadow:8px 8px 0 var(--pink);background:#fff;transform:translateY(var(--py,0px))}
 .hero-photo img{width:100%;height:520px;object-fit:cover}
 .tape{position:absolute;width:110px;height:28px;background:rgba(255,217,232,.85);border-left:2px dashed rgba(22,19,14,.25);border-right:2px dashed rgba(22,19,14,.25);z-index:2}
 .tape.t1{top:-12px;left:34px;transform:rotate(-5deg)}
 .tape.t2{bottom:-12px;right:34px;transform:rotate(4deg)}
 .sticker{position:absolute;z-index:3;background:var(--pink);color:#fff;border:2px solid var(--ink);box-shadow:3px 3px 0 var(--ink);font-weight:900;text-transform:uppercase;letter-spacing:.04em;padding:8px 14px;font-size:13px}
-.sticker.s1{top:26px;right:-12px;transform:rotate(5deg)}
-.sticker.s2{bottom:64px;left:-16px;transform:rotate(-6deg);background:var(--ink);color:var(--paper)}
+.sticker.s1{top:26px;right:-12px;transform:rotate(5deg) translateY(var(--py2,0px))}
+.sticker.s2{bottom:64px;left:-16px;transform:rotate(-6deg) translateY(var(--py3,0px));background:var(--ink);color:var(--paper)}
 .price-tag{position:absolute;z-index:3;right:18px;bottom:-18px;background:#fff;border:2px solid var(--ink);box-shadow:3px 3px 0 var(--ink);padding:8px 14px;transform:rotate(-3deg)}
 .price-tag .mono{font-size:11px;letter-spacing:.12em;text-transform:uppercase;display:block}
 .price-tag b{font-size:20px}
@@ -183,7 +185,20 @@ footer{margin-top:60px;border-top:2.5px solid var(--ink)}
   .modal{grid-template-columns:1fr}
   .modal .mph img{border-right:none;border-bottom:2.5px solid var(--ink);min-height:260px;height:300px}
 }
-@media (max-width:640px){.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.card .ph img{height:210px}.search{margin-left:0}.search input{width:170px}.spec{overflow-wrap:anywhere}.logo svg{height:42px}}
+/* ---------- touch feedback ---------- */
+.btn-solid:active{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--ink)}
+.btn-ghost:active{background:var(--pink-soft)}
+.chip:active{transform:translate(1px,1px);box-shadow:1px 1px 0 var(--ink)}
+.add-btn:active{background:var(--pink);transform:scale(.94)}
+.card:active{transform:scale(.985)}
+.size-pill:active{background:var(--pink-soft)}
+.qty button:active{background:var(--pink);color:#fff}
+.wa-btn:active{background:var(--pink-soft)}
+.x-btn:active{background:var(--pink-soft)}
+.bag-btn.pop{animation:pop .35s cubic-bezier(.32,.72,0,1)}
+@keyframes pop{35%{transform:scale(1.13)}}
+
+@media (max-width:640px){.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.card .ph img{height:210px}.search{margin-left:0}.search input{width:170px}.spec{overflow-wrap:anywhere}.logo svg{height:42px}.chip{padding:11px 16px}.add-btn{padding:11px 15px}.qty button{width:30px;height:30px}.bag-btn{padding:11px 16px}.rm{padding:6px 2px}}
 @media (prefers-reduced-motion:reduce){
   .ticker-track{animation:none}
   html{scroll-behavior:auto}
@@ -375,6 +390,8 @@ function addToCart(slug){
   cur.qty = Math.min(cur.qty + 1, Math.max(p.stock,1));
   cart.set(slug, cur);
   syncBag(); toast(`Added: ${p.name}`);
+  const bb = document.getElementById("bagBtn");
+  bb.classList.remove("pop"); void bb.offsetWidth; bb.classList.add("pop");
 }
 function syncBag(){
   let count = 0, sub = 0;
@@ -469,6 +486,37 @@ function toast(msg){
   t.textContent = msg; t.classList.add("show");
   clearTimeout(toastTimer); toastTimer = setTimeout(()=>t.classList.remove("show"), 2400);
 }
+/* Interactive background: glow follows finger/cursor, hero pieces drift on scroll */
+(function(){
+  const root = document.documentElement;
+  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  let gx = innerWidth/2, gy = innerHeight*0.3, tx = gx, ty = gy, raf = null;
+  function loop(){
+    gx += (tx-gx)*0.16; gy += (ty-gy)*0.16;
+    root.style.setProperty("--mx", gx+"px");
+    root.style.setProperty("--my", gy+"px");
+    if(Math.abs(tx-gx) > .5 || Math.abs(ty-gy) > .5) raf = requestAnimationFrame(loop);
+    else raf = null;
+  }
+  window.addEventListener("pointermove", e=>{
+    tx = e.clientX; ty = e.clientY;
+    if(!raf) raf = requestAnimationFrame(loop);
+  }, {passive:true});
+  if(!reduce){
+    let ticking = false;
+    window.addEventListener("scroll", ()=>{
+      if(ticking) return; ticking = true;
+      requestAnimationFrame(()=>{
+        const sy = Math.min(window.scrollY, 900);
+        root.style.setProperty("--py", (sy*-0.035)+"px");
+        root.style.setProperty("--py2", (sy*0.055)+"px");
+        root.style.setProperty("--py3", (sy*-0.065)+"px");
+        ticking = false;
+      });
+    }, {passive:true});
+  }
+})();
+
 render(); syncBag();
 </script>
 </body>
