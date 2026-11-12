@@ -147,7 +147,7 @@ footer{margin-top:60px;border-top:2.5px solid var(--ink)}
 .drawer.open{transform:none;visibility:visible;transition:transform .28s cubic-bezier(.32,.72,0,1)}
 .drawer header{position:static;border-bottom:2.5px solid var(--ink);padding:16px 18px;display:flex;justify-content:space-between;align-items:center;background:var(--pink-soft)}
 .drawer h3{font-family:'Archivo Black',sans-serif;font-size:19px;text-transform:uppercase}
-.x-btn{background:#fff;border:2px solid var(--ink);width:34px;height:34px;font-weight:900;font-size:15px;line-height:1}
+.x-btn{background:#fff;border:2px solid var(--ink);width:42px;height:42px;font-weight:900;font-size:15px;line-height:1}
 .cart-items{flex:1;overflow-y:auto;padding:16px 18px;display:flex;flex-direction:column;gap:14px}
 .cart-item{display:grid;grid-template-columns:64px 1fr auto;gap:12px;border:2px solid var(--ink);background:#fff;padding:8px;align-items:center}
 .cart-item img{width:64px;height:64px;object-fit:cover;border:1.5px solid var(--ink)}
@@ -416,7 +416,7 @@ html.gated{overflow:hidden}
 .splash .lg-word{fill:#F5EFE4;stroke:#0D0B09}
 .splash .lg-sub{fill:#F5EFE4}
 .splash-tag{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.3em;text-transform:uppercase;opacity:.75;margin-top:26px}
-.splash-enter{margin-top:34px;background:none;border:none;cursor:pointer;font-family:'Archivo Black',sans-serif;font-style:italic;font-size:clamp(27px,7.5vw,40px);letter-spacing:.05em;color:#FFFFFF;text-shadow:0 0 10px rgba(255,255,255,.85),0 0 38px rgba(255,255,255,.50),0 0 84px rgba(255,255,255,.30);animation:enterglow 2.6s ease-in-out infinite;transition:transform .12s}
+.splash-enter{margin-top:34px;background:none;border:none;cursor:pointer;padding:16px 36px;font-family:'Archivo Black',sans-serif;font-style:italic;font-size:clamp(27px,7.5vw,40px);letter-spacing:.05em;color:#FFFFFF;text-shadow:0 0 10px rgba(255,255,255,.85),0 0 38px rgba(255,255,255,.50),0 0 84px rgba(255,255,255,.30);animation:enterglow 2.6s ease-in-out infinite;transition:transform .12s}
 .splash-enter:active{transform:scale(.95)}
 @keyframes enterglow{0%,100%{text-shadow:0 0 8px rgba(255,255,255,.70),0 0 30px rgba(255,255,255,.40),0 0 70px rgba(255,255,255,.22)}50%{text-shadow:0 0 14px rgba(255,255,255,1),0 0 48px rgba(255,255,255,.65),0 0 110px rgba(255,255,255,.40)}}
 .splash-note{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;opacity:.55;margin-top:18px}
@@ -495,6 +495,9 @@ body.entered .hero p.lede{animation-delay:.12s}
 /* Original Ajaira Thrift logo (from their Instagram, 2026-11-12): black knocked out with screen blend */
 .splash-logo img{width:min(52vw,190px);height:auto;animation:logoflip 6s ease-in-out infinite;filter:drop-shadow(0 6px 24px rgba(0,0,0,.45))}
 .logo-img{height:50px;width:50px;object-fit:contain;display:block}
+.logo-spin{animation:logospin 10s linear infinite;will-change:transform}
+@keyframes logospin{to{transform:rotate(360deg)}}
+@media (prefers-reduced-motion:reduce){.logo-spin{animation:none}}
 @media (prefers-reduced-motion:reduce){.splash-logo img{animation:none}}
 </style>
 </head>
@@ -515,7 +518,7 @@ body.entered .hero p.lede{animation-delay:.12s}
 
 <header>
   <div class="header-in">
-    <a class="logo" href="#" aria-label="Ajaira Thrift home"><img class="logo-img" src="/thrift/images/ajaira-logo.png?v=1126" alt="Ajaira Thrift logo"></a>
+    <a class="logo" href="#" aria-label="Ajaira Thrift home"><img class="logo-img logo-spin" src="/thrift/images/ajaira-logo.png?v=1126" alt="Ajaira Thrift logo"></a>
     <nav class="main">
       <a href="#catalogue">Catalogue</a>
       <a href="#how">How it works</a>
@@ -721,14 +724,14 @@ function render(){
   document.getElementById("countLine").textContent = list.length + (list.length===1 ? " piece" : " pieces") + " · " + activeCat;
   const grid = document.getElementById("grid");
   if(!list.length){ grid.innerHTML = `<div class="empty">Nothing on this rack right now. Check back after the next drop.</div>`; return; }
-  grid.innerHTML = list.map(p=>{
+  grid.innerHTML = list.map((p,idx)=>{
     const st = statusOf(p);
     const off = p.was ? Math.round((1 - p.price/p.was)*100) : 0;
     return `<article class="card" data-slug="${p.slug}">
       <div class="ph">
         <span class="badge ${st.cls}"><span class="dot"></span>${st.label}</span>
         ${off ? `<span class="off-tag">-${off}%</span>` : ``}
-        <img src="${p.img}" alt="${p.name}" loading="eager" decoding="async">
+        <img src="${p.img}" alt="${p.name}" loading="${idx<4?'eager':'lazy'}" decoding="async">
       </div>
       <div class="body">
         <h3>${p.name}</h3>
@@ -778,7 +781,7 @@ function syncBag(){
   if(!count){ box.innerHTML = `<div class="cart-empty">Bag's empty.<br>The good stuff doesn't wait around.</div>`; return; }
   box.innerHTML = [...cart.values()].map(({p,qty,size})=>`
     <div class="cart-item">
-      <img src="${p.img}" alt="${p.name}">
+      <img src="${p.img}" alt="${p.name}" loading="lazy" decoding="async">
       <div>
         <h5>${p.name}</h5>
         <p class="mono">${p.sku} · Size ${size}</p>
@@ -866,7 +869,7 @@ function openModal(slug){
   const off = p.was ? Math.round((1 - p.price/p.was)*100) : 0;
   modal.innerHTML = `
     <button class="x-btn" id="modalClose" aria-label="Close">✕</button>
-    <div class="mph"><img src="${p.img}" alt="${p.name}"></div>
+    <div class="mph"><img src="${p.img}" alt="${p.name}" loading="lazy" decoding="async"></div>
     <div class="minfo">
       <span class="badge ${st.cls}" style="position:static"><span class="dot"></span>${st.label}</span>
       <h3>${p.name}</h3>
