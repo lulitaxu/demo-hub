@@ -222,9 +222,9 @@ footer{margin-top:60px;border-top:2.5px solid var(--ink)}
   *{transition:none!important}
 }
 
-.splash-enter .gl{display:inline-block;text-shadow:0 0 12px rgba(255,255,255,.22);animation:glwave 6s linear infinite;animation-delay:calc(var(--i)*.12s)}
+.splash-enter .gl,.hero h1 .pink .gl{display:inline-block;text-shadow:0 0 12px rgba(255,255,255,.22);animation:glwave 6s linear infinite;animation-delay:calc(var(--i)*.12s)}
 @keyframes glwave{0%,34%,88%,100%{text-shadow:0 0 12px rgba(255,255,255,.22)}6%{text-shadow:0 0 30px rgba(255,255,255,.98),0 0 70px rgba(255,255,255,.6)}}
-@media (prefers-reduced-motion:reduce){.splash-enter .gl{animation:none}}
+@media (prefers-reduced-motion:reduce){.splash-enter .gl,.hero h1 .pink .gl{animation:none}}
 </style>
 <style id="restraint">
 /* Restraint pass: Ajaira-faithful. Photography leads, chrome steps back. */
@@ -971,7 +971,7 @@ sp.classList.add("gone");document.documentElement.classList.remove("gated");
 setTimeout(function(){sp.remove()},820);});})();
 </script>
 <script>
-(function(){var se=document.getElementById("splashEnter");if(se){se.innerHTML=se.textContent.trim().split("").map(function(c,i){return '<span class="gl" style="--i:'+i+'">'+c+'</span>'}).join("");}})();
+(function(){function split(el){if(!el)return;el.innerHTML=el.textContent.trim().split("").map(function(c,i){return '<span class="gl" style="--i:'+i+'">'+(c===" "?"&nbsp;":c)+'</span>'}).join("");}split(document.getElementById("splashEnter"));split(document.querySelector(".hero h1 .pink"));})();
 </script>
 </body>
 </html>
