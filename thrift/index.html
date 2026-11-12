@@ -400,7 +400,10 @@ body.paused .ticker-track{animation-play-state:paused}
 html.no-splash .splash{display:none}
 html.gated{overflow:hidden}
 .splash{position:fixed;inset:0;z-index:200;background:#0D0B09 url(media/splash-poster.jpg) center/cover no-repeat;color:#F5EFE4;display:flex;align-items:center;justify-content:center;overflow:hidden;transition:transform .75s cubic-bezier(.32,.72,0,1)}
-.splash-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.splash-poster{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;animation:posterzoom 16s ease-in-out infinite alternate}
+@keyframes posterzoom{from{transform:scale(1)}to{transform:scale(1.14)}}
+.splash-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .8s ease;pointer-events:none}
+.splash-video.on{opacity:1}
 .splash::before{content:"";position:absolute;inset:0;background:radial-gradient(560px circle at 50% 28%,rgba(199,203,212,.16),rgba(0,0,0,0) 65%),linear-gradient(rgba(9,7,6,.48),rgba(9,7,6,.74))}
 .splash.gone{transform:translateY(-101%)}
 .splash-inner{position:relative;text-align:center;padding:24px 20px 64px}
@@ -419,7 +422,7 @@ html.gated{overflow:hidden}
 .splash-ticker{position:absolute;left:0;right:0;bottom:0;border-top:1px solid rgba(245,239,228,.18);padding:11px 0;overflow:hidden}
 .splash-ticker-track{display:inline-flex;white-space:nowrap;animation:splashmarq 24s linear infinite;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.22em}
 @keyframes splashmarq{to{transform:translateX(-50%)}}
-@media (prefers-reduced-motion:reduce){.splash-video{display:none}.splash-logo svg{animation:none}.splash-enter{animation:none}.splash-ticker-track{animation:none}.splash{transition:none}}
+@media (prefers-reduced-motion:reduce){.splash-video{display:none}.splash-poster{animation:none}.splash-logo svg{animation:none}.splash-enter{animation:none}.splash-ticker-track{animation:none}.splash{transition:none}}
 </style>
 
 <style>
@@ -436,6 +439,7 @@ html.gated{overflow:hidden}
 </head>
 <body>
 <div class="splash" id="splash" role="dialog" aria-modal="true" aria-label="Ajaira Thrift entrance">
+  <img class="splash-poster" src="media/splash-poster.jpg" alt="" aria-hidden="true">
   <video class="splash-video" autoplay muted loop playsinline preload="auto" poster="media/splash-poster.jpg" aria-hidden="true"><source src="media/splash-storm.mp4" type="video/mp4"></video>
   <div class="splash-inner">
     <div class="splash-logo"><svg viewBox="0 4 320 120" role="img" aria-label="Ajaira Thrift logo"><ellipse class="lg-ring" cx="160" cy="62" rx="148" ry="44" fill="none" stroke-width="5" transform="rotate(-9 160 62)"/><path d="M0-13 C1.8-4.5 4.5-1.8 13 0 C4.5 1.8 1.8 4.5 0 13 C-1.8 4.5 -4.5 1.8 -13 0 C-4.5-1.8 -1.8-4.5 0-13Z" transform="translate(302,37) scale(.85)" class="lg-star" stroke-width="2.5"/><path d="M0-13 C1.8-4.5 4.5-1.8 13 0 C4.5 1.8 1.8 4.5 0 13 C-1.8 4.5 -4.5 1.8 -13 0 C-4.5-1.8 -1.8-4.5 0-13Z" transform="translate(20,88) scale(.65)" class="lg-star" stroke-width="2.5"/><text x="160" y="72" text-anchor="middle" font-family="'Archivo Black',sans-serif" font-size="62" font-style="italic" class="lg-word" stroke-width="10" paint-order="stroke" stroke-linejoin="round">ajaira</text><text x="164" y="99" text-anchor="middle" font-family="'IBM Plex Mono',monospace" font-weight="600" font-size="15" letter-spacing="10" class="lg-sub">THRIFT</text></svg></div>
@@ -806,6 +810,11 @@ render(); syncBag();
 (function(){var sp=document.getElementById("splash");if(!sp)return;
 if(document.documentElement.classList.contains("no-splash")){sp.remove();return;}
 document.documentElement.classList.add("gated");
+var v=document.querySelector(".splash-video");
+if(v){var kick=function(){var p=v.play();if(p&&p.catch)p.catch(function(){})};
+v.addEventListener("playing",function(){v.classList.add("on")});
+v.addEventListener("canplay",kick);kick();
+document.addEventListener("touchstart",kick,{once:true});}
 document.getElementById("splashEnter").addEventListener("click",function(){
 try{sessionStorage.setItem("ajaira-entered","1")}catch(e){}
 sp.classList.add("gone");document.documentElement.classList.remove("gated");
