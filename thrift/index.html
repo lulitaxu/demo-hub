@@ -63,6 +63,10 @@ header{position:sticky;top:0;z-index:40;background:var(--paper);border-bottom:2p
 nav.main{display:flex;gap:22px}
 nav.main a{color:var(--ink);text-decoration:none;font-weight:700;font-size:13px;letter-spacing:.08em;text-transform:uppercase}
 nav.main a:hover{color:var(--pink)}
+nav.main a{position:relative}
+nav.main a::before{content:'';position:absolute;left:0;top:calc(100% + 5px);width:100%;height:2px;background:var(--ink);pointer-events:none;transform-origin:100% 50%;transform:scale3d(0,1,1);transition:transform .32s cubic-bezier(.22,1,.36,1)}
+nav.main a:hover::before,nav.main a:focus-visible::before{transform-origin:0% 50%;transform:scale3d(1,1,1)}
+#catalogue,#how{scroll-margin-top:84px}
 .bag-btn{background:var(--ink);color:var(--paper);border:2px solid var(--ink);padding:9px 16px;font-weight:700;font-size:13px;letter-spacing:.06em;text-transform:uppercase;box-shadow:3px 3px 0 var(--pink);transition:transform .12s,box-shadow .12s}
 .bag-btn:hover{transform:translate(-1px,-1px);box-shadow:4px 4px 0 var(--pink)}
 .bag-btn:active{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--pink)}
@@ -191,7 +195,7 @@ footer{margin-top:60px;border-top:2.5px solid var(--ink)}
 @media (max-width:820px){
   .hero{grid-template-columns:1fr;padding-top:36px}
   .hero-photo img{height:400px}
-  nav.main{display:none}
+  nav.main{display:flex;gap:13px}nav.main a{font-size:10.5px;letter-spacing:.04em}
   .how-in{grid-template-columns:1fr}
   .how-cell{border-right:none;border-bottom:2px dashed rgba(22,19,14,.35)}
   .how-cell:last-child{border-bottom:none}
@@ -217,6 +221,10 @@ footer{margin-top:60px;border-top:2.5px solid var(--ink)}
   html{scroll-behavior:auto}
   *{transition:none!important}
 }
+
+.splash-enter .gl{display:inline-block;text-shadow:0 0 12px rgba(255,255,255,.22);animation:glwave 6s linear infinite;animation-delay:calc(var(--i)*.12s)}
+@keyframes glwave{0%,34%,88%,100%{text-shadow:0 0 12px rgba(255,255,255,.22)}6%{text-shadow:0 0 30px rgba(255,255,255,.98),0 0 70px rgba(255,255,255,.6)}}
+@media (prefers-reduced-motion:reduce){.splash-enter .gl{animation:none}}
 </style>
 <style id="restraint">
 /* Restraint pass: Ajaira-faithful. Photography leads, chrome steps back. */
@@ -646,22 +654,22 @@ body.entered .hero p.lede{animation-delay:.12s}
 <script>
 window.__ajairaBooted = true;
 const PRODUCTS = [
- {slug:"dhaka-cotton-panjabi",name:"Indigo Cotton Shirt",sku:"SHR-001",price:1850,was:2200,cat:"Fashion",stock:42,sizes:["M","L","XL"],desc:"Lightweight cotton shirt with an all-over micro print.",img:"/thrift/images/dhaka-cotton-panjabi-v2.jpg?v=1126"},
- {slug:"premium-polo-shirt",name:"Premium Polo Shirt",sku:"POLO-002",price:950,was:0,cat:"Fashion",stock:120,sizes:["M","L"],desc:"Pique cotton polo with reinforced collar.",img:"/thrift/images/premium-polo-shirt-v2.jpg?v=1126"},
- {slug:"slim-fit-jeans",name:"Slim Fit Jeans",sku:"JNS-003",price:1650,was:1900,cat:"Fashion",stock:67,sizes:["32","34"],desc:"Stretch denim slim fit jeans.",img:"/thrift/images/slim-fit-jeans-v2.jpg?v=1126"},
- {slug:"running-sneakers",name:"Running Sneakers",sku:"SNK-004",price:2850,was:3200,cat:"Footwear",stock:35,sizes:["41","42","43"],desc:"Lightweight mesh running shoes.",img:"/thrift/images/running-sneakers-v2.jpg?v=1126"},
- {slug:"leather-loafers",name:"Suede Desert Boots",sku:"BOT-005",price:3400,was:0,cat:"Footwear",stock:18,sizes:["41","42"],desc:"Suede desert boots, handmade in Dhaka.",img:"/thrift/images/leather-loafers-v2.jpg?v=1126"},
- {slug:"last-pair-limited-sneakers",name:"Last Pair Limited Sneakers",sku:"SNK-LTD-006",price:4500,was:0,cat:"Footwear",stock:1,sizes:["42"],desc:"Limited run. Only one pair in stock.",img:"/thrift/images/last-pair-limited-sneakers-v2.jpg?v=1126"},
- {slug:"canvas-tote-bag",name:"Structured Leather Handbag",sku:"BAG-007",price:650,was:800,cat:"Accessories",stock:200,sizes:["One size"],desc:"Structured leather handbag with top handle and clasp.",img:"/thrift/images/canvas-tote-bag-v2.jpg?v=1126"},
- {slug:"minimal-leather-wallet",name:"Minimal Leather Wallet",sku:"WLT-008",price:850,was:0,cat:"Accessories",stock:85,sizes:["One size"],desc:"Full grain leather bifold wallet.",img:"/thrift/images/minimal-leather-wallet-v2.jpg?v=1126"},
- {slug:"aviator-sunglasses",name:"Aviator Sunglasses",sku:"SUN-009",price:1250,was:1500,cat:"Accessories",stock:0,sizes:["One size"],desc:"Polarised aviator sunglasses.",img:"/thrift/images/aviator-sunglasses-v2.jpg?v=1126"},
- {slug:"wireless-earbuds-pro",name:"Wireless Earbuds Pro",sku:"EBD-010",price:2450,was:2990,cat:"Electronics",stock:54,sizes:["One size"],desc:"Bluetooth 5.3 earbuds with ENC and 30h case.",img:"/thrift/images/wireless-earbuds-pro-v2.jpg?v=1126"},
- {slug:"analog-steel-watch",name:"Minimal Smart Watch",sku:"WCH-011",price:2750,was:3200,cat:"Electronics",stock:300,sizes:["One size"],desc:"Minimal smart watch with a clean round face and sport strap.",img:"/thrift/images/analog-steel-watch-v2.jpg?v=1126"},
- {slug:"cotton-hoodie",name:"Cotton Hoodie",sku:"HOD-012",price:1450,was:1750,cat:"Fashion",stock:8,sizes:["M","L"],desc:"320 GSM brushed fleece hoodie. Low stock.",img:"/thrift/images/cotton-hoodie-v2.jpg?v=1126"},
- {slug:"formal-oxford-shirt",name:"Formal Oxford Shirt",sku:"SHT-013",price:1350,was:0,cat:"Fashion",stock:73,sizes:["M","L"],desc:"Wrinkle resistant oxford shirt.",img:"/thrift/images/formal-oxford-shirt-v2.jpg?v=1126"},
- {slug:"leather-biker-jacket",name:"Vintage Leather Biker Jacket",sku:"JKT-015",price:3850,was:4600,cat:"Fashion",stock:3,sizes:["M","L"],desc:"Heavyweight vintage biker jacket with asymmetric zip.",img:"/thrift/images/leather-biker-jacket-v2.jpg?v=1126"}
+ {slug:"adidas-puffer-navy",name:"Adidas Puffer Jacket — Navy",sku:"AJ-001",price:1199,was:0,cat:"Jackets",stock:1,sizes:["XL"],desc:"Chest 44in · Length 25in · Sleeve 24in. Pre-owned vintage, one piece only.",img:"/thrift/images/real-01.jpg?v=1126"},
+ {slug:"vintage-zip-olive",name:"Vintage Zip Jacket — Olive",sku:"AJ-002",price:700,was:0,cat:"Jackets",stock:1,sizes:["XXL"],desc:"Chest 46in · Length 28in · Sleeve 24in. Pre-owned vintage, one piece only.",img:"/thrift/images/real-02.jpg?v=1126"},
+ {slug:"vintage-jacket-black",name:"Vintage Jacket — Black",sku:"AJ-003",price:999,was:0,cat:"Jackets",stock:1,sizes:["XXL"],desc:"Chest 46in · Length 26in · Sleeve 23in. Pre-owned vintage, one piece only.",img:"/thrift/images/real-03.jpg?v=1126"},
+ {slug:"utility-jacket-midnight",name:"Utility Jacket — Midnight",sku:"AJ-004",price:799,was:0,cat:"Jackets",stock:1,sizes:["XL"],desc:"Chest 44in · Length 28in · Sleeve 25in. Pre-owned vintage, one piece only.",img:"/thrift/images/real-04.jpg?v=1126"},
+ {slug:"vintage-puffer-black",name:"Vintage Puffer Jacket — Black",sku:"AJ-005",price:499,was:0,cat:"Jackets",stock:1,sizes:["S"],desc:"Chest 38in · Length 28in · Sleeve 23in. Pre-owned vintage, one piece only.",img:"/thrift/images/real-05.jpg?v=1126"},
+ {slug:"puffer-vest-chestnut",name:"Puffer Vest — Chestnut",sku:"AJ-006",price:599,was:0,cat:"Jackets",stock:1,sizes:["XL"],desc:"Chest 44in · Length 27in. Pre-owned vintage, one piece only.",img:"/thrift/images/real-06.jpg?v=1126"},
+ {slug:"nike-track-royal",name:"Nike Track Jacket — Royal",sku:"AJ-007",price:599,was:0,cat:"Track",stock:1,sizes:["M"],desc:"Chest 40in · Length 28in · Sleeve 25in. Pre-owned vintage, one piece only.",img:"/thrift/images/real-07.jpg?v=1126"},
+ {slug:"suzuki-racing-red",name:"Suzuki Racing Jacket — Red",sku:"AJ-008",price:799,was:0,cat:"Jackets",stock:1,sizes:["XXL"],desc:"Chest 46in · Length 27in · Sleeve 23in. Pre-owned vintage, one piece only.",img:"/thrift/images/real-08.jpg?v=1126"},
+ {slug:"coach-jacket-cream",name:"Vintage Coach Jacket — Cream",sku:"AJ-009",price:700,was:0,cat:"Jackets",stock:1,sizes:["M"],desc:"Chest 40in · Length 26in · Sleeve 23in. Pre-owned vintage, one piece only.",img:"/thrift/images/real-09.jpg?v=1126"},
+ {slug:"marble-hoodie-jacket",name:"Marble Hoodie Jacket",sku:"AJ-010",price:999,was:0,cat:"Jackets",stock:1,sizes:["L"],desc:"Chest 42in · Length 27in · Sleeve 25in. Pre-owned vintage, one piece only.",img:"/thrift/images/real-10.jpg?v=1126"},
+ {slug:"leather-jacket-tan",name:"Genuine Leather Jacket — Tan",sku:"AJ-011",price:1999,was:0,cat:"Leather",stock:1,sizes:["XXL"],desc:"Chest 48in · Length 25in · Sleeve 24in. Genuine leather, pre-owned vintage.",img:"/thrift/images/real-11.jpg?v=1126"},
+ {slug:"leather-bomber-black",name:"Leather Bomber — Black Quilted",sku:"AJ-012",price:2999,was:0,cat:"Leather",stock:0,sizes:["L"],desc:"Chest 42in · Length 25in · Sleeve 24in. Genuine leather, pre-owned vintage.",img:"/thrift/images/real-12.jpg?v=1126"},
+ {slug:"ua-track-jacket-fit",name:"Track Jacket — Customer Fit",sku:"AJ-013",price:899,was:0,cat:"Track",stock:1,sizes:["L"],desc:"As worn by a customer. One piece only, DM on WhatsApp to book.",img:"/thrift/images/real-13.jpg?v=1126"},
+ {slug:"old-money-shirt-fit",name:"Old Money Shirt — Customer Fit",sku:"AJ-014",price:750,was:0,cat:"Shirts",stock:1,sizes:["M"],desc:"As worn by a customer. One piece only, DM on WhatsApp to book.",img:"/thrift/images/real-14.jpg?v=1126"}
 ];
-const CATS = ["All","Fashion","Footwear","Accessories","Electronics"];
+const CATS = ["All","Jackets","Leather","Track","Shirts"];
 /* Thrift spec sheet: measurements in inches and an honest condition note, like a real listing */
 const SPECS = {
   "dhaka-cotton-panjabi":{meas:"Chest 41in · Length 28in · Sleeve 24in",cond:"9/10 · No visible flaws"},
@@ -961,6 +969,9 @@ document.getElementById("splashEnter").addEventListener("click",function(){
 try{sessionStorage.setItem("ajaira-entered","1")}catch(e){}
 sp.classList.add("gone");document.documentElement.classList.remove("gated");
 setTimeout(function(){sp.remove()},820);});})();
+</script>
+<script>
+(function(){var se=document.getElementById("splashEnter");if(se){se.innerHTML=se.textContent.trim().split("").map(function(c,i){return '<span class="gl" style="--i:'+i+'">'+c+'</span>'}).join("");}})();
 </script>
 </body>
 </html>
