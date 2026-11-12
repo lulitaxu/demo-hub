@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>THRIFT DHAKA — One piece. One owner.</title>
+<meta name="description" content="Curated vintage and thrift pieces in Dhaka. One of one, first to confirm gets it.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;900&family=Archivo+Black&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#FAF5EC;
+  --paper2:#F3ECDD;
+  --ink:#16130E;
+  --pink:#FF4D8D;
+  --pink-soft:#FFD9E8;
+  --lime:#3E9B4F;
+  --red:#D93A2B;
+  --line:#16130E;
+  --card:#FFFFFF;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:'Archivo',sans-serif;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+button{font-family:inherit;cursor:pointer}
+.mono{font-family:'IBM Plex Mono',monospace}
+
+/* ---------- ticker ---------- */
+.ticker{background:var(--ink);color:var(--paper);overflow:hidden;padding:7px 0;border-bottom:2px solid var(--ink)}
+.ticker-track{display:flex;gap:0;width:max-content;animation:tick 30s linear infinite}
+.ticker span{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;padding:0 26px;white-space:nowrap}
+.ticker b{color:var(--pink);font-weight:600}
+@keyframes tick{to{transform:translateX(-50%)}}
+
+/* ---------- header ---------- */
+header{position:sticky;top:0;z-index:40;background:var(--paper);border-bottom:2px solid var(--ink)}
+.header-in{max-width:1240px;margin:0 auto;padding:14px 20px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.logo{font-family:'Archivo Black',sans-serif;font-size:24px;letter-spacing:-.01em;text-decoration:none;color:var(--ink);display:flex;align-items:center;gap:8px}
+.logo .star{display:inline-grid;place-items:center;width:26px;height:26px;background:var(--pink);color:#fff;border:2px solid var(--ink);border-radius:50%;font-size:14px;transform:rotate(-8deg);box-shadow:2px 2px 0 var(--ink)}
+nav.main{display:flex;gap:22px}
+nav.main a{color:var(--ink);text-decoration:none;font-weight:700;font-size:13px;letter-spacing:.08em;text-transform:uppercase}
+nav.main a:hover{color:var(--pink)}
+.bag-btn{background:var(--ink);color:var(--paper);border:2px solid var(--ink);padding:9px 16px;font-weight:700;font-size:13px;letter-spacing:.06em;text-transform:uppercase;box-shadow:3px 3px 0 var(--pink);transition:transform .12s,box-shadow .12s}
+.bag-btn:hover{transform:translate(-1px,-1px);box-shadow:4px 4px 0 var(--pink)}
+.bag-btn:active{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--pink)}
+
+/* ---------- hero ---------- */
+.hero{max-width:1240px;margin:0 auto;padding:54px 20px 30px;display:grid;grid-template-columns:1.15fr .85fr;gap:44px;align-items:center}
+.kicker{display:inline-block;background:var(--pink-soft);border:2px solid var(--ink);padding:5px 12px;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;transform:rotate(-2deg);box-shadow:3px 3px 0 var(--ink);margin-bottom:22px}
+.hero h1{font-family:'Archivo Black',sans-serif;font-size:clamp(44px,6.2vw,84px);line-height:.98;letter-spacing:-.015em;text-transform:uppercase}
+.hero h1 .stroke{color:transparent;-webkit-text-stroke:2.5px var(--ink)}
+.hero h1 .pink{color:var(--pink)}
+.hero p.lede{margin-top:20px;font-size:17px;line-height:1.55;max-width:46ch;font-weight:500}
+.hero-cta{margin-top:28px;display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+.btn-solid{background:var(--pink);color:#fff;border:2px solid var(--ink);padding:13px 24px;font-weight:900;font-size:14px;letter-spacing:.05em;text-transform:uppercase;box-shadow:4px 4px 0 var(--ink);text-decoration:none;transition:transform .12s,box-shadow .12s}
+.btn-solid:hover{transform:translate(-1px,-1px);box-shadow:5px 5px 0 var(--ink)}
+.btn-ghost{background:transparent;color:var(--ink);border:2px solid var(--ink);padding:13px 24px;font-weight:700;font-size:14px;letter-spacing:.05em;text-transform:uppercase;text-decoration:none}
+.hero-meta{margin-top:26px;display:flex;gap:20px;flex-wrap:wrap}
+.hero-meta div{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase}
+.hero-meta b{display:block;font-size:15px;letter-spacing:0;margin-bottom:2px}
+.hero-photo{position:relative}
+.hero-photo .frame{border:2.5px solid var(--ink);box-shadow:8px 8px 0 var(--pink);background:#fff}
+.hero-photo img{width:100%;height:520px;object-fit:cover}
+.tape{position:absolute;width:110px;height:28px;background:rgba(255,217,232,.85);border-left:2px dashed rgba(22,19,14,.25);border-right:2px dashed rgba(22,19,14,.25);z-index:2}
+.tape.t1{top:-12px;left:34px;transform:rotate(-5deg)}
+.tape.t2{bottom:-12px;right:34px;transform:rotate(4deg)}
+.sticker{position:absolute;z-index:3;background:var(--pink);color:#fff;border:2px solid var(--ink);box-shadow:3px 3px 0 var(--ink);font-weight:900;text-transform:uppercase;letter-spacing:.04em;padding:8px 14px;font-size:13px}
+.sticker.s1{top:26px;right:-12px;transform:rotate(5deg)}
+.sticker.s2{bottom:64px;left:-16px;transform:rotate(-6deg);background:var(--ink);color:var(--paper)}
+.price-tag{position:absolute;z-index:3;right:18px;bottom:-18px;background:#fff;border:2px solid var(--ink);box-shadow:3px 3px 0 var(--ink);padding:8px 14px;transform:rotate(-3deg)}
+.price-tag .mono{font-size:11px;letter-spacing:.12em;text-transform:uppercase;display:block}
+.price-tag b{font-size:20px}
+
+/* ---------- catalogue ---------- */
+.catalogue{max-width:1240px;margin:0 auto;padding:26px 20px 10px}
+.cat-head{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;flex-wrap:wrap;border-top:2.5px solid var(--ink);padding-top:26px}
+.cat-head h2{font-family:'Archivo Black',sans-serif;font-size:clamp(30px,4vw,46px);text-transform:uppercase;line-height:1}
+.cat-head .mono{font-size:12px;letter-spacing:.12em;text-transform:uppercase}
+.controls{margin-top:22px;display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.chip{background:#fff;border:2px solid var(--ink);padding:8px 16px;font-weight:700;font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;transition:all .12s}
+.chip:hover{box-shadow:3px 3px 0 var(--ink);transform:translate(-1px,-1px)}
+.chip.on{background:var(--ink);color:var(--paper);box-shadow:3px 3px 0 var(--pink)}
+.search{margin-left:auto;display:flex;gap:8px}
+.search input{border:2px solid var(--ink);background:#fff;padding:9px 14px;font-family:'IBM Plex Mono',monospace;font-size:13px;width:230px;outline:none}
+.search input:focus{box-shadow:3px 3px 0 var(--pink)}
+.count-line{margin-top:14px;font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;opacity:.75}
+.grid{margin-top:18px;display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.card{background:var(--card);border:2px solid var(--ink);display:flex;flex-direction:column;transition:transform .14s,box-shadow .14s;cursor:pointer;position:relative}
+.card:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--ink)}
+.card .ph{position:relative;overflow:hidden;border-bottom:2px solid var(--ink)}
+.card .ph img{width:100%;height:300px;object-fit:cover;transition:transform .4s}
+.card:hover .ph img{transform:scale(1.04)}
+.badge{position:absolute;top:10px;left:10px;z-index:2;font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:5px 9px;border:2px solid var(--ink);display:flex;align-items:center;gap:6px;background:#fff}
+.badge .dot{width:8px;height:8px;border-radius:50%;background:var(--lime);border:1.5px solid var(--ink)}
+.badge.booked{background:var(--ink);color:var(--paper)}
+.badge.booked .dot{background:var(--red)}
+.badge.last{background:var(--pink);color:#fff;transform:rotate(-3deg)}
+.off-tag{position:absolute;top:10px;right:10px;z-index:2;background:var(--pink);color:#fff;border:2px solid var(--ink);font-weight:900;font-size:12px;padding:5px 9px;transform:rotate(4deg);box-shadow:2px 2px 0 var(--ink)}
+.card .body{padding:14px 14px 16px;display:flex;flex-direction:column;gap:7px;flex:1}
+.card h3{font-size:16.5px;font-weight:900;line-height:1.2}
+.spec{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;opacity:.72}
+.card .row{margin-top:auto;display:flex;align-items:center;justify-content:space-between;gap:10px;padding-top:8px}
+.price{font-size:18px;font-weight:900}
+.price s{font-size:13px;font-weight:500;opacity:.55;margin-right:7px}
+.add-btn{background:var(--ink);color:var(--paper);border:2px solid var(--ink);padding:9px 14px;font-weight:700;font-size:12px;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap}
+.add-btn:hover{background:var(--pink)}
+.add-btn:disabled{background:#fff;color:var(--ink);opacity:.45;cursor:not-allowed}
+.empty{grid-column:1/-1;text-align:center;padding:56px 20px;border:2px dashed var(--ink);font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:.1em;text-transform:uppercase}
+
+/* ---------- how it works ---------- */
+.how{max-width:1240px;margin:44px auto 0;padding:0 20px}
+.how-in{border:2.5px solid var(--ink);background:var(--paper2);display:grid;grid-template-columns:repeat(3,1fr);box-shadow:6px 6px 0 var(--ink)}
+.how-cell{padding:24px;border-right:2px dashed rgba(22,19,14,.35)}
+.how-cell:last-child{border-right:none}
+.how-cell .mono{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--pink);font-weight:600}
+.how-cell h4{font-size:19px;font-weight:900;margin:8px 0 6px;text-transform:uppercase}
+.how-cell p{font-size:14px;line-height:1.5;font-weight:500}
+
+/* ---------- footer ---------- */
+footer{margin-top:60px;border-top:2.5px solid var(--ink)}
+.awning{height:16px;background:repeating-linear-gradient(-45deg,var(--pink) 0 18px,#fff 18px 36px);border-bottom:2.5px solid var(--ink)}
+.foot-in{max-width:1240px;margin:0 auto;padding:30px 20px 40px;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:flex-start}
+.foot-in .mono{font-size:11px;letter-spacing:.1em;text-transform:uppercase;line-height:1.9;opacity:.8}
+
+/* ---------- drawer / cart ---------- */
+.scrim{position:fixed;inset:0;background:rgba(22,19,14,.5);opacity:0;pointer-events:none;transition:opacity .2s;z-index:60}
+.scrim.open{opacity:1;pointer-events:auto}
+.drawer{position:fixed;top:0;right:0;height:100dvh;width:min(420px,92vw);background:var(--paper);border-left:2.5px solid var(--ink);z-index:61;transform:translateX(105%);transition:transform .28s cubic-bezier(.32,.72,0,1);display:flex;flex-direction:column}
+.drawer.open{transform:none}
+.drawer header{position:static;border-bottom:2.5px solid var(--ink);padding:16px 18px;display:flex;justify-content:space-between;align-items:center;background:var(--pink-soft)}
+.drawer h3{font-family:'Archivo Black',sans-serif;font-size:19px;text-transform:uppercase}
+.x-btn{background:#fff;border:2px solid var(--ink);width:34px;height:34px;font-weight:900;font-size:15px;line-height:1}
+.cart-items{flex:1;overflow-y:auto;padding:16px 18px;display:flex;flex-direction:column;gap:14px}
+.cart-item{display:grid;grid-template-columns:64px 1fr auto;gap:12px;border:2px solid var(--ink);background:#fff;padding:8px;align-items:center}
+.cart-item img{width:64px;height:64px;object-fit:cover;border:1.5px solid var(--ink)}
+.cart-item h5{font-size:13.5px;font-weight:900;line-height:1.25}
+.cart-item .mono{font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;opacity:.7}
+.qty{display:flex;align-items:center;gap:7px;margin-top:6px}
+.qty button{width:24px;height:24px;border:2px solid var(--ink);background:var(--paper);font-weight:900;line-height:1}
+.qty .mono{font-size:12px;opacity:1}
+.ci-right{text-align:right}
+.ci-right .p{font-weight:900;font-size:14px}
+.rm{background:none;border:none;font-family:'IBM Plex Mono',monospace;font-size:10.5px;text-transform:uppercase;letter-spacing:.08em;text-decoration:underline;margin-top:6px}
+.cart-empty{text-align:center;padding:40px 10px;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.1em;text-transform:uppercase;opacity:.7}
+.drawer-foot{border-top:2.5px solid var(--ink);padding:16px 18px;background:#fff}
+.tot-row{display:flex;justify-content:space-between;font-family:'IBM Plex Mono',monospace;font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;padding:3px 0}
+.tot-row.grand{font-size:15px;font-weight:600;border-top:2px dashed rgba(22,19,14,.3);margin-top:8px;padding-top:10px}
+.checkout-btn{width:100%;margin-top:14px;background:var(--pink);color:#fff;border:2px solid var(--ink);padding:14px;font-weight:900;font-size:14px;letter-spacing:.06em;text-transform:uppercase;box-shadow:4px 4px 0 var(--ink)}
+.checkout-btn:active{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--ink)}
+.demo-note{margin-top:10px;text-align:center;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;opacity:.6}
+
+/* ---------- modal ---------- */
+.modal-wrap{position:fixed;inset:0;z-index:70;display:none;place-items:center;padding:18px}
+.modal-wrap.open{display:grid}
+.modal{background:var(--paper);border:2.5px solid var(--ink);box-shadow:8px 8px 0 var(--ink);max-width:880px;width:100%;max-height:92dvh;overflow-y:auto;display:grid;grid-template-columns:1fr 1fr;position:relative}
+.modal .mph img{width:100%;height:100%;min-height:340px;object-fit:cover;border-right:2.5px solid var(--ink)}
+.modal .minfo{padding:26px 24px}
+.modal h3{font-family:'Archivo Black',sans-serif;font-size:27px;line-height:1.08;text-transform:uppercase;margin:10px 0 8px}
+.modal .desc{font-size:14.5px;line-height:1.55;font-weight:500;margin-top:10px}
+.sizes{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+.size-pill{border:2px solid var(--ink);background:#fff;padding:7px 13px;font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600}
+.size-pill.on{background:var(--ink);color:var(--paper)}
+.modal .mrow{display:flex;gap:12px;margin-top:22px;flex-wrap:wrap}
+.wa-btn{background:#fff;color:var(--ink);border:2px solid var(--ink);padding:13px 20px;font-weight:700;font-size:13px;letter-spacing:.05em;text-transform:uppercase;text-decoration:none}
+.confirm-line{margin-top:16px;font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;background:var(--pink-soft);border:2px dashed var(--ink);padding:10px 12px}
+.modal .x-btn{position:absolute;top:12px;right:12px;z-index:2}
+
+/* ---------- toast ---------- */
+.toast{position:fixed;left:50%;bottom:26px;transform:translate(-50%,90px);background:var(--ink);color:var(--paper);border:2px solid var(--ink);box-shadow:4px 4px 0 var(--pink);padding:13px 22px;font-weight:700;font-size:14px;z-index:80;transition:transform .3s cubic-bezier(.32,.72,0,1)}
+.toast.show{transform:translate(-50%,0)}
+
+@media (max-width:1000px){.grid{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:820px){
+  .hero{grid-template-columns:1fr;padding-top:36px}
+  .hero-photo img{height:400px}
+  nav.main{display:none}
+  .how-in{grid-template-columns:1fr}
+  .how-cell{border-right:none;border-bottom:2px dashed rgba(22,19,14,.35)}
+  .how-cell:last-child{border-bottom:none}
+  .modal{grid-template-columns:1fr}
+  .modal .mph img{border-right:none;border-bottom:2.5px solid var(--ink);min-height:260px;height:300px}
+}
+@media (max-width:640px){.grid{grid-template-columns:repeat(2,1fr);gap:14px}.card .ph img{height:210px}.search{margin-left:0}.search input{width:170px}}
+@media (prefers-reduced-motion:reduce){
+  .ticker-track{animation:none}
+  html{scroll-behavior:auto}
+  *{transition:none!important}
+}
+</style>
+</head>
+<body>
+
+<div class="ticker" aria-hidden="true"><div class="ticker-track" id="tickerTrack"></div></div>
+
+<header>
+  <div class="header-in">
+    <a class="logo" href="#"><span class="star">★</span>THRIFT&nbsp;DHAKA</a>
+    <nav class="main">
+      <a href="#catalogue">Catalogue</a>
+      <a href="#how">How it works</a>
+      <a href="#catalogue">New drop</a>
+    </nav>
+    <button class="bag-btn" id="bagBtn">Bag (0)</button>
+  </div>
+</header>
+
+<section class="hero">
+  <div>
+    <span class="kicker">Dhaka · Est. for the drop</span>
+    <h1>One piece.<br><span class="stroke">One owner.</span><br><span class="pink">Gone forever.</span></h1>
+    <p class="lede">Curated vintage and thrift finds, hand-picked in Dhaka. Every piece is one of one, measured, checked and priced in taka. When it is booked, it is gone.</p>
+    <div class="hero-cta">
+      <a class="btn-solid" href="#catalogue">Shop the drop</a>
+      <a class="btn-ghost" href="#how">How booking works</a>
+    </div>
+    <div class="hero-meta">
+      <div><b>1 of 1</b>every piece</div>
+      <div><b>24–48h</b>inside Dhaka</div>
+      <div><b>bKash · COD</b>pay your way</div>
+    </div>
+  </div>
+  <div class="hero-photo">
+    <span class="tape t1"></span><span class="tape t2"></span>
+    <div class="sticker s1">Fresh drop</div>
+    <div class="sticker s2">1 of 1</div>
+    <div class="frame"><img src="images/cotton-hoodie.jpg" alt="Cotton Hoodie, featured thrift piece"></div>
+    <div class="price-tag"><span class="mono">Cotton Hoodie · HOD-012</span><b>৳1,450</b></div>
+  </div>
+</section>
+
+<main class="catalogue" id="catalogue">
+  <div class="cat-head">
+    <h2>The catalogue</h2>
+    <span class="mono">Updated every drop · First to confirm gets it</span>
+  </div>
+  <div class="controls" id="chips"></div>
+  <div class="count-line" id="countLine"></div>
+  <div class="grid" id="grid"></div>
+</main>
+
+<section class="how" id="how">
+  <div class="how-in">
+    <div class="how-cell">
+      <span class="mono">Step 01</span>
+      <h4>Pick your piece</h4>
+      <p>Every item is one of one. Check the size and specs on the piece, then add it to your bag before someone else does.</p>
+    </div>
+    <div class="how-cell">
+      <span class="mono">Step 02</span>
+      <h4>Confirm fast</h4>
+      <p>First to confirm gets it. Confirm your order here or on WhatsApp and the piece is marked booked under your name.</p>
+    </div>
+    <div class="how-cell">
+      <span class="mono">Step 03</span>
+      <h4>Pay on delivery</h4>
+      <p>Delivery inside Dhaka in 24 to 48 hours, ৳60. Outside Dhaka ৳120. Pay cash on delivery, or bKash, Nagad and Rocket.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="awning"></div>
+  <div class="foot-in">
+    <div>
+      <a class="logo" href="#"><span class="star">★</span>THRIFT&nbsp;DHAKA</a>
+      <p class="mono" style="margin-top:10px">Curated thrift · Dhaka, Bangladesh<br>New drop every week</p>
+    </div>
+    <p class="mono">Concept demo storefront<br>Catalogue, bag and checkout run<br>entirely in the browser</p>
+  </div>
+</footer>
+
+<div class="scrim" id="scrim"></div>
+
+<aside class="drawer" id="drawer" aria-label="Shopping bag">
+  <header>
+    <h3>Your bag</h3>
+    <button class="x-btn" id="drawerClose" aria-label="Close bag">✕</button>
+  </header>
+  <div class="cart-items" id="cartItems"></div>
+  <div class="drawer-foot">
+    <div class="tot-row"><span>Subtotal</span><span id="subTotal">৳0</span></div>
+    <div class="tot-row"><span>Delivery (inside Dhaka)</span><span>৳60</span></div>
+    <div class="tot-row grand"><span>Total</span><span id="grandTotal">৳0</span></div>
+    <button class="checkout-btn" id="checkoutBtn">Confirm order</button>
+    <p class="demo-note">Demo checkout · No real order is placed</p>
+  </div>
+</aside>
+
+<div class="modal-wrap" id="modalWrap">
+  <div class="modal" id="modal"></div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+const PRODUCTS = [
+ {slug:"dhaka-cotton-panjabi",name:"Dhaka Cotton Panjabi",sku:"PNJ-001",price:1850,was:2200,cat:"Fashion",stock:42,sizes:["M","L","XL"],desc:"Soft breathable cotton panjabi for Eid and Friday wear.",img:"images/dhaka-cotton-panjabi.jpg"},
+ {slug:"premium-polo-shirt",name:"Premium Polo Shirt",sku:"POLO-002",price:950,was:0,cat:"Fashion",stock:120,sizes:["M","L"],desc:"Pique cotton polo with reinforced collar.",img:"images/premium-polo-shirt.jpg"},
+ {slug:"slim-fit-jeans",name:"Slim Fit Jeans",sku:"JNS-003",price:1650,was:1900,cat:"Fashion",stock:67,sizes:["32","34"],desc:"Stretch denim slim fit jeans.",img:"images/slim-fit-jeans.jpg"},
+ {slug:"running-sneakers",name:"Running Sneakers",sku:"SNK-004",price:2850,was:3200,cat:"Footwear",stock:35,sizes:["41","42","43"],desc:"Lightweight mesh running shoes.",img:"images/running-sneakers.jpg"},
+ {slug:"leather-loafers",name:"Suede Desert Boots",sku:"BOT-005",price:3400,was:0,cat:"Footwear",stock:18,sizes:["41","42"],desc:"Suede desert boots, handmade in Dhaka.",img:"images/leather-loafers.jpg"},
+ {slug:"last-pair-limited-sneakers",name:"Last Pair Limited Sneakers",sku:"SNK-LTD-006",price:4500,was:0,cat:"Footwear",stock:1,sizes:["42"],desc:"Limited run. Only one pair in stock.",img:"images/last-pair-limited-sneakers.jpg"},
+ {slug:"canvas-tote-bag",name:"Canvas Tote Bag",sku:"BAG-007",price:650,was:800,cat:"Accessories",stock:200,sizes:["One size"],desc:"Heavy canvas tote with inner pocket.",img:"images/canvas-tote-bag.jpg"},
+ {slug:"minimal-leather-wallet",name:"Minimal Leather Wallet",sku:"WLT-008",price:850,was:0,cat:"Accessories",stock:85,sizes:["One size"],desc:"Full grain leather bifold wallet.",img:"images/minimal-leather-wallet.jpg"},
+ {slug:"aviator-sunglasses",name:"Aviator Sunglasses",sku:"SUN-009",price:1250,was:1500,cat:"Accessories",stock:0,sizes:["One size"],desc:"Polarised aviator sunglasses.",img:"images/aviator-sunglasses.jpg"},
+ {slug:"wireless-earbuds-pro",name:"Wireless Earbuds Pro",sku:"EBD-010",price:2450,was:2990,cat:"Electronics",stock:54,sizes:["One size"],desc:"Bluetooth 5.3 earbuds with ENC and 30h case.",img:"images/wireless-earbuds-pro.jpg"},
+ {slug:"analog-steel-watch",name:"Analog Steel Watch",sku:"WCH-011",price:2750,was:3200,cat:"Electronics",stock:300,sizes:["One size"],desc:"Minimal analog watch, steel strap, 5ATM.",img:"images/analog-steel-watch.jpg"},
+ {slug:"cotton-hoodie",name:"Cotton Hoodie",sku:"HOD-012",price:1450,was:1750,cat:"Fashion",stock:8,sizes:["M","L"],desc:"320 GSM brushed fleece hoodie. Low stock.",img:"images/cotton-hoodie.jpg"},
+ {slug:"formal-oxford-shirt",name:"Formal Oxford Shirt",sku:"SHT-013",price:1350,was:0,cat:"Fashion",stock:73,sizes:["M","L"],desc:"Wrinkle resistant oxford shirt.",img:"images/formal-oxford-shirt.jpg"}
+];
+const CATS = ["All","Fashion","Footwear","Accessories","Electronics"];
+const fmt = n => "৳" + n.toLocaleString("en-IN");
+let activeCat = "All", query = "";
+const cart = new Map();
+
+const tickerMsgs = ["Fresh drop every week","One of one pieces only","Delivery inside Dhaka 24–48h · ৳60","First to confirm gets it","bKash · Nagad · Rocket · Cash on delivery","7-day easy size exchange"];
+document.getElementById("tickerTrack").innerHTML = (tickerMsgs.concat(tickerMsgs)).map(m=>`<span>${m} <b>★</b></span>`).join("");
+
+const chipsEl = document.getElementById("chips");
+chipsEl.innerHTML = CATS.map(c=>`<button class="chip${c==="All"?" on":""}" data-cat="${c}">${c}</button>`).join("") +
+ `<span class="search"><input id="searchBox" type="search" placeholder="Search pieces or SKU" aria-label="Search products"></span>`;
+chipsEl.addEventListener("click", e=>{
+  const b = e.target.closest("[data-cat]"); if(!b) return;
+  activeCat = b.dataset.cat;
+  chipsEl.querySelectorAll(".chip").forEach(x=>x.classList.toggle("on", x.dataset.cat===activeCat));
+  render();
+});
+document.getElementById("searchBox").addEventListener("input", e=>{ query = e.target.value.trim().toLowerCase(); render(); });
+
+function statusOf(p){
+  if(p.stock===0) return {cls:"booked", label:"Booked"};
+  if(p.stock===1) return {cls:"last", label:"Last one"};
+  return {cls:"", label:"Available"};
+}
+function render(){
+  const list = PRODUCTS.filter(p =>
+    (activeCat==="All" || p.cat===activeCat) &&
+    (!query || p.name.toLowerCase().includes(query) || p.sku.toLowerCase().includes(query)));
+  document.getElementById("countLine").textContent = list.length + (list.length===1 ? " piece" : " pieces") + " · " + activeCat;
+  const grid = document.getElementById("grid");
+  if(!list.length){ grid.innerHTML = `<div class="empty">Nothing in this rack right now. Try another category.</div>`; return; }
+  grid.innerHTML = list.map(p=>{
+    const st = statusOf(p);
+    const off = p.was ? Math.round((1 - p.price/p.was)*100) : 0;
+    return `<article class="card" data-slug="${p.slug}">
+      <div class="ph">
+        <span class="badge ${st.cls}"><span class="dot"></span>${st.label}</span>
+        ${off ? `<span class="off-tag">-${off}%</span>` : ``}
+        <img src="${p.img}" alt="${p.name}" loading="lazy">
+      </div>
+      <div class="body">
+        <h3>${p.name}</h3>
+        <p class="spec">${p.sku} · ${p.cat} · Size ${p.sizes.join("/")}</p>
+        <div class="row">
+          <span class="price">${p.was ? `<s>${fmt(p.was)}</s>` : ``}${fmt(p.price)}</span>
+          <button class="add-btn" data-add="${p.slug}" ${p.stock===0 ? "disabled" : ""}>${p.stock===0 ? "Booked" : "Add +"}</button>
+        </div>
+      </div>
+    </article>`;
+  }).join("");
+}
+document.getElementById("grid").addEventListener("click", e=>{
+  const add = e.target.closest("[data-add]");
+  if(add){ e.stopPropagation(); addToCart(add.dataset.add); return; }
+  const card = e.target.closest(".card");
+  if(card) openModal(card.dataset.slug);
+});
+
+function addToCart(slug){
+  const p = PRODUCTS.find(x=>x.slug===slug);
+  const cur = cart.get(slug) || {p, qty:0, size:p.sizes[0]};
+  cur.qty = Math.min(cur.qty + 1, Math.max(p.stock,1));
+  cart.set(slug, cur);
+  syncBag(); toast(`Added: ${p.name}`);
+}
+function syncBag(){
+  let count = 0, sub = 0;
+  cart.forEach(({p,qty})=>{ count += qty; sub += p.price*qty; });
+  document.getElementById("bagBtn").textContent = `Bag (${count})`;
+  document.getElementById("subTotal").textContent = fmt(sub);
+  document.getElementById("grandTotal").textContent = fmt(count ? sub + 60 : 0);
+  const box = document.getElementById("cartItems");
+  if(!count){ box.innerHTML = `<div class="cart-empty">Your bag is empty.<br>The drop will not wait.</div>`; return; }
+  box.innerHTML = [...cart.values()].map(({p,qty,size})=>`
+    <div class="cart-item">
+      <img src="${p.img}" alt="${p.name}">
+      <div>
+        <h5>${p.name}</h5>
+        <p class="mono">${p.sku} · Size ${size}</p>
+        <div class="qty">
+          <button data-dec="${p.slug}" aria-label="Decrease">−</button>
+          <span class="mono">${qty}</span>
+          <button data-inc="${p.slug}" aria-label="Increase">+</button>
+        </div>
+      </div>
+      <div class="ci-right">
+        <span class="p">${fmt(p.price*qty)}</span><br>
+        <button class="rm" data-rm="${p.slug}">Remove</button>
+      </div>
+    </div>`).join("");
+}
+document.getElementById("cartItems").addEventListener("click", e=>{
+  const inc = e.target.closest("[data-inc]"), dec = e.target.closest("[data-dec]"), rm = e.target.closest("[data-rm]");
+  if(inc){ const it = cart.get(inc.dataset.inc); it.qty = Math.min(it.qty+1, Math.max(it.p.stock,1)); }
+  if(dec){ const it = cart.get(dec.dataset.dec); it.qty--; if(it.qty<=0) cart.delete(dec.dataset.dec); }
+  if(rm){ cart.delete(rm.dataset.rm); }
+  if(inc||dec||rm) syncBag();
+});
+
+const drawer = document.getElementById("drawer"), scrim = document.getElementById("scrim");
+function openDrawer(){ drawer.classList.add("open"); scrim.classList.add("open"); }
+function closeDrawer(){ drawer.classList.remove("open"); scrim.classList.remove("open"); }
+document.getElementById("bagBtn").addEventListener("click", openDrawer);
+document.getElementById("drawerClose").addEventListener("click", closeDrawer);
+scrim.addEventListener("click", ()=>{ closeDrawer(); closeModal(); });
+document.getElementById("checkoutBtn").addEventListener("click", ()=>{
+  if(!cart.size){ toast("Your bag is empty"); return; }
+  cart.clear(); syncBag(); closeDrawer();
+  toast("Order confirmed (demo). First to confirm gets it.");
+});
+
+const modalWrap = document.getElementById("modalWrap"), modal = document.getElementById("modal");
+let modalSize = null;
+function openModal(slug){
+  const p = PRODUCTS.find(x=>x.slug===slug); if(!p) return;
+  modalSize = p.sizes[0];
+  const st = statusOf(p);
+  const off = p.was ? Math.round((1 - p.price/p.was)*100) : 0;
+  modal.innerHTML = `
+    <button class="x-btn" id="modalClose" aria-label="Close">✕</button>
+    <div class="mph"><img src="${p.img}" alt="${p.name}"></div>
+    <div class="minfo">
+      <span class="badge ${st.cls}" style="position:static"><span class="dot"></span>${st.label}</span>
+      <h3>${p.name}</h3>
+      <p class="spec">${p.sku} · ${p.cat}${off ? ` · Save ${off}%` : ``}</p>
+      <p class="price" style="font-size:24px;margin-top:12px">${p.was ? `<s>${fmt(p.was)}</s>` : ``}${fmt(p.price)}</p>
+      <p class="desc">${p.desc}</p>
+      <p class="spec" style="margin-top:18px">Select size</p>
+      <div class="sizes">${p.sizes.map((s,i)=>`<button class="size-pill${i===0?" on":""}" data-size="${s}">${s}</button>`).join("")}</div>
+      <div class="mrow">
+        <button class="btn-solid" id="modalAdd" ${p.stock===0 ? "disabled style='opacity:.45;cursor:not-allowed'" : ""}>Add to bag</button>
+        <a class="wa-btn" href="#" onclick="return false">Order on WhatsApp</a>
+      </div>
+      <p class="confirm-line">First to confirm gets it. Once booked, this piece is off the rack.</p>
+    </div>`;
+  modalWrap.classList.add("open");
+  modal.querySelector("#modalClose").addEventListener("click", closeModal);
+  modal.querySelectorAll(".size-pill").forEach(b=>b.addEventListener("click", ()=>{
+    modal.querySelectorAll(".size-pill").forEach(x=>x.classList.remove("on"));
+    b.classList.add("on"); modalSize = b.dataset.size;
+  }));
+  const add = modal.querySelector("#modalAdd");
+  if(add) add.addEventListener("click", ()=>{
+    const cur = cart.get(slug) || {p, qty:0, size:modalSize};
+    cur.size = modalSize; cur.qty = Math.min(cur.qty+1, Math.max(p.stock,1));
+    cart.set(slug, cur); syncBag(); closeModal(); openDrawer();
+  });
+}
+function closeModal(){ modalWrap.classList.remove("open"); }
+modalWrap.addEventListener("click", e=>{ if(e.target===modalWrap) closeModal(); });
+document.addEventListener("keydown", e=>{ if(e.key==="Escape"){ closeModal(); closeDrawer(); } });
+
+let toastTimer;
+function toast(msg){
+  const t = document.getElementById("toast");
+  t.textContent = msg; t.classList.add("show");
+  clearTimeout(toastTimer); toastTimer = setTimeout(()=>t.classList.remove("show"), 2400);
+}
+render(); syncBag();
+</script>
+</body>
+</html>
