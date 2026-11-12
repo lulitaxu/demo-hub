@@ -495,8 +495,8 @@ body.entered .hero p.lede{animation-delay:.12s}
 /* Original Ajaira Thrift logo (from their Instagram, 2026-11-12): black knocked out with screen blend */
 .splash-logo img{width:min(52vw,190px);height:auto;animation:logoflip 6s ease-in-out infinite;filter:drop-shadow(0 6px 24px rgba(0,0,0,.45))}
 .logo-img{height:50px;width:50px;object-fit:contain;display:block}
-.logo-spin{animation:logospin 10s linear infinite;will-change:transform}
-@keyframes logospin{to{transform:rotate(360deg)}}
+.logo-spin{animation:logosway 2.4s ease-in-out infinite alternate;transform-origin:50% 50%;will-change:transform}
+@keyframes logosway{from{transform:rotate(-9deg)}to{transform:rotate(9deg)}}
 @media (prefers-reduced-motion:reduce){.logo-spin{animation:none}}
 @media (prefers-reduced-motion:reduce){.splash-logo img{animation:none}}
 </style>
