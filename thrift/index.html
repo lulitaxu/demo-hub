@@ -10,15 +10,15 @@
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;900&family=Archivo+Black&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 :root{
-  --paper:#FAF5EC;
-  --paper2:#F3ECDD;
-  --ink:#16130E;
-  --pink:#FF4D8D;
-  --pink-soft:#FFD9E8;
+  --paper:#0C0F0C;
+  --paper2:#131711;
+  --ink:#EFEAE0;
+  --pink:#C9F73A;
+  --pink-soft:#26331A;
   --lime:#3E9B4F;
   --red:#D93A2B;
-  --line:#16130E;
-  --card:#FFFFFF;
+  --line:#EFEAE0;
+  --card:#141814;
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth;overflow-x:hidden;-webkit-text-size-adjust:100%}
@@ -259,6 +259,50 @@ footer{border-top:1px solid rgba(22,19,14,.14)}
   .modal .mph img{border-right:none;border-bottom:1px solid rgba(22,19,14,.14)}
 }
 </style>
+<style id="night">
+/* Night pass: black retired. Bone type, acid accent, comic buttons. */
+body::before{background:radial-gradient(480px circle at var(--mx,50%) var(--my,30%),rgba(201,247,58,.07),rgba(201,247,58,0) 62%),radial-gradient(rgba(239,234,224,.05) 1.2px,transparent 1.3px);background-size:auto,22px 22px}
+.ticker{background:#070806;color:#EFEAE0}
+header{border-bottom-color:rgba(239,234,224,.16)}
+.cat-head{border-top-color:rgba(239,234,224,.16)}
+footer{border-top-color:rgba(239,234,224,.16)}
+.how-in{border-color:rgba(239,234,224,.18)}
+.how-cell{border-right-color:rgba(239,234,224,.14)}
+.chip{background:#141814}
+.search input{background:#141814}
+.search input:focus{border-color:var(--pink)}
+.badge{background:#101208;color:#EFEAE0;box-shadow:none}
+.badge.booked{background:var(--pink);color:#101208}
+.badge.last{background:var(--pink);color:#101208}
+.off-tag{color:#101208}
+.btn-solid{color:#101208}
+.checkout-btn{color:#101208}
+.price-tag{background:#101208;color:#EFEAE0;border-color:rgba(239,234,224,.25)}
+.cart-item{background:#141814;border-color:rgba(239,234,224,.22)}
+.drawer-foot{background:#0A0C08}
+.drawer header{border-bottom-color:rgba(239,234,224,.16)}
+.size-pill{background:#141814}
+.wa-btn{background:#141814}
+.x-btn{background:#141814}
+.modal{border-color:rgba(239,234,224,.22)}
+.modal .mph img{border-right-color:rgba(239,234,224,.16)}
+.hero-photo .frame{border-color:rgba(239,234,224,.2)}
+/* comic-style buttons: hard shadow, real press physics, star burst */
+.chip,.btn-ghost,.wa-btn,.size-pill{border:2px solid #EFEAE0;box-shadow:4px 4px 0 #000}
+.btn-solid,.bag-btn,.add-btn,.checkout-btn{border:2px solid #000;box-shadow:4px 4px 0 #000}
+.chip:hover,.btn-ghost:hover,.wa-btn:hover,.size-pill:hover,.btn-solid:hover,.bag-btn:hover,.add-btn:hover,.checkout-btn:hover{transform:translate(-1px,-1px);box-shadow:5px 5px 0 #000}
+.chip:active,.btn-ghost:active,.wa-btn:active,.size-pill:active,.btn-solid:active,.bag-btn:active,.add-btn:active,.checkout-btn:active{transform:translate(3px,3px);box-shadow:1px 1px 0 #000}
+.chip.on{border-color:#000}
+.bag-btn.pop{animation:bagpop .4s cubic-bezier(.32,.72,0,1)}
+@keyframes bagpop{30%{transform:scale(1.14) rotate(-3deg)}60%{transform:scale(.95) rotate(2deg)}}
+.burst{position:fixed;z-index:95;transform:translate(-50%,-100%);font-family:'Archivo Black',sans-serif;font-size:17px;color:var(--pink);text-shadow:2px 2px 0 #000;pointer-events:none;animation:burstpop .55s cubic-bezier(.32,.72,0,1) forwards}
+@keyframes burstpop{0%{opacity:0;transform:translate(-50%,-60%) scale(.4) rotate(-14deg)}25%{opacity:1}100%{opacity:0;transform:translate(-50%,-200%) scale(1.2) rotate(6deg)}}
+@media (max-width:820px){
+  .how-cell{border-bottom-color:rgba(239,234,224,.14)}
+  .modal .mph img{border-bottom-color:rgba(239,234,224,.16)}
+}
+@media (prefers-reduced-motion:reduce){.burst{display:none}}
+</style>
 </head>
 <body>
 
@@ -266,7 +310,7 @@ footer{border-top:1px solid rgba(22,19,14,.14)}
 
 <header>
   <div class="header-in">
-    <a class="logo" href="#" aria-label="Ajaira Thrift home"><svg viewBox="0 4 320 120" role="img" aria-label="Ajaira Thrift logo"><ellipse cx="160" cy="62" rx="148" ry="44" fill="none" stroke="#16130E" stroke-width="5" transform="rotate(-9 160 62)"/><path d="M0-13 C1.8-4.5 4.5-1.8 13 0 C4.5 1.8 1.8 4.5 0 13 C-1.8 4.5 -4.5 1.8 -13 0 C-4.5-1.8 -1.8-4.5 0-13Z" transform="translate(302,37) scale(.85)" fill="#FF4D8D" stroke="#16130E" stroke-width="2.5"/><path d="M0-13 C1.8-4.5 4.5-1.8 13 0 C4.5 1.8 1.8 4.5 0 13 C-1.8 4.5 -4.5 1.8 -13 0 C-4.5-1.8 -1.8-4.5 0-13Z" transform="translate(20,88) scale(.65)" fill="#FF4D8D" stroke="#16130E" stroke-width="2.5"/><text x="160" y="72" text-anchor="middle" font-family="'Archivo Black',sans-serif" font-size="62" font-style="italic" fill="#16130E" stroke="#FFFFFF" stroke-width="10" paint-order="stroke" stroke-linejoin="round">ajaira</text><text x="164" y="99" text-anchor="middle" font-family="'IBM Plex Mono',monospace" font-weight="600" font-size="15" letter-spacing="10" fill="#16130E">THRIFT</text></svg></a>
+    <a class="logo" href="#" aria-label="Ajaira Thrift home"><svg viewBox="0 4 320 120" role="img" aria-label="Ajaira Thrift logo"><ellipse cx="160" cy="62" rx="148" ry="44" fill="none" stroke="#EFEAE0" stroke-width="5" transform="rotate(-9 160 62)"/><path d="M0-13 C1.8-4.5 4.5-1.8 13 0 C4.5 1.8 1.8 4.5 0 13 C-1.8 4.5 -4.5 1.8 -13 0 C-4.5-1.8 -1.8-4.5 0-13Z" transform="translate(302,37) scale(.85)" fill="#C9F73A" stroke="#EFEAE0" stroke-width="2.5"/><path d="M0-13 C1.8-4.5 4.5-1.8 13 0 C4.5 1.8 1.8 4.5 0 13 C-1.8 4.5 -4.5 1.8 -13 0 C-4.5-1.8 -1.8-4.5 0-13Z" transform="translate(20,88) scale(.65)" fill="#C9F73A" stroke="#EFEAE0" stroke-width="2.5"/><text x="160" y="72" text-anchor="middle" font-family="'Archivo Black',sans-serif" font-size="62" font-style="italic" fill="#EFEAE0" stroke="#0C0F0C" stroke-width="10" paint-order="stroke" stroke-linejoin="round">ajaira</text><text x="164" y="99" text-anchor="middle" font-family="'IBM Plex Mono',monospace" font-weight="600" font-size="15" letter-spacing="10" fill="#EFEAE0">THRIFT</text></svg></a>
     <nav class="main">
       <a href="#catalogue">Catalogue</a>
       <a href="#how">How it works</a>
@@ -292,7 +336,7 @@ footer{border-top:1px solid rgba(22,19,14,.14)}
     </div>
   </div>
   <div class="hero-photo">
-    <div class="frame"><img src="images/cotton-hoodie.jpg" alt="Cotton Hoodie, featured thrift piece"></div>
+    <div class="frame"><img src="images/hero-night.jpg" alt="Hooded figure in a night alley, featured drop mood"></div>
     <div class="price-tag"><span class="mono">Cotton Hoodie · HOD-012</span><b>৳1,450</b></div>
   </div>
 </section>
@@ -331,7 +375,7 @@ footer{border-top:1px solid rgba(22,19,14,.14)}
   <div class="awning"></div>
   <div class="foot-in">
     <div>
-      <a class="logo" href="#" aria-label="Ajaira Thrift home"><svg viewBox="0 4 320 120" role="img" aria-label="Ajaira Thrift logo"><ellipse cx="160" cy="62" rx="148" ry="44" fill="none" stroke="#16130E" stroke-width="5" transform="rotate(-9 160 62)"/><path d="M0-13 C1.8-4.5 4.5-1.8 13 0 C4.5 1.8 1.8 4.5 0 13 C-1.8 4.5 -4.5 1.8 -13 0 C-4.5-1.8 -1.8-4.5 0-13Z" transform="translate(302,37) scale(.85)" fill="#FF4D8D" stroke="#16130E" stroke-width="2.5"/><path d="M0-13 C1.8-4.5 4.5-1.8 13 0 C4.5 1.8 1.8 4.5 0 13 C-1.8 4.5 -4.5 1.8 -13 0 C-4.5-1.8 -1.8-4.5 0-13Z" transform="translate(20,88) scale(.65)" fill="#FF4D8D" stroke="#16130E" stroke-width="2.5"/><text x="160" y="72" text-anchor="middle" font-family="'Archivo Black',sans-serif" font-size="62" font-style="italic" fill="#16130E" stroke="#FFFFFF" stroke-width="10" paint-order="stroke" stroke-linejoin="round">ajaira</text><text x="164" y="99" text-anchor="middle" font-family="'IBM Plex Mono',monospace" font-weight="600" font-size="15" letter-spacing="10" fill="#16130E">THRIFT</text></svg></a>
+      <a class="logo" href="#" aria-label="Ajaira Thrift home"><svg viewBox="0 4 320 120" role="img" aria-label="Ajaira Thrift logo"><ellipse cx="160" cy="62" rx="148" ry="44" fill="none" stroke="#EFEAE0" stroke-width="5" transform="rotate(-9 160 62)"/><path d="M0-13 C1.8-4.5 4.5-1.8 13 0 C4.5 1.8 1.8 4.5 0 13 C-1.8 4.5 -4.5 1.8 -13 0 C-4.5-1.8 -1.8-4.5 0-13Z" transform="translate(302,37) scale(.85)" fill="#C9F73A" stroke="#EFEAE0" stroke-width="2.5"/><path d="M0-13 C1.8-4.5 4.5-1.8 13 0 C4.5 1.8 1.8 4.5 0 13 C-1.8 4.5 -4.5 1.8 -13 0 C-4.5-1.8 -1.8-4.5 0-13Z" transform="translate(20,88) scale(.65)" fill="#C9F73A" stroke="#EFEAE0" stroke-width="2.5"/><text x="160" y="72" text-anchor="middle" font-family="'Archivo Black',sans-serif" font-size="62" font-style="italic" fill="#EFEAE0" stroke="#0C0F0C" stroke-width="10" paint-order="stroke" stroke-linejoin="round">ajaira</text><text x="164" y="99" text-anchor="middle" font-family="'IBM Plex Mono',monospace" font-weight="600" font-size="15" letter-spacing="10" fill="#EFEAE0">THRIFT</text></svg></a>
       <p class="mono" style="margin-top:10px">Curated thrift · Dhaka, Bangladesh<br>New drop every week</p>
     </div>
     <p class="mono">Concept demo storefront<br>Catalogue, bag and checkout run<br>entirely in the browser</p>
@@ -375,7 +419,8 @@ const PRODUCTS = [
  {slug:"wireless-earbuds-pro",name:"Wireless Earbuds Pro",sku:"EBD-010",price:2450,was:2990,cat:"Electronics",stock:54,sizes:["One size"],desc:"Bluetooth 5.3 earbuds with ENC and 30h case.",img:"images/wireless-earbuds-pro.jpg"},
  {slug:"analog-steel-watch",name:"Minimal Smart Watch",sku:"WCH-011",price:2750,was:3200,cat:"Electronics",stock:300,sizes:["One size"],desc:"Minimal smart watch with a clean round face and sport strap.",img:"images/analog-steel-watch.jpg"},
  {slug:"cotton-hoodie",name:"Cotton Hoodie",sku:"HOD-012",price:1450,was:1750,cat:"Fashion",stock:8,sizes:["M","L"],desc:"320 GSM brushed fleece hoodie. Low stock.",img:"images/cotton-hoodie.jpg"},
- {slug:"formal-oxford-shirt",name:"Formal Oxford Shirt",sku:"SHT-013",price:1350,was:0,cat:"Fashion",stock:73,sizes:["M","L"],desc:"Wrinkle resistant oxford shirt.",img:"images/formal-oxford-shirt.jpg"}
+ {slug:"formal-oxford-shirt",name:"Formal Oxford Shirt",sku:"SHT-013",price:1350,was:0,cat:"Fashion",stock:73,sizes:["M","L"],desc:"Wrinkle resistant oxford shirt.",img:"images/formal-oxford-shirt.jpg"},
+ {slug:"leather-biker-jacket",name:"Vintage Leather Biker Jacket",sku:"JKT-015",price:3850,was:4600,cat:"Fashion",stock:3,sizes:["M","L"],desc:"Heavyweight vintage biker jacket with asymmetric zip.",img:"images/leather-biker-jacket.jpg"}
 ];
 const CATS = ["All","Fashion","Footwear","Accessories","Electronics"];
 const fmt = n => "৳" + n.toLocaleString("en-IN");
@@ -430,16 +475,27 @@ function render(){
 }
 document.getElementById("grid").addEventListener("click", e=>{
   const add = e.target.closest("[data-add]");
-  if(add){ e.stopPropagation(); addToCart(add.dataset.add); return; }
+  if(add){ e.stopPropagation(); addToCart(add.dataset.add, add); return; }
   const card = e.target.closest(".card");
   if(card) openModal(card.dataset.slug);
 });
 
-function addToCart(slug){
+function burst(el){
+  if(!el) return;
+  const r = el.getBoundingClientRect();
+  const s = document.createElement("span");
+  s.className = "burst"; s.textContent = "★ +1";
+  s.style.left = (r.left + r.width/2) + "px";
+  s.style.top = r.top + "px";
+  document.body.appendChild(s);
+  setTimeout(()=>s.remove(), 600);
+}
+function addToCart(slug, srcEl){
   const p = PRODUCTS.find(x=>x.slug===slug);
   const cur = cart.get(slug) || {p, qty:0, size:p.sizes[0]};
   cur.qty = Math.min(cur.qty + 1, Math.max(p.stock,1));
   cart.set(slug, cur);
+  burst(srcEl || document.querySelector(`[data-add="${slug}"]`));
   syncBag(); toast(`Added: ${p.name}`);
   const bb = document.getElementById("bagBtn");
   bb.classList.remove("pop"); void bb.offsetWidth; bb.classList.add("pop");
@@ -524,7 +580,7 @@ function openModal(slug){
   if(add) add.addEventListener("click", ()=>{
     const cur = cart.get(slug) || {p, qty:0, size:modalSize};
     cur.size = modalSize; cur.qty = Math.min(cur.qty+1, Math.max(p.stock,1));
-    cart.set(slug, cur); syncBag(); closeModal(); openDrawer();
+    cart.set(slug, cur); burst(add); syncBag(); closeModal(); openDrawer();
   });
 }
 function closeModal(){ modalWrap.classList.remove("open"); }
