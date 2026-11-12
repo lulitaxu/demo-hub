@@ -488,8 +488,15 @@ body.entered .hero p.lede{animation-delay:.12s}
 .card:hover{transform:translateY(-4px);box-shadow:10px 12px 0 rgba(0,0,0,.85),0 26px 50px rgba(0,0,0,.60),0 0 0 1px rgba(210,216,228,.22),0 0 18px rgba(199,203,212,.10)}
 @media (prefers-reduced-motion:reduce){.card,body.entered .hero h1,body.entered .hero p.lede{animation:none}}
 </style>
+
+<style>
+/* Fully chrome name (2026-11-12, hypecave pattern): the ajaira wordmark is liquid chrome everywhere */
+.lg-word,.splash .lg-word,header .lg-word,footer .lg-word{fill:url(#chromeGrad)}
+.splash-logo svg{filter:drop-shadow(0 0 14px rgba(210,216,228,.35))}
+</style>
 </head>
 <body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><linearGradient id="chromeGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset=".30" stop-color="#dfe3ea"/><stop offset=".49" stop-color="#8f96a3"/><stop offset=".55" stop-color="#f4f6f9"/><stop offset=".78" stop-color="#a7adb9"/><stop offset="1" stop-color="#e8ebf0"/></linearGradient></defs></svg>
 <div class="splash" id="splash" role="dialog" aria-modal="true" aria-label="Ajaira Thrift entrance">
   <img class="splash-poster" src="media/splash-poster.jpg" alt="" aria-hidden="true">
   <video class="splash-video" autoplay muted loop playsinline preload="auto" poster="media/splash-poster.jpg" aria-hidden="true"><source src="media/splash-storm.mp4" type="video/mp4"></video>
