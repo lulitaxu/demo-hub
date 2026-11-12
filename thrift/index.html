@@ -205,6 +205,60 @@ footer{margin-top:60px;border-top:2.5px solid var(--ink)}
   *{transition:none!important}
 }
 </style>
+<style id="restraint">
+/* Restraint pass: Ajaira-faithful. Photography leads, chrome steps back. */
+body::before{background:radial-gradient(480px circle at var(--mx,50%) var(--my,30%),rgba(255,77,141,.08),rgba(255,77,141,0) 62%),radial-gradient(rgba(22,19,14,.06) 1.2px,transparent 1.3px);background-size:auto,22px 22px}
+header{border-bottom:1px solid rgba(22,19,14,.14)}
+.bag-btn{border-width:1.5px;box-shadow:none}
+.bag-btn:hover{transform:none;box-shadow:none;background:var(--pink)}
+.bag-btn:active{transform:scale(.97);box-shadow:none}
+.kicker{background:transparent;border:none;box-shadow:none;transform:none;padding:0}
+.btn-solid{border-width:1.5px;box-shadow:none}
+.btn-solid:hover{transform:none;box-shadow:none}
+.btn-solid:active{transform:scale(.98);box-shadow:none}
+.btn-ghost{border-width:1.5px}
+.hero-photo .frame{border:1px solid rgba(22,19,14,.16);box-shadow:none}
+.price-tag{border:1px solid rgba(22,19,14,.16);box-shadow:none;transform:none;bottom:14px;right:14px}
+.cat-head{border-top:1px solid rgba(22,19,14,.14)}
+.chip{border-width:1.5px}
+.chip:hover{box-shadow:none;transform:none}
+.chip:active{box-shadow:none;transform:scale(.97)}
+.chip.on{box-shadow:none}
+.search input{border-width:1.5px}
+.search input:focus{box-shadow:none;border-color:var(--pink)}
+.card{border:none;background:transparent}
+.card:hover{transform:none;box-shadow:none}
+.card:active{transform:scale(.99)}
+.card .ph{border-bottom:none}
+.card .body{padding:12px 2px 0}
+.card h3{font-weight:700}
+.badge{border:none;box-shadow:0 1px 5px rgba(22,19,14,.14)}
+.badge.last{transform:none}
+.off-tag{border:none;box-shadow:none;transform:none;top:auto;bottom:10px;right:10px;font-size:11px;padding:4px 8px}
+.add-btn{border-width:1.5px}
+.add-btn:active{transform:scale(.96)}
+.how-in{border:1px solid rgba(22,19,14,.16);box-shadow:none;background:transparent}
+.how-cell{border-right:1px solid rgba(22,19,14,.14)}
+footer{border-top:1px solid rgba(22,19,14,.14)}
+.awning{display:none}
+.drawer{border-left:1px solid rgba(22,19,14,.2)}
+.drawer header{background:var(--paper);border-bottom:1px solid rgba(22,19,14,.14)}
+.cart-item{border:1px solid rgba(22,19,14,.22)}
+.checkout-btn{box-shadow:none;border-width:1.5px}
+.checkout-btn:active{transform:scale(.99);box-shadow:none}
+.modal{border:1px solid rgba(22,19,14,.2);box-shadow:0 24px 60px rgba(22,19,14,.22)}
+.modal .mph img{border-right:1px solid rgba(22,19,14,.14)}
+.toast{box-shadow:0 10px 30px rgba(22,19,14,.25)}
+.confirm-line{border:1px solid rgba(22,19,14,.25)}
+.empty{border:1px dashed rgba(22,19,14,.35)}
+.x-btn{border-width:1.5px}
+.size-pill{border-width:1.5px}
+.qty button{border-width:1.5px}
+@media (max-width:820px){
+  .how-cell{border-right:none;border-bottom:1px solid rgba(22,19,14,.14)}
+  .modal .mph img{border-right:none;border-bottom:1px solid rgba(22,19,14,.14)}
+}
+</style>
 </head>
 <body>
 
@@ -238,9 +292,6 @@ footer{margin-top:60px;border-top:2.5px solid var(--ink)}
     </div>
   </div>
   <div class="hero-photo">
-    <span class="tape t1"></span><span class="tape t2"></span>
-    <div class="sticker s1">Fresh drop</div>
-    <div class="sticker s2">1 of 1</div>
     <div class="frame"><img src="images/cotton-hoodie.jpg" alt="Cotton Hoodie, featured thrift piece"></div>
     <div class="price-tag"><span class="mono">Cotton Hoodie · HOD-012</span><b>৳1,450</b></div>
   </div>
@@ -312,17 +363,17 @@ footer{margin-top:60px;border-top:2.5px solid var(--ink)}
 
 <script>
 const PRODUCTS = [
- {slug:"dhaka-cotton-panjabi",name:"Dhaka Cotton Panjabi",sku:"PNJ-001",price:1850,was:2200,cat:"Fashion",stock:42,sizes:["M","L","XL"],desc:"Soft breathable cotton panjabi for Eid and Friday wear.",img:"images/dhaka-cotton-panjabi.jpg"},
+ {slug:"dhaka-cotton-panjabi",name:"Indigo Cotton Shirt",sku:"SHR-001",price:1850,was:2200,cat:"Fashion",stock:42,sizes:["M","L","XL"],desc:"Lightweight cotton shirt with an all-over micro print.",img:"images/dhaka-cotton-panjabi.jpg"},
  {slug:"premium-polo-shirt",name:"Premium Polo Shirt",sku:"POLO-002",price:950,was:0,cat:"Fashion",stock:120,sizes:["M","L"],desc:"Pique cotton polo with reinforced collar.",img:"images/premium-polo-shirt.jpg"},
  {slug:"slim-fit-jeans",name:"Slim Fit Jeans",sku:"JNS-003",price:1650,was:1900,cat:"Fashion",stock:67,sizes:["32","34"],desc:"Stretch denim slim fit jeans.",img:"images/slim-fit-jeans.jpg"},
  {slug:"running-sneakers",name:"Running Sneakers",sku:"SNK-004",price:2850,was:3200,cat:"Footwear",stock:35,sizes:["41","42","43"],desc:"Lightweight mesh running shoes.",img:"images/running-sneakers.jpg"},
  {slug:"leather-loafers",name:"Suede Desert Boots",sku:"BOT-005",price:3400,was:0,cat:"Footwear",stock:18,sizes:["41","42"],desc:"Suede desert boots, handmade in Dhaka.",img:"images/leather-loafers.jpg"},
  {slug:"last-pair-limited-sneakers",name:"Last Pair Limited Sneakers",sku:"SNK-LTD-006",price:4500,was:0,cat:"Footwear",stock:1,sizes:["42"],desc:"Limited run. Only one pair in stock.",img:"images/last-pair-limited-sneakers.jpg"},
- {slug:"canvas-tote-bag",name:"Canvas Tote Bag",sku:"BAG-007",price:650,was:800,cat:"Accessories",stock:200,sizes:["One size"],desc:"Heavy canvas tote with inner pocket.",img:"images/canvas-tote-bag.jpg"},
+ {slug:"canvas-tote-bag",name:"Structured Leather Handbag",sku:"BAG-007",price:650,was:800,cat:"Accessories",stock:200,sizes:["One size"],desc:"Structured leather handbag with top handle and clasp.",img:"images/canvas-tote-bag.jpg"},
  {slug:"minimal-leather-wallet",name:"Minimal Leather Wallet",sku:"WLT-008",price:850,was:0,cat:"Accessories",stock:85,sizes:["One size"],desc:"Full grain leather bifold wallet.",img:"images/minimal-leather-wallet.jpg"},
  {slug:"aviator-sunglasses",name:"Aviator Sunglasses",sku:"SUN-009",price:1250,was:1500,cat:"Accessories",stock:0,sizes:["One size"],desc:"Polarised aviator sunglasses.",img:"images/aviator-sunglasses.jpg"},
  {slug:"wireless-earbuds-pro",name:"Wireless Earbuds Pro",sku:"EBD-010",price:2450,was:2990,cat:"Electronics",stock:54,sizes:["One size"],desc:"Bluetooth 5.3 earbuds with ENC and 30h case.",img:"images/wireless-earbuds-pro.jpg"},
- {slug:"analog-steel-watch",name:"Analog Steel Watch",sku:"WCH-011",price:2750,was:3200,cat:"Electronics",stock:300,sizes:["One size"],desc:"Minimal analog watch, steel strap, 5ATM.",img:"images/analog-steel-watch.jpg"},
+ {slug:"analog-steel-watch",name:"Minimal Smart Watch",sku:"WCH-011",price:2750,was:3200,cat:"Electronics",stock:300,sizes:["One size"],desc:"Minimal smart watch with a clean round face and sport strap.",img:"images/analog-steel-watch.jpg"},
  {slug:"cotton-hoodie",name:"Cotton Hoodie",sku:"HOD-012",price:1450,was:1750,cat:"Fashion",stock:8,sizes:["M","L"],desc:"320 GSM brushed fleece hoodie. Low stock.",img:"images/cotton-hoodie.jpg"},
  {slug:"formal-oxford-shirt",name:"Formal Oxford Shirt",sku:"SHT-013",price:1350,was:0,cat:"Fashion",stock:73,sizes:["M","L"],desc:"Wrinkle resistant oxford shirt.",img:"images/formal-oxford-shirt.jpg"}
 ];
