@@ -450,6 +450,44 @@ html.gated{overflow:hidden}
   .row .add-btn{width:100%;text-align:center;padding:12px 10px}
 }
 </style>
+
+<style>
+/* Checkout views (2026-11-12): customer details form + booked state, inside the bag drawer */
+.co-view{padding:4px 18px 20px;overflow-y:auto}
+.co-back{background:none;border:none;color:var(--ink);opacity:.75;font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;padding:10px 0;cursor:pointer}
+.co-h{font-family:'Archivo Black',sans-serif;font-size:19px;text-transform:uppercase;margin:4px 0 12px}
+.co-label{display:block;font-family:'IBM Plex Mono',monospace;font-size:11.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;margin:14px 0 6px;opacity:.85}
+.co-input{width:100%;background:var(--surf);color:var(--ink);border:1.5px solid var(--lin);padding:12px;font:inherit;font-size:14px}
+.co-input:focus{outline:none;border-color:#C7CBD4;box-shadow:0 0 0 1px #C7CBD4}
+.co-input.bad{border-color:#E5484D}
+.co-err{color:#FF8589;font-size:11.5px;margin:5px 0 0}
+.co-zones{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.zone{background:var(--surf);color:var(--ink);border:1.5px solid var(--lin);padding:11px 8px;font-weight:700;font-size:12.5px;text-transform:uppercase;letter-spacing:.04em;cursor:pointer;display:flex;flex-direction:column;gap:2px;align-items:center}
+.zone span{font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:11.5px;opacity:.8}
+.zone.on{border-color:#000;background:linear-gradient(180deg,#FFFFFF,#D9DDE5);color:#0A0A0B;box-shadow:3px 3px 0 #000}
+.co-view .tot-row{margin-top:10px}
+.co-view .checkout-btn{width:100%;margin-top:14px;padding:14px}
+.done-view{text-align:center;padding-top:26px}
+.done-star{font-size:40px;color:#C7CBD4;text-shadow:0 0 16px rgba(210,216,228,.45)}
+.done-ref{margin:2px 0 10px;opacity:.85}
+.done-copy{font-size:14px;line-height:1.55;opacity:.9;max-width:300px;margin:0 auto}
+.done-wa{display:block;margin:18px 0 6px;padding:14px;text-align:center}
+.done-continue{width:100%;text-align:center}
+</style>
+
+<style>
+/* Touch-parity motion (2026-11-12): phones get the same life as desktop, no hover needed */
+@keyframes risein{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.card{animation:risein .5s cubic-bezier(.32,.72,0,1) backwards}
+.card:nth-child(4n+2){animation-delay:.05s}
+.card:nth-child(4n+3){animation-delay:.1s}
+.card:nth-child(4n+4){animation-delay:.15s}
+body.entered .hero h1,body.entered .hero p.lede{animation:risein .6s cubic-bezier(.32,.72,0,1) backwards}
+body.entered .hero p.lede{animation-delay:.12s}
+.card{transition:transform .25s cubic-bezier(.32,.72,0,1),box-shadow .25s}
+.card:hover{transform:translateY(-4px);box-shadow:10px 12px 0 rgba(0,0,0,.85),0 26px 50px rgba(0,0,0,.60),0 0 0 1px rgba(210,216,228,.22),0 0 18px rgba(199,203,212,.10)}
+@media (prefers-reduced-motion:reduce){.card,body.entered .hero h1,body.entered .hero p.lede{animation:none}}
+</style>
 </head>
 <body>
 <div class="splash" id="splash" role="dialog" aria-modal="true" aria-label="Ajaira Thrift entrance">
@@ -551,8 +589,39 @@ html.gated{overflow:hidden}
     <div class="tot-row"><span>Subtotal</span><span id="subTotal">৳0</span></div>
     <div class="tot-row"><span>Delivery (inside Dhaka)</span><span>৳60</span></div>
     <div class="tot-row grand"><span>Total</span><span id="grandTotal">৳0</span></div>
-    <button class="checkout-btn" id="checkoutBtn">Confirm order</button>
+    <button class="checkout-btn" id="checkoutBtn">Checkout</button>
     <p class="demo-note">Demo checkout · No real order is placed</p>
+  </div>
+  <div class="co-view" id="checkoutView" hidden>
+    <button class="co-back" id="coBack">← Back to bag</button>
+    <h4 class="co-h">Your details</h4>
+    <label class="co-label" for="coName">Full name</label>
+    <input class="co-input" id="coName" type="text" autocomplete="name" placeholder="Your name">
+    <p class="co-err" id="errName" hidden>Please add your name.</p>
+    <label class="co-label" for="coPhone">Phone (WhatsApp)</label>
+    <input class="co-input" id="coPhone" type="tel" inputmode="tel" autocomplete="tel" placeholder="01XXXXXXXXX">
+    <p class="co-err" id="errPhone" hidden>Enter a valid mobile number, 11 digits starting 01.</p>
+    <span class="co-label">Delivery area</span>
+    <div class="co-zones">
+      <button type="button" class="zone on" data-zone="60">Inside Dhaka<span>৳60</span></button>
+      <button type="button" class="zone" data-zone="120">Outside Dhaka<span>৳120</span></button>
+    </div>
+    <label class="co-label" for="coAddr">Full address</label>
+    <textarea class="co-input" id="coAddr" rows="3" autocomplete="street-address" placeholder="House, road, area, city"></textarea>
+    <p class="co-err" id="errAddr" hidden>Please add your full address.</p>
+    <div class="tot-row"><span>Subtotal</span><span id="coSub">৳0</span></div>
+    <div class="tot-row"><span>Delivery</span><span id="coDel">৳60</span></div>
+    <div class="tot-row grand"><span>Total</span><span id="coTotal">৳0</span></div>
+    <button class="checkout-btn" id="confirmBtn">Confirm order</button>
+    <p class="demo-note">Demo checkout · No real order is placed</p>
+  </div>
+  <div class="co-view done-view" id="doneView" hidden>
+    <div class="done-star">★</div>
+    <h4 class="co-h" id="doneTitle">Booked</h4>
+    <p class="done-ref mono" id="doneRef"></p>
+    <p class="done-copy">We hold it under your name. Send the order on WhatsApp to lock the delivery slot, or just wait for our call on the number you gave.</p>
+    <a class="wa-btn done-wa" id="doneWa" href="#" target="_blank" rel="noopener">Send order on WhatsApp</a>
+    <button class="co-back done-continue" id="doneContinue">Continue shopping</button>
   </div>
 </aside>
 
@@ -563,6 +632,7 @@ html.gated{overflow:hidden}
 <div class="toast" id="toast"></div>
 
 <script>
+window.__ajairaBooted = true;
 const PRODUCTS = [
  {slug:"dhaka-cotton-panjabi",name:"Indigo Cotton Shirt",sku:"SHR-001",price:1850,was:2200,cat:"Fashion",stock:42,sizes:["M","L","XL"],desc:"Lightweight cotton shirt with an all-over micro print.",img:"images/dhaka-cotton-panjabi-v2.jpg"},
  {slug:"premium-polo-shirt",name:"Premium Polo Shirt",sku:"POLO-002",price:950,was:0,cat:"Fashion",stock:120,sizes:["M","L"],desc:"Pique cotton polo with reinforced collar.",img:"images/premium-polo-shirt-v2.jpg"},
@@ -600,6 +670,7 @@ const SPECS = {
 const fmt = n => "৳" + n.toLocaleString("en-IN");
 let activeCat = "All", query = "";
 const cart = new Map();
+let DELIVERY = 60;
 
 const tickerMsgs = ["New drop every week","One piece only, no restock","Dhaka delivery in 24–48h · ৳60","First to confirm gets it","bKash · Nagad · Rocket · Cash on delivery","Missed it? It's gone"];
 document.getElementById("tickerTrack").innerHTML = (tickerMsgs.concat(tickerMsgs)).map(m=>`<span>${m} <b>★</b></span>`).join("");
@@ -693,7 +764,7 @@ function syncBag(){
   cart.forEach(({p,qty})=>{ count += qty; sub += p.price*qty; });
   document.getElementById("bagBtn").textContent = `Bag (${count})`;
   document.getElementById("subTotal").textContent = fmt(sub);
-  document.getElementById("grandTotal").textContent = fmt(count ? sub + 60 : 0);
+  document.getElementById("grandTotal").textContent = fmt(count ? sub + DELIVERY : 0);
   const box = document.getElementById("cartItems");
   if(!count){ box.innerHTML = `<div class="cart-empty">Bag's empty.<br>The good stuff doesn't wait around.</div>`; return; }
   box.innerHTML = [...cart.values()].map(({p,qty,size})=>`
@@ -728,11 +799,54 @@ function closeDrawer(){ drawer.classList.remove("open"); scrim.classList.remove(
 document.getElementById("bagBtn").addEventListener("click", openDrawer);
 document.getElementById("drawerClose").addEventListener("click", closeDrawer);
 scrim.addEventListener("click", ()=>{ closeDrawer(); closeModal(); });
+const bagFoot = document.querySelector(".drawer-foot");
+const coView = document.getElementById("checkoutView"), doneView = document.getElementById("doneView");
+function showView(v){
+  document.getElementById("cartItems").style.display = v==="bag" ? "" : "none";
+  bagFoot.style.display = v==="bag" ? "" : "none";
+  coView.hidden = v!=="form"; doneView.hidden = v!=="done";
+  drawer.scrollTop = 0;
+}
+function coTotals(){
+  let sub = 0; cart.forEach(({p,qty})=>{ sub += p.price*qty; });
+  document.getElementById("coSub").textContent = fmt(sub);
+  document.getElementById("coDel").textContent = fmt(DELIVERY);
+  document.getElementById("coTotal").textContent = fmt(sub + DELIVERY);
+  return sub;
+}
+document.querySelectorAll(".zone").forEach(z=>z.addEventListener("click", ()=>{
+  document.querySelectorAll(".zone").forEach(x=>x.classList.toggle("on", x===z));
+  DELIVERY = +z.dataset.zone; syncBag(); coTotals();
+}));
 document.getElementById("checkoutBtn").addEventListener("click", ()=>{
   if(!cart.size){ toast("Your bag is empty"); return; }
-  cart.clear(); syncBag(); closeDrawer();
-  toast("Done. That's booked under your name (demo).");
+  coTotals(); showView("form");
 });
+document.getElementById("coBack").addEventListener("click", ()=>showView("bag"));
+function markBad(input, err, bad){ input.classList.toggle("bad", bad); document.getElementById(err).hidden = !bad; return !bad; }
+document.getElementById("confirmBtn").addEventListener("click", ()=>{
+  const name = document.getElementById("coName"), phone = document.getElementById("coPhone"), addr = document.getElementById("coAddr");
+  let ok = true;
+  ok = markBad(name, "errName", name.value.trim().length < 3) && ok;
+  ok = markBad(phone, "errPhone", !/^01[3-9]\d{8}$/.test(phone.value.trim())) && ok;
+  ok = markBad(addr, "errAddr", addr.value.trim().length < 10) && ok;
+  if(!ok) return;
+  const btn = document.getElementById("confirmBtn");
+  btn.disabled = true; btn.textContent = "Booking...";
+  const ref = "AJ-" + Math.floor(1000 + Math.random()*9000);
+  const lines = [...cart.values()].map(({p,qty,size})=>`${p.name} · Size ${size} · x${qty} · ${fmt(p.price*qty)}`);
+  const sub = coTotals();
+  const msg = ["Order " + ref + " · Ajaira Thrift", ...lines,
+    "Subtotal: " + fmt(sub), "Delivery: " + fmt(DELIVERY), "Total: " + fmt(sub + DELIVERY),
+    "Name: " + name.value.trim(), "Phone: " + phone.value.trim(), "Address: " + addr.value.trim()].join("\n");
+  document.getElementById("doneWa").href = "https://wa.me/8801992420839?text=" + encodeURIComponent(msg);
+  document.getElementById("doneTitle").textContent = "Booked under " + name.value.trim().split(" ")[0];
+  document.getElementById("doneRef").textContent = "Order " + ref + " · Total " + fmt(sub + DELIVERY) + " · Pay on delivery";
+  cart.clear(); syncBag();
+  btn.disabled = false; btn.textContent = "Confirm order";
+  showView("done");
+});
+document.getElementById("doneContinue").addEventListener("click", ()=>{ showView("bag"); closeDrawer(); });
 
 const modalWrap = document.getElementById("modalWrap"), modal = document.getElementById("modal");
 let modalSize = null;
@@ -824,12 +938,14 @@ render(); syncBag();
 (function(){var sp=document.getElementById("splash");if(!sp)return;
 if(document.documentElement.classList.contains("no-splash")){sp.remove();return;}
 document.documentElement.classList.add("gated");
+setTimeout(function(){if(!window.__ajairaBooted){var sp=document.getElementById("splash");if(sp)sp.remove();document.documentElement.classList.remove("gated");}},6000);
 var v=document.querySelector(".splash-video");
 if(v){var kick=function(){var p=v.play();if(p&&p.catch)p.catch(function(){})};
 v.addEventListener("playing",function(){v.classList.add("on")});
 v.addEventListener("canplay",kick);kick();
 document.addEventListener("touchstart",kick,{once:true});}
 document.getElementById("splashEnter").addEventListener("click",function(){
+  document.body.classList.add("entered");
 try{sessionStorage.setItem("ajaira-entered","1")}catch(e){}
 sp.classList.add("gone");document.documentElement.classList.remove("gated");
 setTimeout(function(){sp.remove()},820);});})();
