@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>THRIFT DHAKA — One piece. One owner.</title>
+<title>Ajaira Thrift — One piece. One owner.</title>
 <meta name="description" content="Curated vintage and thrift pieces in Dhaka. One of one, first to confirm gets it.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,10 +21,11 @@
   --card:#FFFFFF;
 }
 *{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{background:var(--paper);color:var(--ink);font-family:'Archivo',sans-serif;-webkit-font-smoothing:antialiased}
+html{scroll-behavior:smooth;overflow-x:hidden;-webkit-text-size-adjust:100%}
+body{background:var(--paper);color:var(--ink);font-family:'Archivo',sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden;position:relative}
 img{display:block;max-width:100%}
-button{font-family:inherit;cursor:pointer}
+button{font-family:inherit;cursor:pointer;color:inherit;-webkit-appearance:none;appearance:none;background:none}
+input{-webkit-appearance:none;appearance:none;border-radius:0}
 .mono{font-family:'IBM Plex Mono',monospace}
 
 /* ---------- ticker ---------- */
@@ -37,8 +38,8 @@ button{font-family:inherit;cursor:pointer}
 /* ---------- header ---------- */
 header{position:sticky;top:0;z-index:40;background:var(--paper);border-bottom:2px solid var(--ink)}
 .header-in{max-width:1240px;margin:0 auto;padding:14px 20px;display:flex;align-items:center;justify-content:space-between;gap:16px}
-.logo{font-family:'Archivo Black',sans-serif;font-size:24px;letter-spacing:-.01em;text-decoration:none;color:var(--ink);display:flex;align-items:center;gap:8px}
-.logo .star{display:inline-grid;place-items:center;width:26px;height:26px;background:var(--pink);color:#fff;border:2px solid var(--ink);border-radius:50%;font-size:14px;transform:rotate(-8deg);box-shadow:2px 2px 0 var(--ink)}
+.logo{text-decoration:none;color:var(--ink);display:flex;align-items:center}
+.logo svg{height:58px;width:auto;display:block}
 nav.main{display:flex;gap:22px}
 nav.main a{color:var(--ink);text-decoration:none;font-weight:700;font-size:13px;letter-spacing:.08em;text-transform:uppercase}
 nav.main a:hover{color:var(--pink)}
@@ -83,11 +84,11 @@ nav.main a:hover{color:var(--pink)}
 .chip:hover{box-shadow:3px 3px 0 var(--ink);transform:translate(-1px,-1px)}
 .chip.on{background:var(--ink);color:var(--paper);box-shadow:3px 3px 0 var(--pink)}
 .search{margin-left:auto;display:flex;gap:8px}
-.search input{border:2px solid var(--ink);background:#fff;padding:9px 14px;font-family:'IBM Plex Mono',monospace;font-size:13px;width:230px;outline:none}
+.search input{border:2px solid var(--ink);background:#fff;padding:9px 14px;font-family:'IBM Plex Mono',monospace;font-size:16px;width:230px;outline:none;color:var(--ink)}
 .search input:focus{box-shadow:3px 3px 0 var(--pink)}
 .count-line{margin-top:14px;font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;opacity:.75}
-.grid{margin-top:18px;display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
-.card{background:var(--card);border:2px solid var(--ink);display:flex;flex-direction:column;transition:transform .14s,box-shadow .14s;cursor:pointer;position:relative}
+.grid{margin-top:18px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:22px}
+.card{background:var(--card);border:2px solid var(--ink);display:flex;flex-direction:column;transition:transform .14s,box-shadow .14s;cursor:pointer;position:relative;min-width:0}
 .card:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--ink)}
 .card .ph{position:relative;overflow:hidden;border-bottom:2px solid var(--ink)}
 .card .ph img{width:100%;height:300px;object-fit:cover;transition:transform .4s}
@@ -127,8 +128,8 @@ footer{margin-top:60px;border-top:2.5px solid var(--ink)}
 /* ---------- drawer / cart ---------- */
 .scrim{position:fixed;inset:0;background:rgba(22,19,14,.5);opacity:0;pointer-events:none;transition:opacity .2s;z-index:60}
 .scrim.open{opacity:1;pointer-events:auto}
-.drawer{position:fixed;top:0;right:0;height:100dvh;width:min(420px,92vw);background:var(--paper);border-left:2.5px solid var(--ink);z-index:61;transform:translateX(105%);transition:transform .28s cubic-bezier(.32,.72,0,1);display:flex;flex-direction:column}
-.drawer.open{transform:none}
+.drawer{position:fixed;top:0;right:0;height:100dvh;width:min(420px,92vw);background:var(--paper);border-left:2.5px solid var(--ink);z-index:61;transform:translateX(105%);visibility:hidden;transition:transform .28s cubic-bezier(.32,.72,0,1),visibility 0s linear .3s;display:flex;flex-direction:column}
+.drawer.open{transform:none;visibility:visible;transition:transform .28s cubic-bezier(.32,.72,0,1)}
 .drawer header{position:static;border-bottom:2.5px solid var(--ink);padding:16px 18px;display:flex;justify-content:space-between;align-items:center;background:var(--pink-soft)}
 .drawer h3{font-family:'Archivo Black',sans-serif;font-size:19px;text-transform:uppercase}
 .x-btn{background:#fff;border:2px solid var(--ink);width:34px;height:34px;font-weight:900;font-size:15px;line-height:1}
@@ -171,7 +172,7 @@ footer{margin-top:60px;border-top:2.5px solid var(--ink)}
 .toast{position:fixed;left:50%;bottom:26px;transform:translate(-50%,90px);background:var(--ink);color:var(--paper);border:2px solid var(--ink);box-shadow:4px 4px 0 var(--pink);padding:13px 22px;font-weight:700;font-size:14px;z-index:80;transition:transform .3s cubic-bezier(.32,.72,0,1)}
 .toast.show{transform:translate(-50%,0)}
 
-@media (max-width:1000px){.grid{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:1000px){.grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media (max-width:820px){
   .hero{grid-template-columns:1fr;padding-top:36px}
   .hero-photo img{height:400px}
@@ -182,7 +183,7 @@ footer{margin-top:60px;border-top:2.5px solid var(--ink)}
   .modal{grid-template-columns:1fr}
   .modal .mph img{border-right:none;border-bottom:2.5px solid var(--ink);min-height:260px;height:300px}
 }
-@media (max-width:640px){.grid{grid-template-columns:repeat(2,1fr);gap:14px}.card .ph img{height:210px}.search{margin-left:0}.search input{width:170px}}
+@media (max-width:640px){.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.card .ph img{height:210px}.search{margin-left:0}.search input{width:170px}.spec{overflow-wrap:anywhere}.logo svg{height:42px}}
 @media (prefers-reduced-motion:reduce){
   .ticker-track{animation:none}
   html{scroll-behavior:auto}
@@ -196,7 +197,7 @@ footer{margin-top:60px;border-top:2.5px solid var(--ink)}
 
 <header>
   <div class="header-in">
-    <a class="logo" href="#"><span class="star">★</span>THRIFT&nbsp;DHAKA</a>
+    <a class="logo" href="#" aria-label="Ajaira Thrift home"><svg viewBox="0 4 320 120" role="img" aria-label="Ajaira Thrift logo"><ellipse cx="160" cy="62" rx="148" ry="44" fill="none" stroke="#16130E" stroke-width="5" transform="rotate(-9 160 62)"/><path d="M0-13 C1.8-4.5 4.5-1.8 13 0 C4.5 1.8 1.8 4.5 0 13 C-1.8 4.5 -4.5 1.8 -13 0 C-4.5-1.8 -1.8-4.5 0-13Z" transform="translate(302,37) scale(.85)" fill="#FF4D8D" stroke="#16130E" stroke-width="2.5"/><path d="M0-13 C1.8-4.5 4.5-1.8 13 0 C4.5 1.8 1.8 4.5 0 13 C-1.8 4.5 -4.5 1.8 -13 0 C-4.5-1.8 -1.8-4.5 0-13Z" transform="translate(20,88) scale(.65)" fill="#FF4D8D" stroke="#16130E" stroke-width="2.5"/><text x="160" y="72" text-anchor="middle" font-family="'Archivo Black',sans-serif" font-size="62" font-style="italic" fill="#16130E" stroke="#FFFFFF" stroke-width="10" paint-order="stroke" stroke-linejoin="round">ajaira</text><text x="164" y="99" text-anchor="middle" font-family="'IBM Plex Mono',monospace" font-weight="600" font-size="15" letter-spacing="10" fill="#16130E">THRIFT</text></svg></a>
     <nav class="main">
       <a href="#catalogue">Catalogue</a>
       <a href="#how">How it works</a>
@@ -264,7 +265,7 @@ footer{margin-top:60px;border-top:2.5px solid var(--ink)}
   <div class="awning"></div>
   <div class="foot-in">
     <div>
-      <a class="logo" href="#"><span class="star">★</span>THRIFT&nbsp;DHAKA</a>
+      <a class="logo" href="#" aria-label="Ajaira Thrift home"><svg viewBox="0 4 320 120" role="img" aria-label="Ajaira Thrift logo"><ellipse cx="160" cy="62" rx="148" ry="44" fill="none" stroke="#16130E" stroke-width="5" transform="rotate(-9 160 62)"/><path d="M0-13 C1.8-4.5 4.5-1.8 13 0 C4.5 1.8 1.8 4.5 0 13 C-1.8 4.5 -4.5 1.8 -13 0 C-4.5-1.8 -1.8-4.5 0-13Z" transform="translate(302,37) scale(.85)" fill="#FF4D8D" stroke="#16130E" stroke-width="2.5"/><path d="M0-13 C1.8-4.5 4.5-1.8 13 0 C4.5 1.8 1.8 4.5 0 13 C-1.8 4.5 -4.5 1.8 -13 0 C-4.5-1.8 -1.8-4.5 0-13Z" transform="translate(20,88) scale(.65)" fill="#FF4D8D" stroke="#16130E" stroke-width="2.5"/><text x="160" y="72" text-anchor="middle" font-family="'Archivo Black',sans-serif" font-size="62" font-style="italic" fill="#16130E" stroke="#FFFFFF" stroke-width="10" paint-order="stroke" stroke-linejoin="round">ajaira</text><text x="164" y="99" text-anchor="middle" font-family="'IBM Plex Mono',monospace" font-weight="600" font-size="15" letter-spacing="10" fill="#16130E">THRIFT</text></svg></a>
       <p class="mono" style="margin-top:10px">Curated thrift · Dhaka, Bangladesh<br>New drop every week</p>
     </div>
     <p class="mono">Concept demo storefront<br>Catalogue, bag and checkout run<br>entirely in the browser</p>
@@ -441,7 +442,7 @@ function openModal(slug){
       <div class="sizes">${p.sizes.map((s,i)=>`<button class="size-pill${i===0?" on":""}" data-size="${s}">${s}</button>`).join("")}</div>
       <div class="mrow">
         <button class="btn-solid" id="modalAdd" ${p.stock===0 ? "disabled style='opacity:.45;cursor:not-allowed'" : ""}>Add to bag</button>
-        <a class="wa-btn" href="#" onclick="return false">Order on WhatsApp</a>
+        <a class="wa-btn" href="https://wa.me/8801992420839" target="_blank" rel="noopener">Order on WhatsApp</a>
       </div>
       <p class="confirm-line">First to confirm gets it. Once booked, this piece is off the rack.</p>
     </div>`;
