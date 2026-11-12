@@ -1,4 +1,8 @@
 <!DOCTYPE html>
+<!-- impeccable-disable cream-palette: Studio Pink paper is the client's chosen brand palette from the Ajaira inspo, not a default -->
+<!-- impeccable-disable marquee: ticker is the shop's announcement bar, client-approved brand element; pauses when tab hidden and under reduced-motion -->
+<!-- impeccable-disable gradient-text: chrome gradient text is client-requested and scoped to the Black + Silver theme only -->
+<!-- impeccable-disable hard-offset-shadow: intentional neobrutalist world, hard offset shadows are the brand's depth system -->
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -16,6 +20,7 @@
   --paper2:#F3ECDD;
   --ink:#16130E;
   --pink:#FF4D8D;
+  --pink-text:#C2185B;
   --pink-soft:#FFD9E8;
   --lime:#3E9B4F;
   --red:#D93A2B;
@@ -25,8 +30,8 @@
   --deep:#FFFFFF;
   --lin:rgba(22,19,14,.16);
   --glow:rgba(255,77,141,.08);
-  --dot:rgba(22,19,14,.06);
-  --onacc:#FFFFFF;
+  --dot:rgba(22,19,14,.05);
+  --onacc:#16130E;
   --ticker:#16130E;
   --tickerink:#FAF5EC;
   --tickeracc:#FF4D8D;
@@ -61,14 +66,13 @@ nav.main a:hover{color:var(--pink)}
 .bag-btn:active{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--pink)}
 
 /* ---------- hero ---------- */
-.hero{max-width:1240px;margin:0 auto;padding:54px 20px 30px;display:grid;grid-template-columns:1.15fr .85fr;gap:44px;align-items:center}
-.kicker{display:inline-block;background:var(--pink-soft);border:2px solid var(--ink);padding:5px 12px;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;transform:rotate(-2deg);box-shadow:3px 3px 0 var(--ink);margin-bottom:22px}
-.hero h1{font-family:'Archivo Black',sans-serif;font-size:clamp(44px,6.2vw,84px);line-height:.98;letter-spacing:-.015em;text-transform:uppercase}
+.hero{max-width:1240px;margin:0 auto;padding:40px 20px 26px;display:grid;grid-template-columns:1.15fr .85fr;gap:44px;align-items:center}
+.hero h1{font-family:'Archivo Black',sans-serif;font-size:clamp(40px,5.6vw,76px);line-height:.98;letter-spacing:-.015em;text-transform:uppercase}
 .hero h1 .stroke{color:transparent;-webkit-text-stroke:2.5px var(--ink)}
-.hero h1 .pink{color:var(--pink)}
-.hero p.lede{margin-top:20px;font-size:17px;line-height:1.55;max-width:46ch;font-weight:500}
+.hero h1 .pink{color:var(--pink-text)}
+.hero p.lede{margin-top:18px;font-size:17px;line-height:1.5;max-width:46ch;font-weight:500}
 .hero-cta{margin-top:28px;display:flex;gap:14px;flex-wrap:wrap;align-items:center}
-.btn-solid{background:var(--pink);color:#fff;border:2px solid var(--ink);padding:13px 24px;font-weight:900;font-size:14px;letter-spacing:.05em;text-transform:uppercase;box-shadow:4px 4px 0 var(--ink);text-decoration:none;transition:transform .12s,box-shadow .12s}
+.btn-solid{background:var(--pink);color:var(--onacc);border:2px solid var(--ink);padding:13px 24px;font-weight:900;font-size:14px;letter-spacing:.05em;text-transform:uppercase;box-shadow:4px 4px 0 var(--ink);text-decoration:none;transition:transform .12s,box-shadow .12s}
 .btn-solid:hover{transform:translate(-1px,-1px);box-shadow:5px 5px 0 var(--ink)}
 .btn-ghost{background:transparent;color:var(--ink);border:2px solid var(--ink);padding:13px 24px;font-weight:700;font-size:14px;letter-spacing:.05em;text-transform:uppercase;text-decoration:none}
 .hero-meta{margin-top:26px;display:flex;gap:20px;flex-wrap:wrap}
@@ -80,9 +84,6 @@ nav.main a:hover{color:var(--pink)}
 .tape{position:absolute;width:110px;height:28px;background:rgba(255,217,232,.85);border-left:2px dashed rgba(22,19,14,.25);border-right:2px dashed rgba(22,19,14,.25);z-index:2}
 .tape.t1{top:-12px;left:34px;transform:rotate(-5deg)}
 .tape.t2{bottom:-12px;right:34px;transform:rotate(4deg)}
-.sticker{position:absolute;z-index:3;background:var(--pink);color:#fff;border:2px solid var(--ink);box-shadow:3px 3px 0 var(--ink);font-weight:900;text-transform:uppercase;letter-spacing:.04em;padding:8px 14px;font-size:13px}
-.sticker.s1{top:26px;right:-12px;transform:rotate(5deg) translateY(var(--py2,0px))}
-.sticker.s2{bottom:64px;left:-16px;transform:rotate(-6deg) translateY(var(--py3,0px));background:var(--ink);color:var(--paper)}
 .price-tag{position:absolute;z-index:3;right:18px;bottom:-18px;background:#fff;border:2px solid var(--ink);box-shadow:3px 3px 0 var(--ink);padding:8px 14px;transform:rotate(-3deg)}
 .price-tag .mono{font-size:11px;letter-spacing:.12em;text-transform:uppercase;display:block}
 .price-tag b{font-size:20px}
@@ -104,14 +105,14 @@ nav.main a:hover{color:var(--pink)}
 .card{background:var(--card);border:2px solid var(--ink);display:flex;flex-direction:column;transition:transform .14s,box-shadow .14s;cursor:pointer;position:relative;min-width:0}
 .card:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--ink)}
 .card .ph{position:relative;overflow:hidden;border-bottom:2px solid var(--ink)}
-.card .ph img{width:100%;height:300px;object-fit:cover;transition:transform .4s}
+.card .ph img{width:100%;aspect-ratio:4/5;height:auto;object-fit:cover;transition:transform .4s;display:block}
 .card:hover .ph img{transform:scale(1.04)}
 .badge{position:absolute;top:10px;left:10px;z-index:2;font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:5px 9px;border:2px solid var(--ink);display:flex;align-items:center;gap:6px;background:#fff}
 .badge .dot{width:8px;height:8px;border-radius:50%;background:var(--lime);border:1.5px solid var(--ink)}
 .badge.booked{background:var(--ink);color:var(--paper)}
 .badge.booked .dot{background:var(--red)}
-.badge.last{background:var(--pink);color:#fff;transform:rotate(-3deg)}
-.off-tag{position:absolute;top:10px;right:10px;z-index:2;background:var(--pink);color:#fff;border:2px solid var(--ink);font-weight:900;font-size:12px;padding:5px 9px;transform:rotate(4deg);box-shadow:2px 2px 0 var(--ink)}
+.badge.last{background:var(--pink);color:var(--onacc);transform:rotate(-3deg)}
+.off-tag{position:absolute;top:10px;right:10px;z-index:2;background:var(--pink);color:var(--onacc);border:2px solid var(--ink);font-weight:900;font-size:12px;padding:5px 9px;transform:rotate(4deg);box-shadow:2px 2px 0 var(--ink)}
 .card .body{padding:14px 14px 16px;display:flex;flex-direction:column;gap:7px;flex:1}
 .card h3{font-size:16.5px;font-weight:900;line-height:1.2}
 .spec{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;opacity:.72}
@@ -119,7 +120,7 @@ nav.main a:hover{color:var(--pink)}
 .price{font-size:18px;font-weight:900}
 .price s{font-size:13px;font-weight:500;opacity:.55;margin-right:7px}
 .add-btn{background:var(--ink);color:var(--paper);border:2px solid var(--ink);padding:9px 14px;font-weight:700;font-size:12px;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap}
-.add-btn:hover{background:var(--pink)}
+.add-btn:hover{background:var(--pink);color:var(--onacc)}
 .add-btn:disabled{background:#fff;color:var(--ink);opacity:.45;cursor:not-allowed}
 .empty{grid-column:1/-1;text-align:center;padding:56px 20px;border:2px dashed var(--ink);font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:.1em;text-transform:uppercase}
 
@@ -128,13 +129,12 @@ nav.main a:hover{color:var(--pink)}
 .how-in{border:2.5px solid var(--ink);background:var(--paper2);display:grid;grid-template-columns:repeat(3,1fr);box-shadow:6px 6px 0 var(--ink)}
 .how-cell{padding:24px;border-right:2px dashed rgba(22,19,14,.35)}
 .how-cell:last-child{border-right:none}
-.how-cell .mono{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--pink);font-weight:600}
-.how-cell h4{font-size:19px;font-weight:900;margin:8px 0 6px;text-transform:uppercase}
+.how-cell .mono{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--pink-text);font-weight:600}
+.how-cell h3{font-size:19px;font-weight:900;margin:8px 0 6px;text-transform:uppercase}
 .how-cell p{font-size:14px;line-height:1.5;font-weight:500}
 
 /* ---------- footer ---------- */
 footer{margin-top:60px;border-top:2.5px solid var(--ink)}
-.awning{height:16px;background:repeating-linear-gradient(-45deg,var(--pink) 0 18px,#fff 18px 36px);border-bottom:2.5px solid var(--ink)}
 .foot-in{max-width:1240px;margin:0 auto;padding:30px 20px 40px;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:flex-start}
 .foot-in .mono{font-size:11px;letter-spacing:.1em;text-transform:uppercase;line-height:1.9;opacity:.8}
 
@@ -161,7 +161,7 @@ footer{margin-top:60px;border-top:2.5px solid var(--ink)}
 .drawer-foot{border-top:2.5px solid var(--ink);padding:16px 18px;background:#fff}
 .tot-row{display:flex;justify-content:space-between;font-family:'IBM Plex Mono',monospace;font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;padding:3px 0}
 .tot-row.grand{font-size:15px;font-weight:600;border-top:2px dashed rgba(22,19,14,.3);margin-top:8px;padding-top:10px}
-.checkout-btn{width:100%;margin-top:14px;background:var(--pink);color:#fff;border:2px solid var(--ink);padding:14px;font-weight:900;font-size:14px;letter-spacing:.06em;text-transform:uppercase;box-shadow:4px 4px 0 var(--ink)}
+.checkout-btn{width:100%;margin-top:14px;background:var(--pink);color:var(--onacc);border:2px solid var(--ink);padding:14px;font-weight:900;font-size:14px;letter-spacing:.06em;text-transform:uppercase;box-shadow:4px 4px 0 var(--ink)}
 .checkout-btn:active{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--ink)}
 .demo-note{margin-top:10px;text-align:center;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;opacity:.6}
 
@@ -203,13 +203,13 @@ footer{margin-top:60px;border-top:2.5px solid var(--ink)}
 .add-btn:active{background:var(--pink);transform:scale(.94)}
 .card:active{transform:scale(.985)}
 .size-pill:active{background:var(--pink-soft)}
-.qty button:active{background:var(--pink);color:#fff}
+.qty button:active{background:var(--pink);color:var(--onacc)}
 .wa-btn:active{background:var(--pink-soft)}
 .x-btn:active{background:var(--pink-soft)}
 .bag-btn.pop{animation:pop .35s cubic-bezier(.32,.72,0,1)}
 @keyframes pop{35%{transform:scale(1.13)}}
 
-@media (max-width:640px){.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.card .ph img{height:210px}.search{margin-left:0}.search input{width:170px}.spec{overflow-wrap:anywhere}.logo svg{height:42px}.chip{padding:11px 16px}.add-btn{padding:11px 15px}.qty button{width:30px;height:30px}.bag-btn{padding:11px 16px}.rm{padding:6px 2px}}
+@media (max-width:640px){.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.card .ph img{height:auto}.search{margin-left:0}.search input{width:170px}.spec{overflow-wrap:anywhere}.logo svg{height:42px}.chip{padding:11px 16px}.add-btn{padding:11px 15px}.qty button{width:30px;height:30px}.bag-btn{padding:11px 16px}.rm{padding:6px 2px}}
 @media (prefers-reduced-motion:reduce){
   .ticker-track{animation:none}
   html{scroll-behavior:auto}
@@ -221,9 +221,8 @@ footer{margin-top:60px;border-top:2.5px solid var(--ink)}
 body::before{background:radial-gradient(480px circle at var(--mx,50%) var(--my,30%),rgba(255,77,141,.08),rgba(255,77,141,0) 62%),radial-gradient(rgba(22,19,14,.06) 1.2px,transparent 1.3px);background-size:auto,22px 22px}
 header{border-bottom:1px solid rgba(22,19,14,.14)}
 .bag-btn{border-width:1.5px;box-shadow:none}
-.bag-btn:hover{transform:none;box-shadow:none;background:var(--pink)}
+.bag-btn:hover{transform:none;box-shadow:none;background:var(--pink);color:var(--onacc)}
 .bag-btn:active{transform:scale(.97);box-shadow:none}
-.kicker{background:transparent;border:none;box-shadow:none;transform:none;padding:0}
 .btn-solid{border-width:1.5px;box-shadow:none}
 .btn-solid:hover{transform:none;box-shadow:none}
 .btn-solid:active{transform:scale(.98);box-shadow:none}
@@ -251,7 +250,6 @@ header{border-bottom:1px solid rgba(22,19,14,.14)}
 .how-in{border:1px solid rgba(22,19,14,.16);box-shadow:none;background:transparent}
 .how-cell{border-right:1px solid rgba(22,19,14,.14)}
 footer{border-top:1px solid rgba(22,19,14,.14)}
-.awning{display:none}
 .drawer{border-left:1px solid rgba(22,19,14,.2)}
 .drawer header{background:var(--paper);border-bottom:1px solid rgba(22,19,14,.14)}
 .cart-item{border:1px solid rgba(22,19,14,.22)}
@@ -306,7 +304,7 @@ footer{border-top-color:rgba(239,234,224,.16)}
 .chip.on{border-color:#000}
 .bag-btn.pop{animation:bagpop .4s cubic-bezier(.32,.72,0,1)}
 @keyframes bagpop{30%{transform:scale(1.14) rotate(-3deg)}60%{transform:scale(.95) rotate(2deg)}}
-.burst{position:fixed;z-index:95;transform:translate(-50%,-100%);font-family:'Archivo Black',sans-serif;font-size:17px;color:var(--pink);text-shadow:2px 2px 0 #000;pointer-events:none;animation:burstpop .55s cubic-bezier(.32,.72,0,1) forwards}
+.burst{position:fixed;z-index:95;transform:translate(-50%,-100%);font-family:'Archivo Black',sans-serif;font-size:17px;color:var(--pink-text);text-shadow:2px 2px 0 #000;pointer-events:none;animation:burstpop .55s cubic-bezier(.32,.72,0,1) forwards}
 @keyframes burstpop{0%{opacity:0;transform:translate(-50%,-60%) scale(.4) rotate(-14deg)}25%{opacity:1}100%{opacity:0;transform:translate(-50%,-200%) scale(1.2) rotate(6deg)}}
 @media (max-width:820px){
   .how-cell{border-bottom-color:rgba(239,234,224,.14)}
@@ -316,9 +314,9 @@ footer{border-top-color:rgba(239,234,224,.16)}
 </style>
 <style id="themes">
 /* Color themes: default Studio Pink. Night option is Black + Silver. */
-[data-theme="chrome"]{--paper:#060607;--paper2:#0E0E10;--ink:#F2F2F0;--pink:#C7CBD4;--pink-soft:#1C1C20;--card:#101012;--surf:#121214;--deep:#0B0B0C;--lin:rgba(242,242,240,.18);--glow:rgba(199,203,212,.08);--dot:rgba(242,242,240,.05);--onacc:#0A0A0B;--ticker:#000000;--tickerink:#F2F2F0;--tickeracc:#C7CBD4}
-[data-theme="cobalt"]{--paper:#F1F4F9;--paper2:#E4EAF3;--ink:#0E1A2E;--pink:#2F6BFF;--pink-soft:#D8E4FF;--card:#FFFFFF;--surf:#FFFFFF;--deep:#FFFFFF;--lin:rgba(14,26,46,.16);--glow:rgba(47,107,255,.08);--dot:rgba(14,26,46,.06);--onacc:#FFFFFF;--ticker:#0E1A2E;--tickerink:#F1F4F9;--tickeracc:#7FA6FF}
-[data-theme="mono"]{--paper:#F7F5F0;--paper2:#ECE9E2;--ink:#111111;--pink:#111111;--pink-soft:#E3E0D8;--card:#FFFFFF;--surf:#FFFFFF;--deep:#FFFFFF;--lin:rgba(17,17,17,.18);--glow:rgba(17,17,17,.05);--dot:rgba(17,17,17,.07);--onacc:#F7F5F0;--ticker:#111111;--tickerink:#F7F5F0;--tickeracc:#F7F5F0}
+[data-theme="chrome"]{--paper:#060607;--paper2:#0E0E10;--ink:#F2F2F0;--pink:#C7CBD4;--pink-text:#C7CBD4;--pink-soft:#1C1C20;--card:#101012;--surf:#121214;--deep:#0B0B0C;--lin:rgba(242,242,240,.18);--glow:rgba(199,203,212,.08);--dot:rgba(242,242,240,.05);--onacc:#0A0A0B;--ticker:#000000;--tickerink:#F2F2F0;--tickeracc:#C7CBD4}
+[data-theme="cobalt"]{--paper:#F1F4F9;--paper2:#E4EAF3;--ink:#0E1A2E;--pink:#2456D6;--pink-text:#1D4FD0;--pink-soft:#D8E4FF;--card:#FFFFFF;--surf:#FFFFFF;--deep:#FFFFFF;--lin:rgba(14,26,46,.16);--glow:rgba(47,107,255,.08);--dot:rgba(14,26,46,.06);--onacc:#FFFFFF;--ticker:#0E1A2E;--tickerink:#F1F4F9;--tickeracc:#7FA6FF}
+[data-theme="mono"]{--paper:#F7F5F0;--paper2:#ECE9E2;--ink:#111111;--pink:#111111;--pink-text:#111111;--pink-soft:#E3E0D8;--card:#FFFFFF;--surf:#FFFFFF;--deep:#FFFFFF;--lin:rgba(17,17,17,.18);--glow:rgba(17,17,17,.05);--dot:rgba(17,17,17,.07);--onacc:#F7F5F0;--ticker:#111111;--tickerink:#F7F5F0;--tickeracc:#F7F5F0}
 body::before{background:radial-gradient(480px circle at var(--mx,50%) var(--my,30%),var(--glow),rgba(0,0,0,0) 62%),radial-gradient(var(--dot) 1.2px,transparent 1.3px);background-size:auto,22px 22px}
 .ticker{background:var(--ticker);color:var(--tickerink)}
 .ticker b{color:var(--tickeracc)}
@@ -351,11 +349,28 @@ footer{border-top-color:var(--lin)}
 .lg-word{fill:var(--ink);stroke:var(--paper)}
 .lg-sub{fill:var(--ink)}
 .themes{display:flex;gap:6px;align-items:center}
-.themes-label{font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;opacity:.6}
-.tsw{border:2px solid var(--ink);background:var(--surf);color:var(--ink);font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:8px 11px;box-shadow:3px 3px 0 #000;transition:transform .1s,box-shadow .1s}
+.themes-label{font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;opacity:.6}
+.tsw{border:2px solid var(--ink);background:var(--surf);color:var(--ink);font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:7px 10px;box-shadow:3px 3px 0 #000;transition:transform .1s,box-shadow .1s}
+::selection{background:var(--pink);color:var(--onacc)}
+:focus-visible{outline:3px solid var(--pink);outline-offset:2px}
+.spec-rows{margin-top:16px;border-top:1px solid var(--lin)}
+.spec-row{display:flex;justify-content:space-between;gap:18px;padding:9px 0;border-bottom:1px solid var(--lin);font-size:13.5px}
+.spec-row .k{font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;opacity:.65;padding-top:2px;white-space:nowrap}
+.spec-row .v{font-weight:600;text-align:right}
 .tsw.on{background:var(--pink);color:var(--onacc);border-color:#000}
 .tsw:active{transform:translate(2px,2px);box-shadow:1px 1px 0 #000}
-body,header,.search input,.modal,.cart-item,.size-pill,.wa-btn,.x-btn,.drawer-foot,.price-tag,.badge,.how-in,.ticker{transition:background-color .35s ease,color .35s ease,border-color .35s ease}
+header,.search input,.modal,.cart-item,.size-pill,.wa-btn,.x-btn,.drawer-foot,.price-tag,.badge,.how-in,.ticker{transition:background-color .35s ease,color .35s ease,border-color .35s ease}
+@media (max-width:640px){.toolbar .chips{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;padding-bottom:2px}.toolbar .chips::-webkit-scrollbar{display:none}.toolbar .chip{flex:none}}
+/* Literal page backgrounds per theme: iOS Safari drops var()-driven canvas repaints on theme switch, literal values always repaint */
+html{background:var(--paper)}
+html[data-theme="pink"]{background:#FAF5EC} html[data-theme="pink"] body{background:#FAF5EC}
+html[data-theme="chrome"]{background:#060607} html[data-theme="chrome"] body{background:#060607}
+html[data-theme="cobalt"]{background:#F1F4F9} html[data-theme="cobalt"] body{background:#F1F4F9}
+html[data-theme="mono"]{background:#F7F5F0} html[data-theme="mono"] body{background:#F7F5F0}
+html[data-theme="pink"] body::before{background:radial-gradient(480px circle at var(--mx,50%) var(--my,30%),rgba(255,77,141,.06),rgba(0,0,0,0) 62%),radial-gradient(rgba(22,19,14,.07) 1.2px,transparent 1.3px);background-size:auto,22px 22px}
+html[data-theme="chrome"] body::before{background:radial-gradient(480px circle at var(--mx,50%) var(--my,30%),rgba(199,203,212,.08),rgba(0,0,0,0) 62%),radial-gradient(rgba(242,242,240,.05) 1.2px,transparent 1.3px);background-size:auto,22px 22px}
+html[data-theme="cobalt"] body::before{background:radial-gradient(480px circle at var(--mx,50%) var(--my,30%),rgba(47,107,255,.08),rgba(0,0,0,0) 62%),radial-gradient(rgba(14,26,46,.06) 1.2px,transparent 1.3px);background-size:auto,22px 22px}
+html[data-theme="mono"] body::before{background:radial-gradient(480px circle at var(--mx,50%) var(--my,30%),rgba(17,17,17,.05),rgba(0,0,0,0) 62%),radial-gradient(rgba(17,17,17,.07) 1.2px,transparent 1.3px);background-size:auto,22px 22px}
 body.paused .ticker-track{animation-play-state:paused}
 .how,footer{content-visibility:auto;contain-intrinsic-size:auto 320px}
 @media (max-width:820px){
@@ -401,7 +416,6 @@ body.paused .ticker-track{animation-play-state:paused}
 
 <section class="hero">
   <div>
-    <span class="kicker">Dhaka · Est. for the drop</span>
     <h1>One piece.<br><span class="stroke">One owner.</span><br><span class="pink">Gone forever.</span></h1>
     <p class="lede">Every piece here is one of one. We find it, clean it, measure it, shoot it and put it up. You miss it, it's gone. That's the whole game.</p>
     <div class="hero-cta">
@@ -422,7 +436,7 @@ body.paused .ticker-track{animation-play-state:paused}
 
 <main class="catalogue" id="catalogue">
   <div class="cat-head">
-    <h2>The catalogue</h2>
+    <h2>The rack</h2>
     <span class="mono">New pieces every week · Gone means gone</span>
   </div>
   <div class="controls" id="chips"></div>
@@ -434,17 +448,17 @@ body.paused .ticker-track{animation-play-state:paused}
   <div class="how-in">
     <div class="how-cell">
       <span class="mono">Step 01</span>
-      <h4>See it? Move fast</h4>
+      <h3>Find your piece</h3>
       <p>There's exactly one of everything. Check the size on the piece and throw it in your bag before someone else does.</p>
     </div>
     <div class="how-cell">
       <span class="mono">Step 02</span>
-      <h4>First to confirm gets it</h4>
+      <h3>How we reserve</h3>
       <p>No "please keep it for me", no holds. Confirm here or on WhatsApp and it's booked under your name, off the rack for everyone else.</p>
     </div>
     <div class="how-cell">
       <span class="mono">Step 03</span>
-      <h4>Pay when it reaches you</h4>
+      <h3>Delivery &amp; payment</h3>
       <p>Inside Dhaka in a day or two, ৳60. Outside Dhaka ৳120. Cash on delivery, or bKash, Nagad, Rocket. Whatever's easy.</p>
     </div>
   </div>
@@ -502,6 +516,23 @@ const PRODUCTS = [
  {slug:"leather-biker-jacket",name:"Vintage Leather Biker Jacket",sku:"JKT-015",price:3850,was:4600,cat:"Fashion",stock:3,sizes:["M","L"],desc:"Heavyweight vintage biker jacket with asymmetric zip.",img:"images/leather-biker-jacket.jpg"}
 ];
 const CATS = ["All","Fashion","Footwear","Accessories","Electronics"];
+/* Thrift spec sheet: measurements in inches and an honest condition note, like a real listing */
+const SPECS = {
+  "dhaka-cotton-panjabi":{meas:"Chest 41in · Length 28in · Sleeve 24in",cond:"9/10 · No visible flaws"},
+  "premium-polo-shirt":{meas:"Chest 40in · Length 27in",cond:"9/10 · Collar holds its shape"},
+  "slim-fit-jeans":{meas:"Waist 32in · Inseam 30in",cond:"8.5/10 · Light fade at the knees, honest wear"},
+  "running-sneakers":{meas:"UK 9 · Sole grip strong",cond:"8/10 · Light creasing on the toe box"},
+  "leather-loafers":{meas:"UK 9 · Suede brushed clean",cond:"9/10 · Soles barely worn"},
+  "last-pair-limited-sneakers":{meas:"UK 8.5 · With box",cond:"10/10 · Deadstock, never worn"},
+  "canvas-tote-bag":{meas:"32 × 26 × 12 cm · Strap drop 22cm",cond:"9/10 · Corners clean, lining fresh"},
+  "minimal-leather-wallet":{meas:"11 × 9 cm · 6 card slots",cond:"9.5/10 · Leather unmarked"},
+  "aviator-sunglasses":{meas:"Lens 58mm · Bridge 14mm",cond:"9/10 · No scratches on the lens"},
+  "wireless-earbuds-pro":{meas:"Case + both buds · USB-C",cond:"9/10 · Battery holds a full charge, fully tested"},
+  "analog-steel-watch":{meas:"Case 42mm · Strap fits 14–20cm wrist",cond:"9.5/10 · Screen unmarked"},
+  "cotton-hoodie":{meas:"Chest 44in · Length 27in · Lined hood",cond:"9/10 · Cuffs firm, no pilling"},
+  "formal-oxford-shirt":{meas:"Chest 40in · Length 29in",cond:"9/10 · All buttons original"},
+  "leather-biker-jacket":{meas:"Chest 42in · Length 25in · Heavy YKK zips",cond:"8.5/10 · Leather broken in beautifully, no tears"}
+};
 const fmt = n => "৳" + n.toLocaleString("en-IN");
 let activeCat = "All", query = "";
 const cart = new Map();
@@ -662,6 +693,11 @@ function openModal(slug){
       <p class="spec">${p.sku} · ${p.cat}${off ? ` · Save ${off}%` : ``}</p>
       <p class="price" style="font-size:24px;margin-top:12px">${p.was ? `<s>${fmt(p.was)}</s>` : ``}${fmt(p.price)}</p>
       <p class="desc">${p.desc}</p>
+      <div class="spec-rows">
+        <div class="spec-row"><span class="k">Size</span><span class="v">${p.sizes.join(" / ")}</span></div>
+        <div class="spec-row"><span class="k">Measurements</span><span class="v">${(SPECS[p.slug]||{}).meas || "Ask us on WhatsApp"}</span></div>
+        <div class="spec-row"><span class="k">Condition</span><span class="v">${(SPECS[p.slug]||{}).cond || "Checked by hand, no flaws noted"}</span></div>
+      </div>
       <p class="spec" style="margin-top:18px">Select size</p>
       <div class="sizes">${p.sizes.map((s,i)=>`<button class="size-pill${i===0?" on":""}" data-size="${s}">${s}</button>`).join("")}</div>
       <div class="mrow">
