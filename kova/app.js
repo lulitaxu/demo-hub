@@ -1,11 +1,11 @@
-/* KOVA demo storefront — shared front-end logic */
+/* KOVA demo storefront, shared front-end logic */
 const PRODUCTS = {
   spectra: { name: 'Spectra Hoodie',  price: 4850, img: 'assets/img/hoodie.jpg',       sized: true,  def: 'M'  },
   tote:    { name: 'Carry All Tote',  price: 3290, img: 'assets/img/tote.jpg',         sized: false },
   void:    { name: 'Void Shades',     price: 2150, img: 'assets/img/shades.jpg',       sized: false },
   cargo:   { name: 'Balcony Cargo',   price: 5490, img: 'assets/img/cargo.jpg',        sized: true,  def: 'M'  },
   court:   { name: 'Court Sneaker',   price: 8990, img: 'assets/img/sneaker-white.jpg',sized: true,  def: '42' },
-  pine:    { name: 'Court Low — Pine',price: 8450, img: 'assets/img/sneaker-green.jpg',sized: true,  def: '42' },
+  pine:    { name: 'Court Low · Pine',price: 8450, img: 'assets/img/sneaker-green.jpg',sized: true,  def: '42' },
   hazard:  { name: 'Hazard High',     price: 9490, img: 'assets/img/sneaker-yellow.jpg',sized: true, def: '42' },
 };
 const fmt = n => '৳ ' + n.toLocaleString('en-IN');
@@ -27,7 +27,7 @@ function addToCart(id, size, qty = 1, silent = false) {
   saveCart(); renderCart();
   const badge = $('#bagCount');
   badge.classList.remove('pop'); void badge.offsetWidth; badge.classList.add('pop');
-  if (!silent) toast(`Added — <b>${p.name}</b>${p.sized ? ' · size ' + sz : ''}`);
+  if (!silent) toast(`Added: <b>${p.name}</b>${p.sized ? ' · size ' + sz : ''}`);
 }
 function renderCart() {
   const n = cartCount();
@@ -80,7 +80,7 @@ overlay.addEventListener('click', closeBag);
 addEventListener('keydown', e => { if (e.key === 'Escape') closeBag(); });
 $('#checkoutBtn').addEventListener('click', () => {
   if (!cart.size) return;
-  $('#dNote').textContent = 'Demo checkout — no payment is taken.';
+  $('#dNote').textContent = 'Demo checkout. No payment is taken.';
 });
 
 /* ---------- toast ---------- */
@@ -136,7 +136,7 @@ if (searchInput && filterNote) {
       if (hit) visible++;
     });
     filterNote.classList.toggle('show', !!q);
-    filterNote.innerHTML = q ? `Showing <b>${visible}</b> result${visible === 1 ? '' : 's'} for “${q}” — <a href="#best" id="clearSearch" style="border-bottom:1px solid">clear</a>` : '';
+    filterNote.innerHTML = q ? `Showing <b>${visible}</b> result${visible === 1 ? '' : 's'} for “${q}” · <a href="#best" id="clearSearch" style="border-bottom:1px solid">clear</a>` : '';
     const clear = $('#clearSearch');
     if (clear) clear.addEventListener('click', ev => { ev.preventDefault(); searchInput.value = ''; searchInput.dispatchEvent(new Event('input')); });
     if (q) $('#best').scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth' });
@@ -152,9 +152,9 @@ if (rail) {
 
 /* ---------- home: misc ---------- */
 const playBtn = $('#playBtn');
-if (playBtn) playBtn.addEventListener('click', () => toast('Campaign film drops with the full site — <b>design demo</b>'));
+if (playBtn) playBtn.addEventListener('click', () => toast('Campaign film drops with the full site. <b>Design demo</b>'));
 const newsForm = $('#newsForm');
-if (newsForm) newsForm.addEventListener('submit', e => { e.preventDefault(); toast('You are on the list — <b>see you at the drop</b>'); newsForm.reset(); });
+if (newsForm) newsForm.addEventListener('submit', e => { e.preventDefault(); toast('You are on the list. <b>See you at the drop</b>'); newsForm.reset(); });
 
 /* ---------- product page ---------- */
 const galMain = $('#galMain');
