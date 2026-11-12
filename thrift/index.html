@@ -426,15 +426,21 @@ html.gated{overflow:hidden}
 </style>
 
 <style>
-/* Premium chrome finish, client direction (2026-11-12): black + silver only, glow + shadow lift */
-.add-btn:hover,.checkout-btn:hover{box-shadow:4px 4px 0 #000,0 0 22px rgba(210,216,228,.35)}
-.bag-btn:hover{box-shadow:3px 3px 0 #000,0 0 16px rgba(210,216,228,.30)}
+/* Premium chrome finish v2, client direction (2026-11-12): comic buttons stay, glow kept tight and metallic, never neon */
 .p-card{transition:transform .25s cubic-bezier(.32,.72,0,1),box-shadow .25s}
-.p-card:hover{transform:translateY(-4px);box-shadow:10px 12px 0 rgba(0,0,0,.85),0 26px 50px rgba(0,0,0,.60),0 0 0 1.5px rgba(210,216,228,.35),0 0 34px rgba(199,203,212,.14)}
-.off-tag{background:linear-gradient(120deg,#F4F6FA,#B9BFCB 55%,#E8ECF2);color:#0A0A0B;box-shadow:0 0 14px rgba(210,216,228,.35)}
-.modal{box-shadow:0 0 0 1.5px rgba(210,216,228,.40),0 0 54px rgba(199,203,212,.16),18px 18px 0 rgba(0,0,0,.8)}
-.drawer{box-shadow:-18px 0 54px rgba(0,0,0,.65),0 0 34px rgba(199,203,212,.10)}
-.p-price{text-shadow:0 0 14px rgba(210,216,228,.35)}
+.p-card:hover{transform:translateY(-4px);box-shadow:10px 12px 0 rgba(0,0,0,.85),0 26px 50px rgba(0,0,0,.60),0 0 0 1px rgba(210,216,228,.22),0 0 18px rgba(199,203,212,.10)}
+.off-tag{background:linear-gradient(120deg,#F4F6FA,#B9BFCB 55%,#E8ECF2);color:#0A0A0B;box-shadow:0 0 8px rgba(210,216,228,.22)}
+.modal{box-shadow:0 0 0 1px rgba(210,216,228,.28),0 0 30px rgba(199,203,212,.10),18px 18px 0 rgba(0,0,0,.8)}
+.drawer{box-shadow:-18px 0 54px rgba(0,0,0,.65),0 0 20px rgba(199,203,212,.07)}
+.p-price{text-shadow:0 0 8px rgba(210,216,228,.18)}
+.add-btn,.checkout-btn,.bag-btn{background:linear-gradient(180deg,#FFFFFF,#D9DDE5);color:#0A0A0B;border:2px solid #000;box-shadow:4px 4px 0 #000}
+.add-btn:hover,.checkout-btn:hover,.bag-btn:hover{background:linear-gradient(180deg,#FFFFFF,#E4E8EF);box-shadow:4px 4px 0 #000,0 0 10px rgba(210,216,228,.20)}
+.add-btn:active,.checkout-btn:active,.bag-btn:active{transform:translate(3px,3px);box-shadow:1px 1px 0 #000}
+.card{min-width:0}
+@media (max-width:640px){
+  .row{flex-direction:column;align-items:stretch;gap:9px}
+  .row .add-btn{width:100%;text-align:center;padding:12px 10px}
+}
 </style>
 </head>
 <body>
